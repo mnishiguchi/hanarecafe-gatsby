@@ -2,9 +2,9 @@ import React from 'react';
 
 export const FacebookTimeline = ({ title, style = {}, ...rest }) => (
   <iframe
-    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F%25E6%25B5%25B7%25E5%25B1%25B1%25E9%2581%2593%25E7%25A5%259E%25E7%25A4%25BE-137077743078473%2F&tabs=timeline&width=300&height=2500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F%25E5%25B3%25B6%25E3%2581%25AE%25E3%2583%2591%25E3%2583%25B3%25E5%25AE%25B6-hanare-1104298032977143%2F&tabs=timeline&width=300&height=3333&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
     width="300"
-    height="2222"
+    height="3333"
     style={{ overflowY: 'auto', ...style }}
     scrolling="no"
     frameBorder="0"

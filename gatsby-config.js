@@ -1,19 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: '海山道神社',
+    title: '島のパン家 〜ハナレ〜',
     description:
-      '海山道開運稲荷さまは海でも山でも道をきり開いて開運を運んで下さる尊いお稲荷さまということで、お金やお客様を運べば商売繁盛、車や船を運んで交通安全・海上安全・旅行安全、筆を運んで受験合格・就職出世成功、その他縁結、子授、安産、病気平癒、借金取り等道を切り開いて都合よくお運びいただく開運諸願成就のあしどめ稲荷さまです。',
-    address: '三重県四日市市海山道町1丁目62番地',
+      '鳥羽から定期船で20分の絶景観光スポット答志島にある地元食材を使用した焼きたて創作パンのお店',
+    address: '259 Momotorichō, Toba, Mie 517-0003, Japan',
     siteUrl: process.env.SITE_URL,
     gmap:
-      'https://www.google.com/maps/place/Miyamado+Shrine/@34.9430372,136.6211072,18z',
-    phone: '059-345-5419',
-    phoneIntl: '+81593455419',
-    email: 'miyamado@m7.cty-net.ne.jp',
+      'https://www.google.com/maps/place/%E5%B3%B6%E3%81%AE%E3%83%91%E3%83%B3%E5%AE%B6+%E3%80%9Chanare%E3%80%9C/@34.5152711,136.7133898,11z',
+    phone: '0599200099',
+    phoneIntl: '+81599200099',
     author: 'mnishiguchi',
     facebook:
-      'https://www.facebook.com/%E6%B5%B7%E5%B1%B1%E9%81%93%E7%A5%9E%E7%A4%BE-137077743078473/',
-    instagram: 'https://www.instagram.com/miyamado_shrine/',
+      'https://www.facebook.com/%E5%B3%B6%E3%81%AE%E3%83%91%E3%83%B3%E5%AE%B6-hanare-1104298032977143/',
+    instagram:
+      'https://www.instagram.com/explore/locations/1104298032977143/hanare/',
   },
   plugins: [
     {
@@ -44,6 +44,7 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-autolink-headers`,
           {
             resolve: 'gatsby-remark-relative-images',
             options: {
@@ -80,7 +81,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `海山道神社`,
-        short_name: `miyamadojinja`,
+        short_name: `hanarecafe`,
         start_url: `/`,
         background_color: `#000`,
         theme_color: `#000`,

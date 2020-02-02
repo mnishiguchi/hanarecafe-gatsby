@@ -24,7 +24,7 @@ const getWidth = () => {
 function ContainerForMobile({ MenuItemsComponent, children }) {
   const [sidebarOpened, setMenuOpened] = React.useState(false);
 
-  const { email, phoneIntl } = useSiteMetadata();
+  const { phoneIntl } = useSiteMetadata();
 
   const hideSidebar = () => setMenuOpened(false);
   const showSidebar = () => setMenuOpened(true);
@@ -73,9 +73,6 @@ function ContainerForMobile({ MenuItemsComponent, children }) {
             <Button basic inverted as="a" href={`tel:${phoneIntl}`}>
               <Icon name="phone" /> お電話
             </Button>
-            <Button basic inverted as="a" href={`mailto:${email}?subject=ウエブサイトからのお問合せ`}>
-              <Icon name="mail" /> Eメール
-            </Button>
           </Button.Group>
         </Menu.Item>
       </Sidebar>
@@ -89,7 +86,7 @@ function ContainerForMobile({ MenuItemsComponent, children }) {
           }}
           vertical
         >
-          <LogoLink width="200px" />
+          <LogoLink width="64" />
           <Button
             icon="sidebar"
             basic
@@ -136,7 +133,7 @@ function ContainerForDesktop({ MenuItemsComponent, children }) {
               padding: '0.5rem',
             }}
           >
-            <LogoLink width="200px" />
+            <LogoLink width="64" />
 
             {MenuItemsComponent}
 

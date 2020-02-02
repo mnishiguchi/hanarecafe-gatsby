@@ -13,24 +13,32 @@ import {
 import Media from 'react-media';
 
 import Layout from '../components/Layout';
-import KeidaiContent from '../components/KeidaiContent';
+import Content, { HTMLContent } from '../components/Content';
 import SocialButtons from '../components/SocialButtons';
 import FacebookTimeline from '../components/FacebookTimeline';
 import GoogleMap from '../components/GoogleMap';
 import OutboundLink from '../components/OutboundLink';
-import miyamadosan from '../img/miyamadosan.svg';
 
-export function IndexPageTemplate({ image, title, description, relatedLinks }) {
+export function IndexPageTemplate({
+  content,
+  contentComponent,
+  image,
+  title,
+  description,
+  relatedLinks,
+}) {
   const backgroundImageUrl = !!image.childImageSharp
     ? image.childImageSharp.fluid.src
     : image;
+
+  const PostContent = contentComponent || Content;
 
   return (
     <>
       <Media query={{ maxWidth: 991 }}>
         {matches => (
           <Link
-            to={`/honden`}
+            to={`/`}
             style={{
               alignItems: `center`,
               backgroundImage: `url(${backgroundImageUrl})`,
@@ -47,25 +55,17 @@ export function IndexPageTemplate({ image, title, description, relatedLinks }) {
 
       <Container style={{ display: 'flex' }}>
         <div style={{ flex: 1 }}>
-          <Segment padded="very" vertical>
-            <p style={{ fontSize: '1.5rem', lineHeight: '1.7' }}>
-              {description}
-            </p>
-          </Segment>
-
-          {/* <div id="Facebook-timeline" /> */}
+          {content && (
+            <Segment
+              padded="very"
+              vertical
+              style={{ fontSize: '1.5rem', lineHeight: '1.7' }}
+            >
+              <PostContent content={content} />
+            </Segment>
+          )}
 
           <Segment padded="very" vertical clearing>
-            <Header as="h2">由緒</Header>
-            <p style={{ fontSize: '1.33em' }}>
-              当社は、
-              <OutboundLink href="https://ja.wikipedia.org/wiki/%E6%B4%B2%E5%B4%8E%E6%B5%9C%E5%AE%AE%E7%A5%9E%E6%98%8E%E7%A5%9E%E7%A4%BE">
-                洲崎濱宮神明神社（すざきはまみやしんめいじんじゃ）
-              </OutboundLink>
-              の境内社で海山道開運稲荷神社と称し、丁度、前社は伊勢の内宮さま、後社は外宮さまに当り、境内社の方が著名であるのは誠に尊いことです。
-            </p>
-
-            <Image src={miyamadosan} size="medium" floated="left" />
             <p style={{ fontSize: '1.33em' }}>
               俗に“みやまどさん”（総称海山道神社）とよばれるのは、伊勢路の伏見稲荷総社として高遠なる御神徳を称えて此の土地の地名で代称されているのです。
               その昔、西行の「昨日たち今日立ちみれば日永なる洲崎に見ゆる森のひとむら」と詠まれたと言うそのままの森は、神々しさ自ら身に迫る思いがします。
@@ -160,11 +160,6 @@ export function IndexPageTemplate({ image, title, description, relatedLinks }) {
                 />
               )}
             </Media>
-          </Segment>
-
-          <Segment padded="very" vertical>
-            <Header as="h2">境内案内</Header>
-            <KeidaiContent />
           </Segment>
 
           <Segment padded="very" vertical>
@@ -276,22 +271,24 @@ export function IndexPageTemplate({ image, title, description, relatedLinks }) {
 }
 
 IndexPageTemplate.propTypes = {
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   description: PropTypes.string,
   relatedLinks: PropTypes.array,
 };
 
-function IndexPage({ data }) {
-  const { frontmatter } = data.markdownRemark;
-
+function IndexPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        description={frontmatter.description}
-        relatedLinks={frontmatter.relatedLinks}
+        content={markdownRemark.html}
+        contentComponent={HTMLContent}
+        image={markdownRemark.frontmatter.image}
+        title={markdownRemark.frontmatter.title}
+        description={markdownRemark.frontmatter.description}
+        relatedLinks={markdownRemark.frontmatter.relatedLinks}
       />
     </Layout>
   );
@@ -299,9 +296,7 @@ function IndexPage({ data }) {
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
+    markdownRemark: PropTypes.object,
   }),
 };
 
@@ -310,6 +305,7 @@ export default IndexPage;
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      html
       frontmatter {
         title
         image {

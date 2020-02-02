@@ -9,7 +9,6 @@ const useSiteMetadata = () => {
             title
             description
             address
-            email
             phone
             phoneIntl
             author
