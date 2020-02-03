@@ -15,6 +15,7 @@ import BackToTopLink from './BackToTopLink';
 import useSiteMetadata from './useSiteMetadata';
 import LogoLink from './LogoLink';
 import gatsbyLogo from '../img/gatsby.svg';
+import logo from '../img/logo-vertical.svg';
 
 function AppFooter({ children }) {
   const { title, phone, phoneIntl, address, gmap } = useSiteMetadata();
@@ -56,7 +57,7 @@ function AppFooter({ children }) {
           <Grid columns="equal" inverted stackable>
             <Grid.Row>
               <Grid.Column>
-                <LogoLink width="200" />
+                <LogoLink width="200" src={logo} />
               </Grid.Column>
               <Grid.Column>
                 <List as="address" link inverted>

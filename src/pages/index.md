@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-image: /img/ocean-1.jpg
+image: /img/hanare-sunset-6.jpg
 title:
 description:
 relatedLinks:

@@ -86,7 +86,7 @@ function ContainerForMobile({ MenuItemsComponent, children }) {
           }}
           vertical
         >
-          <LogoLink width="64" />
+          <LogoLink width="200" />
           <Button
             icon="sidebar"
             basic
@@ -133,7 +133,7 @@ function ContainerForDesktop({ MenuItemsComponent, children }) {
               padding: '0.5rem',
             }}
           >
-            <LogoLink width="64" />
+            <LogoLink width="200" />
 
             {MenuItemsComponent}
 
