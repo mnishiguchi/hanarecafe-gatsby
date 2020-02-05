@@ -53,17 +53,15 @@ GalleryPageTemplate.propTypes = {
   snapshots: PropTypes.array,
 };
 
-function GalleryPage({ data }) {
-  const { markdownRemark: post } = data;
-
+function GalleryPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <GalleryPageTemplate
-        content={post.html}
+        content={markdownRemark.html}
         contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
-        snapshots={post.frontmatter.snapshots}
+        title={markdownRemark.frontmatter.title}
+        description={markdownRemark.frontmatter.description}
+        snapshots={markdownRemark.frontmatter.snapshots}
       />
     </Layout>
   );
@@ -83,7 +81,6 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
         description
         snapshots {

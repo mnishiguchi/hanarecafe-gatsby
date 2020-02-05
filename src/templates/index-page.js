@@ -43,6 +43,7 @@ export function IndexPageTemplate({
               alignItems: `center`,
               backgroundImage: `url(${backgroundImageUrl})`,
               backgroundPosition: `center`,
+              backgroundAttachment: `fixed`,
               backgroundSize: `cover`,
               display: `flex`,
               justifyContent: `center`,
@@ -143,7 +144,7 @@ export function IndexPageTemplate({
                     {
                       header: '狐の嫁入り神事',
                       meta: '節分の日',
-                      image: 'img/setsubun-101.jpg',
+                      image: 'img/tenjinzo.jpg',
                       fluid: matches,
                       as: Link,
                       to: '/yomeiri',
@@ -151,10 +152,10 @@ export function IndexPageTemplate({
                     {
                       header: '祭礼市（朔日市場）',
                       meta: '毎月1日',
-                      image: '/img/saireiichi-3073.jpg',
+                      image: 'img/tenjinzo.jpg',
                       fluid: matches,
                       as: Link,
-                      to: '/saireiichi',
+                      to: '/products',
                     },
                   ]}
                 />
