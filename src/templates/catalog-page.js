@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Card, Container, Grid, Header, Segment } from 'semantic-ui-react';
+import Media from 'react-media';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
@@ -25,6 +26,8 @@ export function CatalogPageTemplate({
       <h1>{title}</h1>
       <p>{description}</p>
 
+      <PostContent content={content} />
+
       {categories.map(category => {
         const filteredItems = catalogItems.filter(
           item => item.category === category.title
@@ -35,27 +38,48 @@ export function CatalogPageTemplate({
             <Header>{category.title}</Header>
             <p>{category.description}</p>
 
-            <Grid doubling columns={5}>
-              {filteredItems.map(({ image, title, description }) => {
-                const imageUrl = !!image.childImageSharp
-                  ? image.childImageSharp.fluid.src
-                  : image;
-                return (
-                  <Grid.Column key={imageUrl}>
-                    <Card
-                      image={imageUrl}
-                      header={title}
-                      description={description}
-                    />
-                  </Grid.Column>
-                );
-              })}
-            </Grid>
+            <Media query={{ maxWidth: 599 }}>
+              {matches =>
+                matches ? (
+                  // For mobile, each card takes full width.
+                  filteredItems.map(({ image, title, description }) => {
+                    const imageUrl = !!image.childImageSharp
+                      ? image.childImageSharp.fluid.src
+                      : image;
+                    return (
+                      <Card
+                        key={imageUrl}
+                        image={imageUrl}
+                        header={title}
+                        description={description}
+                        fluid
+                      />
+                    );
+                  })
+                ) : (
+                  // For larger devices, switch column count per row.
+                  <Grid doubling columns={5}>
+                    {filteredItems.map(({ image, title, description }) => {
+                      const imageUrl = !!image.childImageSharp
+                        ? image.childImageSharp.fluid.src
+                        : image;
+                      return (
+                        <Grid.Column key={imageUrl}>
+                          <Card
+                            image={imageUrl}
+                            header={title}
+                            description={description}
+                          />
+                        </Grid.Column>
+                      );
+                    })}
+                  </Grid>
+                )
+              }
+            </Media>
           </Segment>
         );
       })}
-
-      <PostContent content={content} />
     </Container>
   );
 }
