@@ -13,7 +13,7 @@ import GatsbyImage from 'gatsby-image';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-export const LogoImage = (props) => {
+export const LogoImage = props => {
   const { logoImage } = useStaticQuery(graphql`
     query {
       logoImage: file(relativePath: { eq: "logo.png" }) {

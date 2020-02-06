@@ -20,7 +20,7 @@ export function CatalogPageTemplate({
   const PostContent = contentComponent || Content;
 
   return (
-    <Container style={{ marginTop: '3rem', marginBottom: '3rem' }}>
+    <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
       <SEO title={title} description={description} />
 
       <h1>{title}</h1>

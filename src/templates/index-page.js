@@ -10,14 +10,33 @@ import {
   Segment,
 } from 'semantic-ui-react';
 import Media from 'react-media';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import SocialButtons from '../components/SocialButtons';
 import FacebookTimeline from '../components/FacebookTimeline';
 import GoogleMap from '../components/GoogleMap';
-import OutboundLink from '../components/OutboundLink';
 import { LogoImage } from '../components/gatsbyImages';
+
+function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
+  return (
+    <div
+      style={{
+        alignItems: `center`,
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundPosition: `50% 50%`,
+        backgroundAttachment: `fixed`,
+        // backgroundSize: `cover`,
+        display: `flex`,
+        justifyContent: `center`,
+        width: width || '100%',
+        height: height || '100px',
+      }}
+      {...rest}
+    ></div>
+  );
+}
 
 export function IndexPageTemplate({
   content,
@@ -37,8 +56,7 @@ export function IndexPageTemplate({
     <>
       <Media query={{ maxWidth: 991 }}>
         {matches => (
-          <Link
-            to={`/`}
+          <div
             style={{
               alignItems: `center`,
               backgroundImage: `url(${backgroundImageUrl})`,
@@ -53,12 +71,12 @@ export function IndexPageTemplate({
             <div style={{ width: matches ? '200px' : '300px' }}>
               <LogoImage />
             </div>
-          </Link>
+          </div>
         )}
       </Media>
 
       <Container style={{ display: 'flex' }}>
-        <div style={{ flex: 1 }}>
+        <div>
           {content && (
             <Segment
               padded="very"
@@ -104,6 +122,8 @@ export function IndexPageTemplate({
               )}
             </Media>
           </Segment>
+
+          <ImageBanner backgroundImageUrl={backgroundImageUrl} />
 
           <Segment padded="very" vertical>
             <Header as="h2">交通案内</Header>
@@ -164,6 +184,8 @@ export function IndexPageTemplate({
             </Segment>
           </Segment>
 
+          <ImageBanner backgroundImageUrl={backgroundImageUrl} />
+
           {/* For mobile, show the Facebook here */}
           <Media
             query="(max-width: 991px)"
@@ -199,15 +221,17 @@ export function IndexPageTemplate({
           )}
         </div>
 
-        {/* For desktop, show the Facebook sidebar. */}
-        <Media
-          query="(min-width: 992px)"
-          render={() => (
-            <div style={{ marginLeft: '1rem' }}>
-              <FacebookTimeline title="FacebookTimeline-desktop" />
-            </div>
-          )}
-        />
+        <aside>
+          {/* For desktop, show the Facebook sidebar. */}
+          <Media
+            query="(min-width: 992px)"
+            render={() => (
+              <div style={{ marginLeft: '1rem' }}>
+                <FacebookTimeline title="FacebookTimeline-desktop" />
+              </div>
+            )}
+          />
+        </aside>
       </Container>
     </>
   );
