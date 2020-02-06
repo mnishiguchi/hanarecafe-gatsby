@@ -6,7 +6,6 @@ import {
   Container,
   Grid,
   Header,
-  Image,
   List,
   Segment,
 } from 'semantic-ui-react';
@@ -18,6 +17,7 @@ import SocialButtons from '../components/SocialButtons';
 import FacebookTimeline from '../components/FacebookTimeline';
 import GoogleMap from '../components/GoogleMap';
 import OutboundLink from '../components/OutboundLink';
+import { LogoImage } from '../components/gatsbyImages';
 
 export function IndexPageTemplate({
   content,
@@ -42,15 +42,18 @@ export function IndexPageTemplate({
             style={{
               alignItems: `center`,
               backgroundImage: `url(${backgroundImageUrl})`,
-              backgroundPosition: `center`,
+              backgroundPosition: `50% 50%`,
               backgroundAttachment: `fixed`,
-              backgroundSize: `cover`,
+              // backgroundSize: `cover`,
               display: `flex`,
               justifyContent: `center`,
-              width: '100vw',
-              height: matches ? '600px' : '900px',
+              height: matches ? '300px' : '400px',
             }}
-          />
+          >
+            <div style={{ width: matches ? '200px' : '300px' }}>
+              <LogoImage />
+            </div>
+          </Link>
         )}
       </Media>
 
@@ -65,67 +68,6 @@ export function IndexPageTemplate({
               <PostContent content={content} />
             </Segment>
           )}
-
-          <Segment padded="very" vertical clearing>
-            <p style={{ fontSize: '1.33em' }}>
-              俗に“みやまどさん”（総称海山道神社）とよばれるのは、伊勢路の伏見稲荷総社として高遠なる御神徳を称えて此の土地の地名で代称されているのです。
-              その昔、西行の「昨日たち今日立ちみれば日永なる洲崎に見ゆる森のひとむら」と詠まれたと言うそのままの森は、神々しさ自ら身に迫る思いがします。
-              また、江戸時代には徳川家のあつい崇敬により葵の御紋を許され、神戸侯を始め水谷検令（代官水谷九佐衛門）等からも崇められ、古くから全国崇敬者の信仰をあつめています。
-            </p>
-          </Segment>
-
-          <Segment padded="very" vertical>
-            <Grid stackable>
-              <Grid.Row>
-                <Grid.Column width={8}>
-                  <Image src={`img/shinmeisha.jpg`} size="large" />
-                </Grid.Column>
-                <Grid.Column width={8}>
-                  <Header as="h2">洲崎濱宮神明神社 御祭神</Header>
-                  <List
-                    style={{ fontSize: '1.33em' }}
-                    items={[
-                      '面足命',
-                      '天照大御神',
-                      '惶根神',
-                      '仁徳天皇',
-                      '建速須佐之男命',
-                      '宇迦之御魂神',
-                      '大山祇命',
-                      '火之迦具土神',
-                      '菅原道真公',
-                      '火産霊神',
-                      '保食神',
-                      '倭姫命',
-                    ]}
-                  />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Segment>
-
-          <Segment padded="very" vertical>
-            <Grid stackable>
-              <Grid.Row>
-                <Grid.Column width={8}>
-                  <Image src={`img/torii-2875-1.jpg`} size="large" />
-                </Grid.Column>
-                <Grid.Column width={8}>
-                  <Header as="h2">海山道開運稲荷神社 御祭神</Header>
-                  <List
-                    style={{ fontSize: '1.33em' }}
-                    items={[
-                      '倉稲魂神（うがのみたま）',
-                      '大己貴命（おおなむちのみこと）',
-                      '太田神（おおたのかみ） ',
-                      '保食神（うけもちのかみ）',
-                      '大宮能売神（おおみやのめのかみ）',
-                    ]}
-                  />
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Segment>
 
           <Segment padded="very" vertical>
             <Media query={{ maxWidth: 599 }}>
@@ -150,7 +92,7 @@ export function IndexPageTemplate({
                       to: '/yomeiri',
                     },
                     {
-                      header: '祭礼市（朔日市場）',
+                      header: 'Products',
                       meta: '毎月1日',
                       image: 'img/tenjinzo.jpg',
                       fluid: matches,

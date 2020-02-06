@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-image: /img/hanare-sunset-6.jpg
+image: /img/hanare-wave-tile.jpg
 title:
 description:
 relatedLinks:
