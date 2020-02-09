@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import useSiteMetadata from './useSiteMetadata';
 
@@ -13,10 +14,8 @@ export default function SocialButtons() {
         size="large"
         icon="instagram"
         color="purple"
-        as="a"
+        as={OutboundLink}
         href={instagram}
-        target="_blank"
-        rel="noopener noreferrer"
       />
       <span style={{ marginLeft: '1rem' }}></span>
       <Button
@@ -24,10 +23,8 @@ export default function SocialButtons() {
         size="large"
         icon="facebook"
         color="facebook"
-        as="a"
+        as={OutboundLink}
         href={facebook}
-        target="_blank"
-        rel="noopener noreferrer"
       />
     </>
   );

@@ -7,7 +7,7 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
-export function BlogPostTemplate({
+export function SimplePageTemplate({
   content,
   contentComponent,
   description,
@@ -28,19 +28,19 @@ export function BlogPostTemplate({
   );
 }
 
-BlogPostTemplate.propTypes = {
+SimplePageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
 };
 
-function BlogPost({ data }) {
+function SimplePage({ data }) {
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <BlogPostTemplate
+      <SimplePageTemplate
         content={post.html}
         contentComponent={HTMLContent}
         title={post.frontmatter.title}
@@ -50,21 +50,20 @@ function BlogPost({ data }) {
   );
 }
 
-BlogPost.propTypes = {
+SimplePage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 };
 
-export default BlogPost;
+export default SimplePage;
 
 export const pageQuery = graphql`
-  query BlogPostByID($id: String!) {
+  query SimplePageByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         title
         description
       }

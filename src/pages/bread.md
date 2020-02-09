@@ -1,10 +1,7 @@
 ---
 templateKey: catalog-page
-title: Products
-description: >-
-  毎月1日には『朔日参り』をおすすめいたします。
-  『朔日参り』とは無事に過ごせた1ヶ月を感謝し、新しい月の無事、日常の健康、無病息災、また商売繁盛や家内安全などをご祈念しこれからも変わらず神様のご加護が頂けるように神社に参拝してご祈願するものです。
-  旬の農作物をはじめ、ヘルシー食材・珍品・榊や生花などいろいろなものをかなりお値打ちで皆さまに提供しています。
+title: Bread
+description: In irure veniam officia mollit.
 categories:
   - title: Category 1
     description: Category 1
@@ -44,7 +41,7 @@ catalogItems:
     category: Category 2
   - image: /img/hanare-sandwich.jpg
     category: Category 2
-  - image: /img/hanare-cafe-milk-crepe.jpg
+  - image: /img/hanare-milk-crepe.jpg
     category: Category 3
   - image: /img/hanare-roll-cake.jpg
     category: Category 3
@@ -64,4 +61,4 @@ catalogItems:
     # description: 当店オーナーシェフが準備、調理可能な範囲でご要望にお答えいたします。
 ---
 
-![hanare-food-truck-products](/img/hanare-food-truck-products.jpg)
+![hanare-cafe-shelf-1](/img/hanare-cafe-shelf-1.jpg)

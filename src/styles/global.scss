@@ -4,6 +4,10 @@ body {
 
 // Adopted from: https://codemyui.com/pure-css-fullscreen-navigation-menu/
 label.FullscreenMenu {
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+
   .hamburgerButton {
     position: absolute;
     right: 0;
@@ -12,7 +16,6 @@ label.FullscreenMenu {
     width: 70px;
     height: 65px;
     background: #fff;
-    transition: 0.2s ease-in-out;
     box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
     cursor: pointer;
   }
@@ -66,17 +69,19 @@ label.FullscreenMenu {
   }
 
   input:checked + .hamburgerButton + .menuItems {
-    opacity: 1;
+    display: block;
   }
 
   .menuItems {
     z-index: 200;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: 0.25s 0s ease-in-out;
+    // Magic numbers that position the menus in the center.
+    top: 20vh;
+    left: 40vw;
+    display: none;
+    text-align: center;
+    width: auto;
+    height: auto;
   }
 
   a {

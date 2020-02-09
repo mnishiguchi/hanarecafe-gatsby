@@ -46,27 +46,15 @@ function MobileTemplate({ children }) {
 
   return (
     <>
-      <div
-        style={{
-          position: 'fixed',
-          zIndex: 999,
-          width: '100%',
-          height: '100%',
-        }}
-      >
-        <label className="FullscreenMenu">
-          <input type="checkbox" />
+      <label className="FullscreenMenu">
+        <input type="checkbox" />
 
-          <span className="hamburgerButton">
-            <span className="hamburgerIcon"></span>
-          </span>
+        <span className="hamburgerButton">
+          <span className="hamburgerIcon"></span>
+        </span>
 
-          <Menu
-            secondary
-            vertical
-            className="menuItems"
-            style={{ textAlign: 'center' }}
-          >
+        <nav className="menuItems">
+          <Menu secondary vertical>
             <Menu.Item as={Link} to={'/'} content="ホーム" />
 
             <NavMenuItems />
@@ -88,8 +76,8 @@ function MobileTemplate({ children }) {
               />
             </Menu.Item>
           </Menu>
-        </label>
-      </div>
+        </nav>
+      </label>
 
       {children}
     </>
@@ -106,15 +94,11 @@ function DesktopTemplate({ children }) {
           zIndex: 999,
           width: '100%',
           padding: 0,
+          background: 'rgba(255,255,255,.8)',
         }}
       >
         <Container>
-          <Menu
-            secondary
-            style={{
-              background: 'rgba(255,255,255,.8)',
-            }}
-          >
+          <Menu secondary>
             <Menu.Item as={Link} to={'/'} content="ホーム" />
             <NavMenuItems />
 

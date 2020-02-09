@@ -18,6 +18,7 @@ import Content, { HTMLContent } from '../components/Content';
 import SocialButtons from '../components/SocialButtons';
 import FacebookTimeline from '../components/FacebookTimeline';
 import GoogleMap from '../components/GoogleMap';
+import HanareIntroVideo from '../components/HanareIntroVideo';
 import { LogoImage } from '../components/gatsbyImages';
 
 const services = [
@@ -26,28 +27,28 @@ const services = [
     description:
       '水産業の盛んな答志島には、さまざまな海産物が溢れており、それをパンにも使用しています。 島外から来られた方にも印象に残るメニューを工夫しています。',
     icon: 'cloud',
-    to: '/tenjinzo',
+    to: '/bread',
   },
   {
     title: '店内カフェ',
     description:
       '小さな店舗ですが八席のカフェスペースを設け、パンを店内でも食べることができるようにしました。 コーヒーやソフトアイスなど喫茶メニューも揃えています。',
     icon: 'coffee',
-    to: '/yomeiri',
+    to: '/amenities',
   },
   {
     title: 'パン移動販売',
     description:
       '島の反対側の答志地区まで車でのパン移動販売をしています。 また、市営定期船にパンを積み込み、各島（坂手島・菅島・神島）へパンを配達しています。',
     icon: 'truck',
-    to: '/products',
+    to: '/food-truck',
   },
   {
     title: 'スペシャルオーダーサービス',
     description:
       'お弁当、お料理、誕生日ケーキ、バースディタルト等のスペシャルオーダーも可能な限り承ります。',
     icon: 'utensils',
-    to: '/products',
+    to: '/special-orders',
   },
 ];
 
@@ -63,7 +64,7 @@ function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
         display: `flex`,
         justifyContent: `center`,
         width: width || '100%',
-        height: height || '32px',
+        height: height || '16px',
       }}
       {...rest}
     ></div>
@@ -115,14 +116,20 @@ export function IndexPageTemplate({
             textAlign="left"
             style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
           >
-            絶景観光スポット答志島にある
+            絶景観光スポット
+            <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
+              答志島
+            </OutboundLink>
+            にある
             <br />
             地元食材を使用した
             <br />
             焼きたて創作パンのお店です。
           </Segment>
 
-          <ImageBanner backgroundImageUrl={backgroundImageUrl} />
+          {content && <PostContent content={content} />}
+
+          <HanareIntroVideo />
 
           <Segment padded="very" vertical>
             <Header as="h2">営業内容</Header>
@@ -132,12 +139,11 @@ export function IndexPageTemplate({
                 <Grid doubling columns={matches ? 1 : 2}>
                   {services.map(({ icon, title, description, to }, index) => {
                     return (
-                      <Grid.Column
-                        key={index}
-                        onClick={() => navigate(to)}
-                        style={{ cursor: 'pointer' }}
-                      >
-                        <Item>
+                      <Grid.Column key={index}>
+                        <Item
+                          onClick={() => navigate(to)}
+                          style={{ cursor: 'pointer' }}
+                        >
                           <Item.Content>
                             <Item.Header as="h4">
                               <Icon name={icon} size="large" />

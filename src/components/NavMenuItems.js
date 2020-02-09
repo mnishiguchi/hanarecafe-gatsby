@@ -5,9 +5,12 @@ import { Menu } from 'semantic-ui-react';
 function NavMenuItems() {
   return (
     <>
-      <Menu.Item as={Link} to={'/yomeiri'} content={`狐の嫁入り`} />
-      <Menu.Item as={Link} to={'/tenjinzo'} content={`大天神像`} />
-      <Menu.Item as={Link} to={'/products'} content={`Products`} />
+      <Menu.Item as={Link} to={'/bread'} content={`Bread`} />
+      <Menu.Item as={Link} to={'/cakes'} content={`Cakes`} />
+      <Menu.Item as={Link} to={'/amenities'} content={`Amenities`} />
+      <Menu.Item as={Link} to={'/food-truck'} content={`Food Truck`} />
+      <Menu.Item as={Link} to={'/special-orders'} content={`Special Orders`} />
+      <Menu.Item as={Link} to={'/owner'} content={`Meet the owner`} />
     </>
   );
 }
