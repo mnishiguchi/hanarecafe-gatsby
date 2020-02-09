@@ -12,7 +12,7 @@ label.FullscreenMenu {
     width: 70px;
     height: 65px;
     background: #fff;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
     box-shadow: 0 0 0 0 #fff, 0 0 0 0 #fff;
     cursor: pointer;
   }
@@ -26,10 +26,10 @@ label.FullscreenMenu {
     background: #000;
     display: block;
     transform-origin: center;
-    transition: 0.5s ease-in-out;
+    transition: 0.2s ease-in-out;
     &:after,
     &:before {
-      transition: 0.5s ease-in-out;
+      transition: 0.2s ease-in-out;
       content: '';
       position: absolute;
       display: block;

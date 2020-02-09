@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql, Link } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import {
-  Card,
   Container,
   Grid,
   Header,
+  Icon,
+  Item,
   List,
   Segment,
 } from 'semantic-ui-react';
@@ -19,6 +20,37 @@ import FacebookTimeline from '../components/FacebookTimeline';
 import GoogleMap from '../components/GoogleMap';
 import { LogoImage } from '../components/gatsbyImages';
 
+const services = [
+  {
+    title: 'パン製造販売',
+    description:
+      '水産業の盛んな答志島には、さまざまな海産物が溢れており、それをパンにも使用しています。 島外から来られた方にも印象に残るメニューを工夫しています。',
+    icon: 'cloud',
+    to: '/tenjinzo',
+  },
+  {
+    title: '店内カフェ',
+    description:
+      '小さな店舗ですが八席のカフェスペースを設け、パンを店内でも食べることができるようにしました。 コーヒーやソフトアイスなど喫茶メニューも揃えています。',
+    icon: 'coffee',
+    to: '/yomeiri',
+  },
+  {
+    title: 'パン移動販売',
+    description:
+      '島の反対側の答志地区まで車でのパン移動販売をしています。 また、市営定期船にパンを積み込み、各島（坂手島・菅島・神島）へパンを配達しています。',
+    icon: 'truck',
+    to: '/products',
+  },
+  {
+    title: 'スペシャルオーダーサービス',
+    description:
+      'お弁当、お料理、誕生日ケーキ、バースディタルト等のスペシャルオーダーも可能な限り承ります。',
+    icon: 'utensils',
+    to: '/products',
+  },
+];
+
 function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
   return (
     <div
@@ -31,7 +63,7 @@ function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
         display: `flex`,
         justifyContent: `center`,
         width: width || '100%',
-        height: height || '100px',
+        height: height || '32px',
       }}
       {...rest}
     ></div>
@@ -77,48 +109,47 @@ export function IndexPageTemplate({
 
       <Container style={{ display: 'flex' }}>
         <div>
-          {content && (
-            <Segment
-              padded="very"
-              vertical
-              style={{ fontSize: '1.5rem', lineHeight: '1.7' }}
-            >
-              <PostContent content={content} />
-            </Segment>
-          )}
+          <Segment
+            padded="very"
+            vertical
+            textAlign="left"
+            style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
+          >
+            絶景観光スポット答志島にある
+            <br />
+            地元食材を使用した
+            <br />
+            焼きたて創作パンのお店です。
+          </Segment>
+
+          <ImageBanner backgroundImageUrl={backgroundImageUrl} />
 
           <Segment padded="very" vertical>
+            <Header as="h2">営業内容</Header>
+
             <Media query={{ maxWidth: 599 }}>
               {matches => (
-                <Card.Group
-                  centered
-                  items={[
-                    {
-                      header: '大天神像（菅原道真公）',
-                      meta: '日本一の大きさ',
-                      image: 'img/tenjinzo.jpg',
-                      fluid: matches,
-                      as: Link,
-                      to: '/tenjinzo',
-                    },
-                    {
-                      header: '狐の嫁入り神事',
-                      meta: '節分の日',
-                      image: 'img/tenjinzo.jpg',
-                      fluid: matches,
-                      as: Link,
-                      to: '/yomeiri',
-                    },
-                    {
-                      header: 'Products',
-                      meta: '毎月1日',
-                      image: 'img/tenjinzo.jpg',
-                      fluid: matches,
-                      as: Link,
-                      to: '/products',
-                    },
-                  ]}
-                />
+                <Grid doubling columns={matches ? 1 : 2}>
+                  {services.map(({ icon, title, description, to }, index) => {
+                    return (
+                      <Grid.Column
+                        key={index}
+                        onClick={() => navigate(to)}
+                        style={{ cursor: 'pointer' }}
+                      >
+                        <Item>
+                          <Item.Content>
+                            <Item.Header as="h4">
+                              <Icon name={icon} size="large" />
+                              {title}
+                            </Item.Header>
+                            <Item.Meta>{description}</Item.Meta>
+                          </Item.Content>
+                        </Item>
+                      </Grid.Column>
+                    );
+                  })}
+                </Grid>
               )}
             </Media>
           </Segment>
@@ -183,9 +214,7 @@ export function IndexPageTemplate({
               四日市方面３０分
             </Segment>
           </Segment>
-
           <ImageBanner backgroundImageUrl={backgroundImageUrl} />
-
           {/* For mobile, show the Facebook here */}
           <Media
             query="(max-width: 991px)"
@@ -204,7 +233,6 @@ export function IndexPageTemplate({
               </>
             )}
           />
-
           {relatedLinks.length > 0 && (
             <Segment padded="very" vertical>
               <Header as="h2">リンク</Header>
