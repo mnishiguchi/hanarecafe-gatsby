@@ -18,7 +18,7 @@ import gatsbyLogo from '../img/gatsby.svg';
 import logo from '../img/logo-vertical.svg';
 
 function AppFooter({ children }) {
-  const { title, phone, phoneIntl, address, gmap } = useSiteMetadata();
+  const { title, phone, phoneValue, address, gmap } = useSiteMetadata();
   return (
     <>
       <Segment vertical padded="very" style={{ background: '#f5f6f7' }}>
@@ -27,7 +27,7 @@ function AppFooter({ children }) {
           <Media query={{ maxWidth: 991 }}>
             {matches => {
               return matches ? (
-                <Button basic color="teal" as="a" href={`tel:${phoneIntl}`}>
+                <Button basic color="teal" as="a" href={`tel:${phoneValue}`}>
                   <Icon name="phone" /> お電話
                 </Button>
               ) : (
@@ -39,6 +39,12 @@ function AppFooter({ children }) {
               );
             }}
           </Media>
+
+          <Segment>
+            通常の土曜日、日曜日は店舗の連休明けということもあり、地元の方が朝からたくさん来ていただいて、開店１時間で残りが僅かになる事が稀にあります。小さな店舗で、小さなオーブンをフル回転させながら焼いてはおりますが、夫婦2人で全ての作業をしておりますので、焼き上げが追いつかない場合あります…
+            島外からのお客様につきましては、せっかく船を乗って起こしくださる中、パンが無い状態は申し訳なく思いますので、一度ご連絡頂くか、取り置きの連絡をくださいますようよろしくお願いしますm(_
+            _)m
+          </Segment>
         </Container>
       </Segment>
 
@@ -70,7 +76,7 @@ function AppFooter({ children }) {
                   <List.Item>
                     Phone:{' '}
                     <a
-                      href={`tel:${phoneIntl}`}
+                      href={`tel:${phoneValue}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

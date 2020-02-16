@@ -42,7 +42,7 @@ function BaseHead() {
 }
 
 function MobileTemplate({ children }) {
-  const { phoneIntl } = useSiteMetadata();
+  const { phoneValue } = useSiteMetadata();
 
   return (
     <>
@@ -67,7 +67,7 @@ function MobileTemplate({ children }) {
               <Header as="h4">お問合せ</Header>
               <Button
                 as="a"
-                href={`tel:${phoneIntl}`}
+                href={`tel:${phoneValue}`}
                 icon="phone"
                 circular
                 size="large"

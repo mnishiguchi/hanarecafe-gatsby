@@ -10,7 +10,7 @@ const useSiteMetadata = () => {
             description
             address
             phone
-            phoneIntl
+            phoneValue
             author
             gmap
             facebook

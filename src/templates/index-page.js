@@ -24,50 +24,71 @@ import { LogoImage } from '../components/gatsbyImages';
 const services = [
   {
     title: 'パン製造販売',
-    description:
-      '水産業の盛んな答志島には、さまざまな海産物が溢れており、それをパンにも使用しています。 島外から来られた方にも印象に残るメニューを工夫しています。',
+    description: `水産業の盛んな答志島には、さまざまな海産物が溢れており、それをパンにも使用しています。例えば、めかぶの粉末を練り込んで焼き上げた食パン、天然のあおさを使用したシュガーバターパン、冬には地元のブランド牡蠣を使用した牡蠣のグラタンパンなど島外から来られた方にも印象に残るメニューを工夫しています。
+漁師町の磯臭さではなく、路地からパンの焼ける香りがするのは不思議な感じかもしれません。`,
     icon: 'cloud',
     to: '/bread',
   },
   {
     title: '店内カフェ',
-    description:
-      '小さな店舗ですが八席のカフェスペースを設け、パンを店内でも食べることができるようにしました。 コーヒーやソフトアイスなど喫茶メニューも揃えています。',
+    description: `小さな店舗ですが八席のカフェスペースを設け、パンを店内でも食べることができるようにしました。 コーヒーやソフトアイスなど喫茶メニューも揃えています。
+店名の「ハナレ」には、各家の「離れ」のようにお客さんに気軽に集まってもらいたいという思いが込められています。島のパン「屋」ではなく「家」という字をあてたのもそのためです。`,
     icon: 'coffee',
     to: '/amenities',
   },
   {
     title: 'パン移動販売',
-    description:
-      '島の反対側の答志地区まで車でのパン移動販売をしています。 また、市営定期船にパンを積み込み、各島（坂手島・菅島・神島）へパンを配達しています。',
+    description: `島の反対側の答志地区まで車でのパン移動販売をしています。 また、市営定期船にパンを積み込み、各島（坂手島・菅島・神島）へパンを配達しています。
+移動販売では漁協の肩が町内放送をかけてくれたり、船積み配達サービスでは他島にチラシを配っていただいたりと、島と地域の皆さんに支えられていることを実感する毎日です。
+地域のお祭りや行事などにも参加させていただいてます。`,
     icon: 'truck',
     to: '/food-truck',
   },
   {
     title: 'スペシャルオーダーサービス',
     description:
-      'お弁当、お料理、誕生日ケーキ、バースディタルト等のスペシャルオーダーも可能な限り承ります。',
+      'お祝い事にカスタムメードのケーキ、フルーツタルトはいかがでしょうか？　また、各種イベントにオードブル、お弁当などのスペシャルオーダーも事前注文により承ります。（夫婦が切り盛りしておりますので、ご要望に添えない場合があることを予めご了承お願いします。）',
     icon: 'utensils',
     to: '/special-orders',
   },
 ];
 
+function AppHero({ backgroundImageUrl }) {
+  return (
+    <Media query={{ maxWidth: 991 }}>
+      {matches => (
+        <div
+          style={{
+            alignItems: `center`,
+            backgroundImage: `url(${backgroundImageUrl})`,
+            backgroundPosition: `50% 50%`,
+            backgroundAttachment: `fixed`,
+            display: `flex`,
+            justifyContent: `center`,
+            height: matches ? '300px' : '400px',
+          }}
+        >
+          <div style={{ width: matches ? '200px' : '300px' }}>
+            <LogoImage />
+          </div>
+        </div>
+      )}
+    </Media>
+  );
+}
+
 function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
   return (
     <div
       style={{
-        alignItems: `center`,
         backgroundImage: `url(${backgroundImageUrl})`,
         backgroundPosition: `50% 50%`,
         backgroundAttachment: `fixed`,
-        // backgroundSize: `cover`,
-        display: `flex`,
-        justifyContent: `center`,
         width: width || '100%',
         height: height || '16px',
       }}
       {...rest}
-    ></div>
+    />
   );
 }
 
@@ -87,26 +108,7 @@ export function IndexPageTemplate({
 
   return (
     <>
-      <Media query={{ maxWidth: 991 }}>
-        {matches => (
-          <div
-            style={{
-              alignItems: `center`,
-              backgroundImage: `url(${backgroundImageUrl})`,
-              backgroundPosition: `50% 50%`,
-              backgroundAttachment: `fixed`,
-              // backgroundSize: `cover`,
-              display: `flex`,
-              justifyContent: `center`,
-              height: matches ? '300px' : '400px',
-            }}
-          >
-            <div style={{ width: matches ? '200px' : '300px' }}>
-              <LogoImage />
-            </div>
-          </div>
-        )}
-      </Media>
+      <AppHero backgroundImageUrl={backgroundImageUrl} />
 
       <Container style={{ display: 'flex' }}>
         <div>
@@ -220,7 +222,9 @@ export function IndexPageTemplate({
               四日市方面３０分
             </Segment>
           </Segment>
+
           <ImageBanner backgroundImageUrl={backgroundImageUrl} />
+
           {/* For mobile, show the Facebook here */}
           <Media
             query="(max-width: 991px)"
