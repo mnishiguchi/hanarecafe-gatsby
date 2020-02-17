@@ -1,99 +1,111 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import { graphql } from 'gatsby';
-// import { Container, Grid, Image, Segment } from 'semantic-ui-react';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import { Container, Grid, Image, Segment } from 'semantic-ui-react';
 
-// import SEO from '../components/SEO';
-// import Layout from '../components/Layout';
-// import Content, { HTMLContent } from '../components/Content';
+import SEO from '../components/SEO';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
 
-// export function GalleryPageTemplate({
-//   content,
-//   contentComponent,
-//   description,
-//   title,
-//   helmet,
-//   snapshots = [],
-// }) {
-//   const PostContent = contentComponent || Content;
+const columnsSize = array => {
+  switch (array.length) {
+    case 1:
+      return 1;
+    case 2:
+      return 2;
 
-//   return (
-//     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-//       <SEO title={title} description={description} />
+    default:
+      return 3;
+  }
+};
 
-//       <h1>{title}</h1>
-//       <p>{description}</p>
+export function GalleryPageTemplate({
+  content,
+  contentComponent,
+  description,
+  title,
+  helmet,
+  snapshots = [],
+}) {
+  const PostContent = contentComponent || Content;
 
-//       <PostContent content={content} />
+  return (
+    <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+      <SEO title={title} description={description} />
 
-//       <Segment vertical>
-//         <Grid doubling columns={3}>
-//           {snapshots.map(({ image, title }) => {
-//             const imageUrl = !!image.childImageSharp
-//               ? image.childImageSharp.fluid.src
-//               : image;
-//             return (
-//               <Grid.Column key={imageUrl}>
-//                 <Image src={imageUrl} fluid />
-//               </Grid.Column>
-//             );
-//           })}
-//         </Grid>
-//       </Segment>
-//     </Container>
-//   );
-// }
+      <h1>{title}</h1>
+      <p>{description}</p>
 
-// GalleryPageTemplate.propTypes = {
-//   content: PropTypes.node.isRequired,
-//   contentComponent: PropTypes.func,
-//   description: PropTypes.string,
-//   title: PropTypes.string,
-//   categories: PropTypes.array,
-//   snapshots: PropTypes.array,
-// };
+      <PostContent content={content} />
 
-// function GalleryPage({ data: { markdownRemark } }) {
-//   return (
-//     <Layout>
-//       <GalleryPageTemplate
-//         content={markdownRemark.html}
-//         contentComponent={HTMLContent}
-//         title={markdownRemark.frontmatter.title}
-//         description={markdownRemark.frontmatter.description}
-//         snapshots={markdownRemark.frontmatter.snapshots}
-//       />
-//     </Layout>
-//   );
-// }
+      <Segment vertical>
+        <Grid doubling columns={columnsSize(snapshots)}>
+          {snapshots.map(({ image, title }) => {
+            const imageUrl = !!image.childImageSharp
+              ? image.childImageSharp.fluid.src
+              : image;
+            return (
+              <Grid.Column key={imageUrl}>
+                <Image src={imageUrl} fluid />
+              </Grid.Column>
+            );
+          })}
+        </Grid>
+      </Segment>
+    </Container>
+  );
+}
 
-// GalleryPage.propTypes = {
-//   data: PropTypes.shape({
-//     markdownRemark: PropTypes.object,
-//   }),
-// };
+GalleryPageTemplate.propTypes = {
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
+  description: PropTypes.string,
+  title: PropTypes.string,
+  categories: PropTypes.array,
+  snapshots: PropTypes.array,
+};
 
-// export default GalleryPage;
+function GalleryPage({ data: { markdownRemark } }) {
+  return (
+    <Layout>
+      <GalleryPageTemplate
+        content={markdownRemark.html}
+        contentComponent={HTMLContent}
+        title={markdownRemark.frontmatter.title}
+        description={markdownRemark.frontmatter.description}
+        snapshots={markdownRemark.frontmatter.snapshots}
+      />
+    </Layout>
+  );
+}
 
-// export const pageQuery = graphql`
-//   query GalleryPageByID($id: String!) {
-//     markdownRemark(id: { eq: $id }) {
-//       id
-//       html
-//       frontmatter {
-//         title
-//         description
-//         snapshots {
-//           title
-//           image {
-//             childImageSharp {
-//               fluid(maxWidth: 240, quality: 64) {
-//                 ...GatsbyImageSharpFluid
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+GalleryPage.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.object,
+  }),
+};
+
+export default GalleryPage;
+
+export const pageQuery = graphql`
+  query GalleryPageByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
+      frontmatter {
+        title
+        description
+        snapshots {
+          title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 600, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
