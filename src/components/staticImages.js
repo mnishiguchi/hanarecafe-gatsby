@@ -2,8 +2,6 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
-// Static gatsby image components.
-
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -15,10 +13,19 @@ import GatsbyImage from 'gatsby-image';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-export const LogoImage = (props) => {
-  const { logoImage } = useStaticQuery(graphql`
+const useStaticImages = () =>
+  // Prepare necessary static gatsby images because static query has to be hardcoded.
+  // One static query is allowed per file.
+  useStaticQuery(graphql`
     query {
       logoImage: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      hanareSignImage: file(relativePath: { eq: "hanare-sign.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 600) {
             ...GatsbyImageSharpFluid
@@ -28,5 +35,17 @@ export const LogoImage = (props) => {
     }
   `);
 
-  return <GatsbyImage fluid={logoImage.childImageSharp.fluid} {...props} />;
-};
+export const LogoImage = (props) => (
+  <GatsbyImage
+    fluid={useStaticImages().logoImage.childImageSharp.fluid}
+    {...props}
+  />
+);
+
+export const HanareSignImage = (props) => (
+  <GatsbyImage
+    fluid={useStaticImages().hanareSignImage.childImageSharp.fluid}
+    height="300px"
+    {...props}
+  />
+);

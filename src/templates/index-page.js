@@ -82,11 +82,12 @@ export function IndexPageTemplate({
 
       <Container style={{ display: 'flex' }}>
         <div>
-          <Segment padded vertical textAlign="left">
+          <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
             {content && (
-              <Message color="yellow">
-                <div dangerouslySetInnerHTML={{ __html: content }} />
-              </Message>
+              <div
+                dangerouslySetInnerHTML={{ __html: content }}
+                style={{ marginBottom: '1.5rem' }}
+              />
             )}
 
             {/* For mobile, show the link to Facebook timeline page. */}
@@ -105,7 +106,7 @@ export function IndexPageTemplate({
                 </Button>
               )}
             />
-          </Segment>
+          </Message>
 
           <Segment
             padded="very"
