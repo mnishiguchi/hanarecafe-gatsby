@@ -3,6 +3,7 @@ import { Button, Menu, Header } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
 import { withPrefix } from 'gatsby';
 import Media from 'react-media';
+import { useTranslation } from 'react-i18next';
 
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
@@ -10,13 +11,16 @@ import NavMenuItems from './NavMenuItems';
 import NavLink from './NavLink';
 import SocialButtons from './SocialButtons';
 import useSiteMetadata from './useSiteMetadata';
+import I18nSwitcher from './I18nSwitcher';
+
+import '../i18n';
 
 function BaseHead() {
   const { title, description } = useSiteMetadata();
   return (
     /* prettier-ignore */
     <Helmet>
-      <html lang="ja" />
+      <html />
       <title>{title}</title>
       <meta name="description" content={description} />
 
@@ -45,7 +49,7 @@ function BaseHead() {
 
 function MobileTemplate({ children }) {
   const { phoneValue } = useSiteMetadata();
-
+  const { t } = useTranslation();
   return (
     <>
       <label className="FullscreenMenu">
@@ -57,16 +61,22 @@ function MobileTemplate({ children }) {
 
         <nav className="menuItems">
           <Menu secondary vertical>
-            <Menu.Item as={NavLink} to={'/'} content="ホーム" />
+            <Menu.Item
+              as={NavLink}
+              to={'/'}
+              content={t(`nav-menu-items.home`)}
+            />
 
             <NavMenuItems />
+
+            <I18nSwitcher />
 
             <Menu.Item>
               <SocialButtons />
             </Menu.Item>
 
             <Menu.Item>
-              <Header as="h4">お問合せ</Header>
+              <Header as="h4">{t('contact-us')}</Header>
               <Button
                 as="a"
                 href={`tel:${phoneValue}`}
@@ -102,6 +112,7 @@ function Layout({ children }) {
   return (
     <>
       <BaseHead />
+
       <Media query={{ maxWidth: 991 }}>
         {(matches) =>
           matches ? (

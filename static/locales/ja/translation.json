@@ -1,0 +1,24 @@
+{
+  "author": {
+    "name": "にしぐちまさとし"
+  },
+  "languages": {
+    "en": "英語",
+    "ja": "日本語"
+  },
+  "toushijima": "答志島",
+  "latest-news": "最新情報",
+  "link": "リンク",
+  "directions": "交通案内",
+  "services": "営業内容",
+  "contact-us": "お問合せ",
+  "nav-menu-items": {
+    "home": "ホーム",
+    "pastries": "パン",
+    "cakes": "ケーキ",
+    "amenities": "店内カフェ",
+    "food-truck": "移動販売",
+    "special-orders": "スペシャルオーダー",
+    "owner": "オーナー"
+  }
+}

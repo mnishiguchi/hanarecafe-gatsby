@@ -14,6 +14,7 @@ import Media from 'react-media';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import GatsbyImage from 'gatsby-image';
 import { Link } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
 import FacebookTimeline from '../components/FacebookTimeline';
@@ -72,6 +73,7 @@ export function IndexPageTemplate({
   mainImage,
   relatedLinks,
 }) {
+  const { t } = useTranslation();
   const backgroundImageUrl = !!mainBackgroundImage.childImageSharp
     ? mainBackgroundImage.childImageSharp.fluid.src
     : mainBackgroundImage;
@@ -102,7 +104,7 @@ export function IndexPageTemplate({
                   to="/timeline"
                 >
                   <Icon name="angle right" />
-                  最新情報
+                  {t('latest-news')}
                 </Button>
               )}
             />
@@ -116,7 +118,7 @@ export function IndexPageTemplate({
           >
             絶景観光スポット
             <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
-              答志島
+              {t('toushijima')}
             </OutboundLink>
             にある
             <br />
@@ -130,7 +132,7 @@ export function IndexPageTemplate({
           <HanareIntroVideo />
 
           <Segment padded="very" vertical>
-            <Header as="h2">営業内容</Header>
+            <Header as="h2">{t('services')}</Header>
             <HanareServiceList />
           </Segment>
 
@@ -139,7 +141,7 @@ export function IndexPageTemplate({
           />
 
           <Segment padded="very" vertical>
-            <Header as="h2">交通案内</Header>
+            <Header as="h2">{t('directions')}</Header>
             <HanareDirections></HanareDirections>
           </Segment>
 
@@ -149,7 +151,7 @@ export function IndexPageTemplate({
 
           {relatedLinks.length > 0 && (
             <Segment padded="very" vertical>
-              <Header as="h2">リンク</Header>
+              <Header as="h2">{t('link')}</Header>
               <List>
                 {relatedLinks.map((relatedLink, i) => (
                   <List.Item key={i}>

@@ -1,0 +1,24 @@
+{
+  "author": {
+    "name": "Masatoshi Nishiguchi"
+  },
+  "languages": {
+    "en": "English",
+    "ja": "Japanese"
+  },
+  "toushijima": "Toushijima",
+  "latest-news": "Lates News",
+  "link": "Links",
+  "directions": "Directions",
+  "services": "Services",
+  "contact-us": "Contact us",
+  "nav-menu-items": {
+    "home": "Home",
+    "pastries": "Pastries",
+    "cakes": "Cakes",
+    "amenities": "Amenities",
+    "food-truck": "Food Truck",
+    "special-orders": "Special Orders",
+    "owner": "Meet the owner"
+  }
+}
