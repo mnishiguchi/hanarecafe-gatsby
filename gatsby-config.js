@@ -69,6 +69,20 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 1035,
+              sizeByPixelDensity: true,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {

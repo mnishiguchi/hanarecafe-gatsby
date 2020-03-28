@@ -1,9 +1,10 @@
 import React from 'react';
-import { Button, Container, Menu, Segment, Header } from 'semantic-ui-react';
+import { Button, Menu, Header } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
 import { Link, withPrefix } from 'gatsby';
 import Media from 'react-media';
 
+import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import NavMenuItems from './NavMenuItems';
 import SocialButtons from './SocialButtons';
@@ -87,29 +88,7 @@ function MobileTemplate({ children }) {
 function DesktopTemplate({ children }) {
   return (
     <div style={{ minHeight: '80vh' }}>
-      <Segment
-        vertical
-        style={{
-          position: 'fixed',
-          zIndex: 999,
-          width: '100%',
-          padding: 0,
-          background: 'rgba(255,255,255,.8)',
-        }}
-      >
-        <Container>
-          <Menu secondary>
-            <Menu.Item as={Link} to={'/'} content="ホーム" />
-            <NavMenuItems />
-
-            <Menu.Menu position="right">
-              <Menu.Item>
-                <SocialButtons />
-              </Menu.Item>
-            </Menu.Menu>
-          </Menu>
-        </Container>
-      </Segment>
+      <AppHeader />
 
       <div className="spacer" style={{ height: '44px' }}></div>
 

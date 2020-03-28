@@ -57,7 +57,7 @@ function AppFooter({ children }) {
             zIndex: 2,
           }}
         >
-          <BackToTopLink />
+          <BackToTopLink inverted />
         </span>
         <Container>
           <Grid columns="equal" inverted stackable>

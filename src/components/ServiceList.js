@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql, navigate } from 'gatsby';
-import { Grid, Header, Icon, Item, List } from 'semantic-ui-react';
+import { navigate } from 'gatsby';
+import { Grid, Icon, Item } from 'semantic-ui-react';
 import Media from 'react-media';
 
 const services = [

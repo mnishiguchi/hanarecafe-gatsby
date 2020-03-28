@@ -1,0 +1,46 @@
+---
+templateKey: simple-page
+title: Timeline
+description: In irure veniam officia mollit.
+featuredimage: /img/hanare-owner.jpg
+---
+
+import { Link } from 'gatsby';
+import { Button, Icon } from 'semantic-ui-react';
+import FacebookTimeline from '../components/FacebookTimeline';
+import BackToTopLink from '../components/BackToTopLink';
+
+<div
+  style={{
+    position: 'relative',
+    display: `flex`,
+    justifyContent: `center`,
+    flexDirection: 'column',
+    alignItems: `center`,
+  }}
+>
+  <span
+    style={{
+      position: 'fixed',
+      bottom: '2rem',
+      right: '1rem',
+      zIndex: 2,
+      color: 'red'
+    }}
+  >
+    <BackToTopLink />
+  </span>
+  <Button
+    primary
+    icon
+    labelPosition="left"
+    as={Link}
+    to="/"
+    style={{ display: `block`, margin: '1rem' }}
+  >
+    <Icon name="angle left" />
+    Home
+  </Button>
+
+  <FacebookTimeline />
+</div>
