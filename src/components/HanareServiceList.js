@@ -1,7 +1,7 @@
 import React from 'react';
-import { navigate } from 'gatsby';
 import { Grid, Icon, Item } from 'semantic-ui-react';
 import Media from 'react-media';
+import { Link } from 'gatsby';
 
 const services = [
   {
@@ -9,7 +9,7 @@ const services = [
     description: `水産業の盛んな答志島には、さまざまな海産物が溢れており、それをパンにも使用しています。例えば、めかぶの粉末を練り込んで焼き上げた食パン、天然のあおさを使用したシュガーバターパン、冬には地元のブランド牡蠣を使用した牡蠣のグラタンパンなど島外から来られた方にも印象に残るメニューを工夫しています。
 漁師町の磯臭さではなく、路地からパンの焼ける香りがするのは不思議な感じかもしれません。`,
     icon: 'cloud',
-    to: '/bread',
+    to: '/pastries',
   },
   {
     title: '店内カフェ',
@@ -35,7 +35,7 @@ const services = [
   },
 ];
 
-function ServiceList() {
+function HanareServiceList() {
   return (
     <Media query={{ maxWidth: 599 }}>
       {(matches) => (
@@ -43,16 +43,19 @@ function ServiceList() {
           {services.map(({ icon, title, description, to }, index) => {
             return (
               <Grid.Column key={index}>
-                <Item
-                  onClick={() => navigate(to)}
-                  style={{ cursor: 'pointer' }}
-                >
+                <Item>
                   <Item.Content>
                     <Item.Header as="h4">
                       <Icon name={icon} size="large" />
                       {title}
                     </Item.Header>
-                    <Item.Meta>{description}</Item.Meta>
+                    <Item.Meta>
+                      {description}
+                      <Link as={Link} to={to}>
+                        詳細
+                        <Icon name="angle double right" />
+                      </Link>
+                    </Item.Meta>
                   </Item.Content>
                 </Item>
               </Grid.Column>
@@ -64,4 +67,4 @@ function ServiceList() {
   );
 }
 
-export default ServiceList;
+export default HanareServiceList;

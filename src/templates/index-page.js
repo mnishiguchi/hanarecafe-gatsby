@@ -16,10 +16,10 @@ import GatsbyImage from 'gatsby-image';
 import { Link } from 'gatsby';
 
 import Layout from '../components/Layout';
-import ServiceList from '../components/ServiceList';
 import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
+import HanareServiceList from '../components/HanareServiceList';
 import { LogoImage } from '../components/staticImages';
 
 function AppHero({ backgroundImageUrl }) {
@@ -131,7 +131,7 @@ export function IndexPageTemplate({
 
           <Segment padded="very" vertical>
             <Header as="h2">営業内容</Header>
-            <ServiceList />
+            <HanareServiceList />
           </Segment>
 
           <SeparatorWithBackgroundImage

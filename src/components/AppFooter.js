@@ -14,8 +14,8 @@ import Media from 'react-media';
 import BackToTopLink from './BackToTopLink';
 import useSiteMetadata from './useSiteMetadata';
 import LogoLink from './LogoLink';
-import gatsbyLogo from '../img/gatsby.svg';
-import logo from '../img/logo-vertical.svg';
+import gatsbyLogoSvg from '../img/gatsby.svg';
+import logoSvg from '../img/logo-vertical.svg';
 
 function AppFooter({ children }) {
   const { title, phone, phoneValue, address, gmap } = useSiteMetadata();
@@ -41,7 +41,8 @@ function AppFooter({ children }) {
           </Media>
 
           <Segment>
-            通常の土曜日、日曜日は店舗の連休明けということもあり、地元の方が朝からたくさん来ていただいて、開店１時間で残りが僅かになる事が稀にあります。小さな店舗で、小さなオーブンをフル回転させながら焼いてはおりますが、夫婦2人で全ての作業をしておりますので、焼き上げが追いつかない場合あります…
+            通常の土曜日、日曜日は店舗の連休明けということもあり、地元の方が朝からたくさん来ていただいて、開店１時間で残りが僅かになる事が稀にあります。
+            小さな店舗で、小さなオーブンをフル回転させながら焼いてはおりますが、夫婦2人で全ての作業をしておりますので、焼き上げが追いつかない場合あります…
             島外からのお客様につきましては、せっかく船を乗って起こしくださる中、パンが無い状態は申し訳なく思いますので、一度ご連絡頂くか、取り置きの連絡をくださいますようよろしくお願いしますm(_
             _)m
           </Segment>
@@ -63,7 +64,7 @@ function AppFooter({ children }) {
           <Grid columns="equal" inverted stackable>
             <Grid.Row>
               <Grid.Column>
-                <LogoLink width="200" src={logo} />
+                <LogoLink width="200" src={logoSvg} />
               </Grid.Column>
               <Grid.Column>
                 <List as="address" link inverted>
@@ -110,7 +111,7 @@ function AppFooter({ children }) {
                             rel="noopener noreferrer"
                           >
                             <img
-                              src={gatsbyLogo}
+                              src={gatsbyLogoSvg}
                               alt="GatsbyJS"
                               height="16px"
                             />
