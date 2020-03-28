@@ -28,7 +28,7 @@ export function CardsPageTemplate({
       <PostContent content={content} />
 
       <Media query={{ maxWidth: 599 }}>
-        {matches =>
+        {(matches) =>
           matches ? (
             // For mobile, each card takes full width.
             cards.map(({ image, title, description }) => {

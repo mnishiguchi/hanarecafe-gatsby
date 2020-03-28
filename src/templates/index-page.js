@@ -8,55 +8,25 @@ import {
   Icon,
   Item,
   List,
+  Message,
   Segment,
 } from 'semantic-ui-react';
 import Media from 'react-media';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+import GatsbyImage from 'gatsby-image';
 
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import ServiceList from '../components/ServiceList';
 import SocialButtons from '../components/SocialButtons';
 import FacebookTimeline from '../components/FacebookTimeline';
 import GoogleMap from '../components/GoogleMap';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import { LogoImage } from '../components/gatsbyImages';
 
-const services = [
-  {
-    title: 'パン製造販売',
-    description: `水産業の盛んな答志島には、さまざまな海産物が溢れており、それをパンにも使用しています。例えば、めかぶの粉末を練り込んで焼き上げた食パン、天然のあおさを使用したシュガーバターパン、冬には地元のブランド牡蠣を使用した牡蠣のグラタンパンなど島外から来られた方にも印象に残るメニューを工夫しています。
-漁師町の磯臭さではなく、路地からパンの焼ける香りがするのは不思議な感じかもしれません。`,
-    icon: 'cloud',
-    to: '/bread',
-  },
-  {
-    title: '店内カフェ',
-    description: `小さな店舗ですが八席のカフェスペースを設け、パンを店内でも食べることができるようにしました。 コーヒーやソフトアイスなど喫茶メニューも揃えています。
-店名の「ハナレ」には、各家の「離れ」のようにお客さんに気軽に集まってもらいたいという思いが込められています。島のパン「屋」ではなく「家」という字をあてたのもそのためです。`,
-    icon: 'coffee',
-    to: '/amenities',
-  },
-  {
-    title: 'パン移動販売',
-    description: `島の反対側の答志地区まで車でのパン移動販売をしています。 また、市営定期船にパンを積み込み、各島（坂手島・菅島・神島）へパンを配達しています。
-移動販売では漁協の肩が町内放送をかけてくれたり、船積み配達サービスでは他島にチラシを配っていただいたりと、島と地域の皆さんに支えられていることを実感する毎日です。
-地域のお祭りや行事などにも参加させていただいてます。`,
-    icon: 'truck',
-    to: '/food-truck',
-  },
-  {
-    title: 'スペシャルオーダーサービス',
-    description:
-      'お祝い事にカスタムメードのケーキ、フルーツタルトはいかがでしょうか？　また、各種イベントにオードブル、お弁当などのスペシャルオーダーも事前注文により承ります。（夫婦が切り盛りしておりますので、ご要望に添えない場合があることを予めご了承お願いします。）',
-    icon: 'utensils',
-    to: '/special-orders',
-  },
-];
-
 function AppHero({ backgroundImageUrl }) {
   return (
     <Media query={{ maxWidth: 991 }}>
-      {matches => (
+      {(matches) => (
         <div
           style={{
             alignItems: `center`,
@@ -77,7 +47,12 @@ function AppHero({ backgroundImageUrl }) {
   );
 }
 
-function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
+function SeparatorWithBackgroundImage({
+  backgroundImageUrl,
+  height,
+  width,
+  ...rest
+}) {
   return (
     <div
       style={{
@@ -94,17 +69,13 @@ function ImageBanner({ backgroundImageUrl, height, width, ...rest }) {
 
 export function IndexPageTemplate({
   content,
-  contentComponent,
-  image,
-  title,
-  description,
+  mainBackgroundImage,
+  mainImage,
   relatedLinks,
 }) {
-  const backgroundImageUrl = !!image.childImageSharp
-    ? image.childImageSharp.fluid.src
-    : image;
-
-  const PostContent = contentComponent || Content;
+  const backgroundImageUrl = !!mainBackgroundImage.childImageSharp
+    ? mainBackgroundImage.childImageSharp.fluid.src
+    : mainBackgroundImage;
 
   return (
     <>
@@ -127,42 +98,25 @@ export function IndexPageTemplate({
             地元食材を使用した
             <br />
             焼きたて創作パンのお店です。
+            {content && (
+              <Message color="yellow">
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+              </Message>
+            )}
           </Segment>
 
-          {content && <PostContent content={content} />}
+          <GatsbyImage fluid={mainImage.childImageSharp.fluid} />
 
           <HanareIntroVideo />
 
           <Segment padded="very" vertical>
             <Header as="h2">営業内容</Header>
-
-            <Media query={{ maxWidth: 599 }}>
-              {matches => (
-                <Grid doubling columns={matches ? 1 : 2}>
-                  {services.map(({ icon, title, description, to }, index) => {
-                    return (
-                      <Grid.Column key={index}>
-                        <Item
-                          onClick={() => navigate(to)}
-                          style={{ cursor: 'pointer' }}
-                        >
-                          <Item.Content>
-                            <Item.Header as="h4">
-                              <Icon name={icon} size="large" />
-                              {title}
-                            </Item.Header>
-                            <Item.Meta>{description}</Item.Meta>
-                          </Item.Content>
-                        </Item>
-                      </Grid.Column>
-                    );
-                  })}
-                </Grid>
-              )}
-            </Media>
+            <ServiceList />
           </Segment>
 
-          <ImageBanner backgroundImageUrl={backgroundImageUrl} />
+          <SeparatorWithBackgroundImage
+            backgroundImageUrl={backgroundImageUrl}
+          />
 
           <Segment padded="very" vertical>
             <Header as="h2">交通案内</Header>
@@ -223,7 +177,9 @@ export function IndexPageTemplate({
             </Segment>
           </Segment>
 
-          <ImageBanner backgroundImageUrl={backgroundImageUrl} />
+          <SeparatorWithBackgroundImage
+            backgroundImageUrl={backgroundImageUrl}
+          />
 
           {/* For mobile, show the Facebook here */}
           <Media
@@ -278,9 +234,11 @@ export function IndexPageTemplate({
 IndexPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  description: PropTypes.string,
+  mainBackgroundImage: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  mainImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   relatedLinks: PropTypes.array,
 };
 
@@ -289,10 +247,8 @@ function IndexPage({ data: { markdownRemark } }) {
     <Layout>
       <IndexPageTemplate
         content={markdownRemark.html}
-        contentComponent={HTMLContent}
-        image={markdownRemark.frontmatter.image}
-        title={markdownRemark.frontmatter.title}
-        description={markdownRemark.frontmatter.description}
+        mainBackgroundImage={markdownRemark.frontmatter.mainBackgroundImage}
+        mainImage={markdownRemark.frontmatter.mainImage}
         relatedLinks={markdownRemark.frontmatter.relatedLinks}
       />
     </Layout>
@@ -312,15 +268,20 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       html
       frontmatter {
-        title
-        image {
+        mainBackgroundImage {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
-        description
+        mainImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         relatedLinks {
           title
           href

@@ -7,13 +7,12 @@ import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
-const columnsSize = array => {
+const columnsSize = (array) => {
   switch (array.length) {
     case 1:
       return 1;
     case 2:
       return 2;
-
     default:
       return 3;
   }

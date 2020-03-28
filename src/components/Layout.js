@@ -123,7 +123,7 @@ function Layout({ children }) {
     <>
       <BaseHead />
       <Media query={{ maxWidth: 991 }}>
-        {matches =>
+        {(matches) =>
           matches ? (
             <MobileTemplate>{children}</MobileTemplate>
           ) : (

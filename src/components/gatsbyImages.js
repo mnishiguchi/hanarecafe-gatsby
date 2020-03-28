@@ -2,6 +2,8 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 
+// Static gatsby image components.
+
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -13,7 +15,7 @@ import GatsbyImage from 'gatsby-image';
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-export const LogoImage = props => {
+export const LogoImage = (props) => {
   const { logoImage } = useStaticQuery(graphql`
     query {
       logoImage: file(relativePath: { eq: "logo.png" }) {

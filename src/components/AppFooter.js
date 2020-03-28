@@ -25,7 +25,7 @@ function AppFooter({ children }) {
         <Container>
           <Header as="h2">お問合せはこちら</Header>
           <Media query={{ maxWidth: 991 }}>
-            {matches => {
+            {(matches) => {
               return matches ? (
                 <Button basic color="teal" as="a" href={`tel:${phoneValue}`}>
                   <Icon name="phone" /> お電話

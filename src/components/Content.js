@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// TODO: Probably we do not need these components. Just inline them.
 export const HTMLContent = ({ content, className }) => (
   <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
 );
