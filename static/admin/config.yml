@@ -18,45 +18,19 @@ collections:
     create: true
     slug: '{{slug}}'
     fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'simple-page',
-        }
+      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'simple-page' }
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image }
       - { label: 'Body', name: 'body', widget: 'markdown' }
-  - name: 'catalog pages'
-    label: 'Catalog Pages'
-    folder: 'src/pages'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - {
-          label: 'Template Key',
-          name: 'templateKey',
-          widget: 'hidden',
-          default: 'catalog-page',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Description', name: 'description', widget: 'text' }
-      - { label: 'Featured Image', name: 'featuredimage', widget: image }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+
   - name: 'pages'
     label: 'Pages'
     files:
-      - file: 'src/pages/index.md'
+      - name: 'index'
         label: 'Landing Page'
-        name: 'index'
+        file: 'src/pages/index.md'
         fields:
-          - {
-              label: 'Template Key',
-              name: 'templateKey',
-              widget: 'hidden',
-              default: 'index-page',
-            }
-          - { label: Title, name: title, widget: string }
-          - { label: Image, name: image, widget: image }
-          - { label: Description, name: description, widget: string }
+          - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'index-page' }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Main Background Image', name: 'mainBackgroundImage', widget: 'image' }
+          - { label: 'Main Image', name: 'mainImage', widget: 'image' }
+          - { label: 'Related Links', name: 'relatedLinks', widget: 'string' }
