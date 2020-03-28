@@ -1,12 +1,13 @@
 import React from 'react';
 import { Button, Menu, Header } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
-import { Link, withPrefix } from 'gatsby';
+import { withPrefix } from 'gatsby';
 import Media from 'react-media';
 
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import NavMenuItems from './NavMenuItems';
+import NavLink from './NavLink';
 import SocialButtons from './SocialButtons';
 import useSiteMetadata from './useSiteMetadata';
 
@@ -56,7 +57,7 @@ function MobileTemplate({ children }) {
 
         <nav className="menuItems">
           <Menu secondary vertical>
-            <Menu.Item as={Link} to={'/'} content="ホーム" />
+            <Menu.Item as={NavLink} to={'/'} content="ホーム" />
 
             <NavMenuItems />
 

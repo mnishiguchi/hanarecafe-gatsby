@@ -1,16 +1,21 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { Menu } from 'semantic-ui-react';
+
+import NavLink from './NavLink';
 
 function NavMenuItems() {
   return (
     <>
-      <Menu.Item as={Link} to={'/pastries'} content={`Pastries`} />
-      <Menu.Item as={Link} to={'/cakes'} content={`Cakes`} />
-      <Menu.Item as={Link} to={'/amenities'} content={`Amenities`} />
-      <Menu.Item as={Link} to={'/food-truck'} content={`Food Truck`} />
-      <Menu.Item as={Link} to={'/special-orders'} content={`Special Orders`} />
-      <Menu.Item as={Link} to={'/owner'} content={`Meet the owner`} />
+      <Menu.Item as={NavLink} to={'/pastries'} content={`Pastries`} />
+      <Menu.Item as={NavLink} to={'/cakes'} content={`Cakes`} />
+      <Menu.Item as={NavLink} to={'/amenities'} content={`Amenities`} />
+      <Menu.Item as={NavLink} to={'/food-truck'} content={`Food Truck`} />
+      <Menu.Item
+        as={NavLink}
+        to={'/special-orders'}
+        content={`Special Orders`}
+      />
+      <Menu.Item as={NavLink} to={'/owner'} content={`Meet the owner`} />
     </>
   );
 }
