@@ -76,7 +76,7 @@ function MobileTemplate({ children }) {
             </Menu.Item>
 
             <Menu.Item>
-              <Header as="h4">{t('contact-us')}</Header>
+              <Header as="h4">{t('headings.contact-us')}</Header>
               <Button
                 as="a"
                 href={`tel:${phoneValue}`}

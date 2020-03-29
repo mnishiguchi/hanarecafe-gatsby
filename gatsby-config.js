@@ -1,15 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: '島のパン家 〜ハナレ〜',
-    description:
-      '鳥羽から定期船で20分の絶景観光スポット答志島にある地元食材を使用した焼きたて創作パンのお店',
-    address: '259 Momotorichō, Toba, Mie 517-0003, Japan',
     siteUrl: process.env.SITE_URL,
     gmap:
       'https://www.google.com/maps/place/%E5%B3%B6%E3%81%AE%E3%83%91%E3%83%B3%E5%AE%B6+%E3%80%9Chanare%E3%80%9C/@34.5152711,136.7133898,11z',
-    phone: '0599-20-0099',
-    phoneValue: '0599200099',
-    author: 'mnishiguchi',
     facebook:
       'https://www.facebook.com/%E5%B3%B6%E3%81%AE%E3%83%91%E3%83%B3%E5%AE%B6-hanare-1104298032977143/',
     instagram:

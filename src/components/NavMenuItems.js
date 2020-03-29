@@ -15,7 +15,7 @@ function NavMenuItems() {
       <Menu.Item as={NavLink} to={'/amenities'} content={t(`nav-menu-items.amenities`)} />
       <Menu.Item as={NavLink} to={'/food-truck'} content={t(`nav-menu-items.food-truck`)} />
       <Menu.Item as={NavLink} to={'/special-orders'} content={t(`nav-menu-items.special-orders`)} />
-      <Menu.Item as={NavLink} to={'/owner'} content={t(`nav-menu-items.owner`)} />
+      <Menu.Item as={NavLink} to={'/meet-the-owner'} content={t(`nav-menu-items.meet-the-owner`)} />
     </>
   );
 }

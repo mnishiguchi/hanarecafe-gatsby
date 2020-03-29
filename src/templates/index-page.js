@@ -22,6 +22,7 @@ import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
 import { LogoImage } from '../components/staticImages';
+import { getCurrentLanguage } from '../lib/i18nUtils';
 
 function AppHero({ backgroundImageUrl }) {
   return (
@@ -73,7 +74,7 @@ export function IndexPageTemplate({
   mainImage,
   relatedLinks,
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const backgroundImageUrl = !!mainBackgroundImage.childImageSharp
     ? mainBackgroundImage.childImageSharp.fluid.src
     : mainBackgroundImage;
@@ -104,54 +105,54 @@ export function IndexPageTemplate({
                   to="/timeline"
                 >
                   <Icon name="angle right" />
-                  {t('latest-news')}
+                  {t('headings.latest-news')}
                 </Button>
               )}
             />
           </Message>
-
+          Current language: {getCurrentLanguage(i18n)}
           <Segment
             padded="very"
             vertical
             textAlign="left"
             style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
           >
-            絶景観光スポット
-            <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
-              {t('toushijima')}
-            </OutboundLink>
-            にある
-            <br />
-            地元食材を使用した
-            <br />
-            焼きたて創作パンのお店です。
+            {/* Inline custom styles for Japanese language only. */}
+            {getCurrentLanguage(i18n) === 'ja' ? (
+              <>
+                絶景観光スポット
+                <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
+                  {t('toushijima')}
+                </OutboundLink>
+                にある
+                <br />
+                地元食材を使用した
+                <br />
+                焼きたて創作パンのお店です。
+              </>
+            ) : (
+              t('site.description')
+            )}
           </Segment>
-
           <GatsbyImage fluid={mainImage.childImageSharp.fluid} />
-
           <HanareIntroVideo />
-
           <Segment padded="very" vertical>
-            <Header as="h2">{t('services')}</Header>
+            <Header as="h2">{t('headings.services')}</Header>
             <HanareServiceList />
           </Segment>
-
           <SeparatorWithBackgroundImage
             backgroundImageUrl={backgroundImageUrl}
           />
-
           <Segment padded="very" vertical>
-            <Header as="h2">{t('directions')}</Header>
+            <Header as="h2">{t('headings.directions')}</Header>
             <HanareDirections></HanareDirections>
           </Segment>
-
           <SeparatorWithBackgroundImage
             backgroundImageUrl={backgroundImageUrl}
           />
-
           {relatedLinks.length > 0 && (
             <Segment padded="very" vertical>
-              <Header as="h2">{t('link')}</Header>
+              <Header as="h2">{t('headings.links')}</Header>
               <List>
                 {relatedLinks.map((relatedLink, i) => (
                   <List.Item key={i}>

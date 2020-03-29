@@ -2,16 +2,25 @@
   "author": {
     "name": "Masatoshi Nishiguchi"
   },
+  "site": {
+    "title": "Hanare Cafe in Toshijima, Toba, Japan",
+    "description": "Our cafe/bakery is located in Toshijima, a beautiful sightseeing spot just a 20-minutes ferry ride from Toba. We bake delicious unique and classic pastries using fresh, local ingredients.",
+    "address": "259 Momotorichō, Toba, Mie 517-0003, Japan",
+    "phone": "+81599200099"
+  },
   "languages": {
     "en": "English",
     "ja": "Japanese"
   },
   "toushijima": "Toushijima",
-  "latest-news": "Lates News",
-  "link": "Links",
-  "directions": "Directions",
-  "services": "Services",
-  "contact-us": "Contact us",
+  "contact-us-message": "",
+  "headings": {
+    "latest-news": "Lates News",
+    "links": "Links",
+    "directions": "Directions",
+    "services": "Services",
+    "contact-us": "Contact us"
+  },
   "nav-menu-items": {
     "home": "Home",
     "pastries": "Pastries",
@@ -19,6 +28,27 @@
     "amenities": "Amenities",
     "food-truck": "Food Truck",
     "special-orders": "Special Orders",
-    "owner": "Meet the owner"
+    "meet-the-owner": "Meet the Owner"
+  },
+  "services": {
+    "bakery": {
+      "title": "",
+      "description": ""
+    },
+    "cafe": {
+      "title": "",
+      "description": ""
+    },
+    "food-truck": {
+      "title": "",
+      "description": ""
+    },
+    "special-orders": {
+      "title": "",
+      "description": ""
+    },
+    "directions": {
+      "message": ""
+    }
   }
 }
