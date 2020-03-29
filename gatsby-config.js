@@ -87,7 +87,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `海山道神社`,
+        name: `島のパン家 〜HaNaRe〜`,
         short_name: `hanarecafe`,
         start_url: `/`,
         background_color: `#000`,

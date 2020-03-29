@@ -30,11 +30,6 @@ i18next
     interpolation: {
       escapeValue: false, // not needed for react!!
     },
-
-    react: {
-      // https://github.com/i18next/react-i18next/issues/766
-      useSuspense: false,
-    },
   });
 
 export default i18next;

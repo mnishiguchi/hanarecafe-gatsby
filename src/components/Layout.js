@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Button, Menu, Header } from 'semantic-ui-react';
 import { Helmet } from 'react-helmet';
 import { withPrefix } from 'gatsby';
@@ -110,7 +110,7 @@ function DesktopTemplate({ children }) {
 
 function Layout({ children }) {
   return (
-    <>
+    <Suspense fallback="loading">
       <BaseHead />
 
       <Media query={{ maxWidth: 991 }}>
@@ -122,8 +122,9 @@ function Layout({ children }) {
           )
         }
       </Media>
+
       <AppFooter />
-    </>
+    </Suspense>
   );
 }
 

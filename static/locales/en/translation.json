@@ -13,7 +13,7 @@
     "ja": "Japanese"
   },
   "toushijima": "Toushijima",
-  "contact-us-message": "",
+  "details": "Details",
   "headings": {
     "latest-news": "Lates News",
     "links": "Links",
@@ -30,25 +30,28 @@
     "special-orders": "Special Orders",
     "meet-the-owner": "Meet the Owner"
   },
-  "services": {
+  "topics": {
     "bakery": {
-      "title": "",
-      "description": ""
+      "title": "Bakery",
+      "description": "Our delicious pastries, which use fresh local and regional ingredients, consist of both classic and unique assortments and offer something delightful for everyone."
     },
-    "cafe": {
-      "title": "",
-      "description": ""
+    "amenities": {
+      "title": "Amenities",
+      "description": "We offer other food options, such as ice cream, along with a variety of beverage options, including coffee and tea. Hanare comfortably seats eight people; but, with the beautiful weather throughout the year, you’ll find it equally pleasant to eat outside and enjoy the serenity and beauty of the island."
     },
     "food-truck": {
-      "title": "",
-      "description": ""
+      "title": "Food Truck",
+      "description": "Our food truck occasionally travels throughout the island providing extended access to our mouth-watering pastries. We also ship our baked goods to other islands in the region (e.g., Sakashima, Sugashima, Kamijima) by use of a municipal liner."
     },
     "special-orders": {
-      "title": "",
-      "description": ""
+      "title": "Special Order Service",
+      "description": "By appointment, we can accept special orders for bento lunch boxes, big fruits tarts, sushi, among other things. Contact us today to learn what other custom-made delights we can offer."
     },
     "directions": {
       "message": ""
+    },
+    "contact-us": {
+      "message": "We do not speak English. That would be great if you can find a Japanese speaker before calling us. Thanks!"
     }
   }
 }

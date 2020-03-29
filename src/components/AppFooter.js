@@ -34,7 +34,7 @@ function AppFooter({ children }) {
             <Icon name="phone" /> {phone}
           </Button>
 
-          <Segment>{t('contact-us-message')}</Segment>
+          <Segment>{t('topics.contact-us.message')}</Segment>
         </Container>
       </Segment>
 
