@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Container } from 'semantic-ui-react';
 
-import SEO from '../components/SEO';
+import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
@@ -18,7 +18,7 @@ export function SimplePageTemplate({
 
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-      <SEO title={title} description={description} />
+      <PageHelmet />
 
       <h1>{title}</h1>
       <p>{description}</p>

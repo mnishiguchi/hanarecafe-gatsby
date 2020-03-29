@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import { Card, Container, Grid } from 'semantic-ui-react';
 import Media from 'react-media';
 
-import SEO from '../components/SEO';
+import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 
@@ -20,7 +20,7 @@ export function CardsPageTemplate({
 
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-      <SEO title={title} description={description} />
+      <PageHelmet />
 
       <h1>{title}</h1>
       <p>{description}</p>

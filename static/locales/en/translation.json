@@ -1,12 +1,10 @@
 {
-  "author": {
-    "name": "Masatoshi Nishiguchi"
-  },
   "site": {
     "title": "Hanare Cafe in Toshijima, Toba, Japan",
     "description": "Our cafe/bakery is located in Toshijima, a beautiful sightseeing spot just a 20-minutes ferry ride from Toba. We bake delicious unique and classic pastries using fresh, local ingredients.",
     "address": "259 Momotorichō, Toba, Mie 517-0003, Japan",
-    "phone": "+81599200099"
+    "phone": "+81599200099",
+    "author": "Masatoshi Nishiguchi"
   },
   "languages": {
     "en": "English",
@@ -21,14 +19,47 @@
     "services": "Services",
     "contact-us": "Contact us"
   },
-  "nav-menu-items": {
-    "home": "Home",
-    "pastries": "Pastries",
-    "cakes": "Cakes",
-    "amenities": "Amenities",
-    "food-truck": "Food Truck",
-    "special-orders": "Special Orders",
-    "meet-the-owner": "Meet the Owner"
+  "pages": {
+    "home": {
+      "title": "Home",
+      "link-label": "Home",
+      "description": ""
+    },
+    "pastries": {
+      "title": "Pastries",
+      "link-label": "Pastries",
+      "description": "Our delicious pastries, which use fresh local and regional ingredients, consist of both classic and unique assortments and offer something delightful for everyone."
+    },
+    "cakes": {
+      "title": "Cakes",
+      "link-label": "Cakes",
+      "description": ""
+    },
+    "amenities": {
+      "title": "Amenities",
+      "link-label": "Amenities",
+      "description": "We offer other food options, such as ice cream, along with a variety of beverage options, including coffee and tea. Hanare comfortably seats eight people; but, with the beautiful weather throughout the year, you’ll find it equally pleasant to eat outside and enjoy the serenity and beauty of the island."
+    },
+    "food-truck": {
+      "title": "Food Truck",
+      "link-label": "Food Truck",
+      "description": "Our food truck occasionally travels throughout the island providing extended access to our mouth-watering pastries. We also ship our baked goods to other islands in the region (e.g., Sakashima, Sugashima, Kamijima) by use of a municipal liner."
+    },
+    "special-orders": {
+      "title": "Special Order",
+      "link-label": "Special Order",
+      "description": "By appointment, we can accept special orders for bento lunch boxes, big fruits tarts, sushi, among other things. Contact us today to learn what other custom-made delights we can offer."
+    },
+    "meet-the-owner": {
+      "title": "Meet the Owner",
+      "link-label": "Meet the Owner",
+      "description": ""
+    },
+    "404": {
+      "title": "Not found",
+      "link-label": "Not found",
+      "description": ""
+    }
   },
   "topics": {
     "bakery": {

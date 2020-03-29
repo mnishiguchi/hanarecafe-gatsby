@@ -23,6 +23,7 @@ import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
 import { LogoImage } from '../components/staticImages';
 import { getCurrentLanguage } from '../lib/i18nUtils';
+import PageHelmet from '../components/PageHelmet';
 
 function AppHero({ backgroundImageUrl }) {
   return (
@@ -81,6 +82,8 @@ export function IndexPageTemplate({
 
   return (
     <>
+      <PageHelmet />
+
       <AppHero backgroundImageUrl={backgroundImageUrl} />
 
       <Container style={{ display: 'flex' }}>
@@ -110,7 +113,6 @@ export function IndexPageTemplate({
               )}
             />
           </Message>
-          Current language: {getCurrentLanguage(i18n)}
           <Segment
             padded="very"
             vertical

@@ -23,7 +23,7 @@ function AppHeader({ children }) {
     >
       <Container>
         <Menu secondary>
-          <Menu.Item as={Link} to={'/'} content={t('nav-menu-items.home')} />
+          <Menu.Item as={Link} to={'/'} content={t('pages.home.link-label')} />
           <NavMenuItems />
 
           <Menu.Menu position="right">

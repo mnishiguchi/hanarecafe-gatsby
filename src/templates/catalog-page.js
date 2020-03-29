@@ -4,7 +4,7 @@
 // import { Card, Container, Grid, Header, Segment } from 'semantic-ui-react';
 // import Media from 'react-media';
 
-// import SEO from '../components/SEO';
+// import PageHelmet from '../components/PageHelmet';
 // import Layout from '../components/Layout';
 // import Content, { HTMLContent } from '../components/Content';
 
@@ -21,7 +21,7 @@
 
 //   return (
 //     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
-//       <SEO title={title} description={description} />
+//       <PageHelmet  />
 
 //       <h1>{title}</h1>
 //       <p>{description}</p>

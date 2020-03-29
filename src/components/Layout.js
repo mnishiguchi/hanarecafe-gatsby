@@ -10,20 +10,17 @@ import AppFooter from './AppFooter';
 import NavMenuItems from './NavMenuItems';
 import NavLink from './NavLink';
 import SocialButtons from './SocialButtons';
-import useSiteMetadata from './useSiteMetadata';
 import I18nSwitcher from './I18nSwitcher';
 
 import '../i18n';
 
 function BaseHead() {
-  const { title, description } = useSiteMetadata();
+  const { t } = useTranslation();
+  const title = t('site.title');
+
   return (
     /* prettier-ignore */
     <Helmet>
-      <html />
-      <title>{title}</title>
-      <meta name="description" content={description} />
-
       <link rel="apple-touch-icon" sizes="57x57" href={`${withPrefix('/')}img/apple-icon-57x57.png`} />
       <link rel="apple-touch-icon" sizes="60x60" href={`${withPrefix('/')}img/apple-icon-60x60.png`} />
       <link rel="apple-touch-icon" sizes="72x72" href={`${withPrefix('/')}img/apple-icon-72x72.png`} />
@@ -42,14 +39,15 @@ function BaseHead() {
       <meta property="og:type" content="business.business" />
       <meta property="og:title" content={title} />
       <meta property="og:url" content="/" />
-      <meta  property="og:image" content={`${withPrefix('/')}img/honden-0006.jpg`} />
+      <meta  property="og:image" content={`${withPrefix('/')}img/logo-512.jpg`} />
     </Helmet>
   );
 }
 
 function MobileTemplate({ children }) {
-  const { phoneValue } = useSiteMetadata();
   const { t } = useTranslation();
+  const phone = t('site.phone');
+
   return (
     <>
       <label className="FullscreenMenu">
@@ -64,7 +62,7 @@ function MobileTemplate({ children }) {
             <Menu.Item
               as={NavLink}
               to={'/'}
-              content={t(`nav-menu-items.home`)}
+              content={t(`pages.home.link-label`)}
             />
 
             <NavMenuItems />
@@ -79,7 +77,7 @@ function MobileTemplate({ children }) {
               <Header as="h4">{t('headings.contact-us')}</Header>
               <Button
                 as="a"
-                href={`tel:${phoneValue}`}
+                href={`tel:${phone}`}
                 icon="phone"
                 circular
                 size="large"

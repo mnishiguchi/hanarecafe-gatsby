@@ -10,12 +10,12 @@ function NavMenuItems() {
   /* prettier-ignore */
   return (
     <>
-      <Menu.Item as={NavLink} to={'/pastries'} content={t(`nav-menu-items.pastries`)} />
-      <Menu.Item as={NavLink} to={'/cakes'} content={t(`nav-menu-items.cakes`)} />
-      <Menu.Item as={NavLink} to={'/amenities'} content={t(`nav-menu-items.amenities`)} />
-      <Menu.Item as={NavLink} to={'/food-truck'} content={t(`nav-menu-items.food-truck`)} />
-      <Menu.Item as={NavLink} to={'/special-orders'} content={t(`nav-menu-items.special-orders`)} />
-      <Menu.Item as={NavLink} to={'/meet-the-owner'} content={t(`nav-menu-items.meet-the-owner`)} />
+      <Menu.Item as={NavLink} to={'/pastries'} content={t(`pages.pastries.link-label`)} />
+      <Menu.Item as={NavLink} to={'/cakes'} content={t(`pages.cakes.link-label`)} />
+      <Menu.Item as={NavLink} to={'/amenities'} content={t(`pages.amenities.link-label`)} />
+      <Menu.Item as={NavLink} to={'/food-truck'} content={t(`pages.food-truck.link-label`)} />
+      <Menu.Item as={NavLink} to={'/special-orders'} content={t(`pages.special-orders.link-label`)} />
+      <Menu.Item as={NavLink} to={'/meet-the-owner'} content={t(`pages.meet-the-owner.link-label`)} />
     </>
   );
 }
