@@ -3,25 +3,14 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Card, Container, Grid, Message } from 'semantic-ui-react';
 import Media from 'react-media';
-import { useTranslation } from 'react-i18next';
-import { useLocation } from '@reach/router';
 import GatsbyImage from 'gatsby-image';
 
 import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
-import { removeLeadingSlash } from '../lib/locationUtils';
+import useSiteMetadata from '../components/useSiteMetadata';
 
 export function CardsPageTemplate({ content, mainImage, cards = [] }) {
-  const location = useLocation();
-  const { t, i18n } = useTranslation();
-
-  // TODO: Abstract this procedure to useSiteMetadata
-  const isHomePage = location.pathname === '/';
-  const pageKey = removeLeadingSlash(location.pathname);
-  const siteAuthor = t('site.author');
-  const siteTitle = t(`site.title`);
-  const pageTitle = isHomePage ? null : t(`pages.${pageKey}.title`);
-  const pageDescription = t(`pages.${pageKey}.description`);
+  const { pageTitle, pageDescription } = useSiteMetadata();
 
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>

@@ -1,27 +1,21 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { useTranslation } from 'react-i18next';
-import { useLocation } from '@reach/router';
 
-import { getCurrentLanguage } from '../lib/i18nUtils';
-import { removeLeadingSlash } from '../lib/locationUtils';
+import useSiteMetadata from '../components/useSiteMetadata';
 
 function PageHelmet({ meta = [] }) {
-  const location = useLocation();
-  const { t, i18n } = useTranslation();
-
-  // TODO: Abstract this procedure to useSiteMetadata
-  const isHomePage = location.pathname === '/';
-  const pageKey = removeLeadingSlash(location.pathname);
-  const siteAuthor = t('site.author');
-  const siteTitle = t(`site.title`);
-  const pageTitle = isHomePage ? null : t(`pages.${pageKey}.title`);
-  const pageDescription = t(`pages.${pageKey}.description`);
+  const {
+    siteAuthor,
+    siteTitle,
+    pageTitle,
+    pageDescription,
+    lang,
+  } = useSiteMetadata();
 
   return (
     <Helmet
       htmlAttributes={{
-        lang: getCurrentLanguage(i18n),
+        lang,
       }}
       title={pageTitle}
       titleTemplate={`%s | ${siteTitle}`}
