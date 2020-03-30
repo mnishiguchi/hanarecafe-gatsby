@@ -1,7 +1,6 @@
 ---
 templateKey: cards-page
-title: Bread
-description: In irure veniam officia mollit.
+mainImage: /img/hanare-cafe-shelf-1.jpg
 cards:
   - image: /img/hanare-mekabu-loaf.jpg
     title: めかぶ食パン
@@ -26,4 +25,4 @@ cards:
   - image: /img/hanare-sandwich.jpg
 ---
 
-![hanare-cafe-shelf-1](/img/hanare-cafe-shelf-1.jpg)
+Hello world!

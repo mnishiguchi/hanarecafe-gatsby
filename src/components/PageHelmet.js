@@ -9,6 +9,8 @@ import { removeLeadingSlash } from '../lib/locationUtils';
 function PageHelmet({ meta = [] }) {
   const location = useLocation();
   const { t, i18n } = useTranslation();
+
+  // TODO: Abstract this procedure to useSiteMetadata
   const isHomePage = location.pathname === '/';
   const pageKey = removeLeadingSlash(location.pathname);
   const siteAuthor = t('site.author');

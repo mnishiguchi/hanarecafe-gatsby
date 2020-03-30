@@ -1,37 +1,48 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Card, Container, Grid } from 'semantic-ui-react';
+import { Card, Container, Grid, Message } from 'semantic-ui-react';
 import Media from 'react-media';
+import { useTranslation } from 'react-i18next';
+import { useLocation } from '@reach/router';
+import GatsbyImage from 'gatsby-image';
 
 import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import { removeLeadingSlash } from '../lib/locationUtils';
 
-export function CardsPageTemplate({
-  content,
-  contentComponent,
-  description,
-  title,
-  helmet,
-  cards = [],
-}) {
-  const PostContent = contentComponent || Content;
+export function CardsPageTemplate({ content, mainImage, cards = [] }) {
+  const location = useLocation();
+  const { t, i18n } = useTranslation();
+
+  // TODO: Abstract this procedure to useSiteMetadata
+  const isHomePage = location.pathname === '/';
+  const pageKey = removeLeadingSlash(location.pathname);
+  const siteAuthor = t('site.author');
+  const siteTitle = t(`site.title`);
+  const pageTitle = isHomePage ? null : t(`pages.${pageKey}.title`);
+  const pageDescription = t(`pages.${pageKey}.description`);
 
   return (
     <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
       <PageHelmet />
 
-      <h1>{title}</h1>
-      <p>{description}</p>
-
-      <PostContent content={content} />
+      <header style={{ marginBottom: '2rem' }}>
+        <h1>{pageTitle}</h1>
+        <p>{pageDescription}</p>
+        {content && (
+          <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
+            <div dangerouslySetInnerHTML={{ __html: content }} />
+          </Message>
+        )}
+        <GatsbyImage fluid={mainImage.childImageSharp.fluid} />
+      </header>
 
       <Media query={{ maxWidth: 599 }}>
         {(matches) =>
           matches ? (
             // For mobile, each card takes full width.
-            cards.map(({ image, title, description }) => {
+            cards.map(({ image, title, mainImage }) => {
               const imageUrl = !!image.childImageSharp
                 ? image.childImageSharp.fluid.src
                 : image;
@@ -40,7 +51,7 @@ export function CardsPageTemplate({
                   key={imageUrl}
                   image={imageUrl}
                   header={title}
-                  description={description}
+                  mainImage={mainImage}
                   fluid
                 />
               );
@@ -48,7 +59,7 @@ export function CardsPageTemplate({
           ) : (
             // For larger devices, switch column count per row.
             <Grid doubling columns={5}>
-              {cards.map(({ image, title, description }) => {
+              {cards.map(({ image, title, mainImage }) => {
                 const imageUrl = !!image.childImageSharp
                   ? image.childImageSharp.fluid.src
                   : image;
@@ -57,7 +68,7 @@ export function CardsPageTemplate({
                     <Card
                       image={imageUrl}
                       header={title}
-                      description={description}
+                      mainImage={mainImage}
                     />
                   </Grid.Column>
                 );
@@ -71,10 +82,7 @@ export function CardsPageTemplate({
 }
 
 CardsPageTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
+  mainImage: PropTypes.string,
   cards: PropTypes.array,
 };
 
@@ -83,9 +91,7 @@ function CardsPage({ data: { markdownRemark } }) {
     <Layout>
       <CardsPageTemplate
         content={markdownRemark.html}
-        contentComponent={HTMLContent}
-        title={markdownRemark.frontmatter.title}
-        description={markdownRemark.frontmatter.description}
+        mainImage={markdownRemark.frontmatter.mainImage}
         cards={markdownRemark.frontmatter.cards}
       />
     </Layout>
@@ -106,8 +112,13 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        title
-        description
+        mainImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
         cards {
           title
           description
