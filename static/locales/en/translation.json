@@ -24,7 +24,7 @@
     "cakes": {
       "title": "Cakes",
       "link-label": "Cakes",
-      "description": ""
+      "description": "How about a custom-made cake or fruit tart for a celebration?"
     },
     "amenities": {
       "title": "Amenities",
@@ -44,6 +44,11 @@
     "meet-the-owner": {
       "title": "Meet the Owner",
       "link-label": "Meet the Owner",
+      "description": ""
+    },
+    "timeline": {
+      "title": "",
+      "link-label": "",
       "description": ""
     },
     "404": {
@@ -81,6 +86,16 @@
   "contact-us": {
     "message": "Since we are a small bakery run by a couple, we may not be able to catch up in case of increased demand... For customers from outside the island, please check out our Facebook page or contact us for our status. Thank you for understanding.",
     "no-english": "We do not speak English. That would be great if you can find a Japanese speaker before calling us."
+  },
+  "co-owners": {
+    "atsushi": {
+      "name": "Atsushi Tokumoto",
+      "description": "Atsushi is from Kuwana, Mie. He studied at a cooking and confectionery school and has 17 years of experience cooking Japanese cuisine."
+    },
+    "eri": {
+      "name": "Eri Tokumoto",
+      "description": "Eri is from Toshijima, where her family runs wakeme farming and oyster farming. She co-manages the cafe and provides warm smiles and greetings to customers."
+    }
   },
   "words": {
     "toushijima": "Toushijima",

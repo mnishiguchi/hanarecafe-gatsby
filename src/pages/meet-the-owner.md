@@ -1,8 +1,5 @@
 ---
-templateKey: simple-page
-title: Meet the Owner
-description: In irure veniam officia mollit.
-featuredimage: /img/hanare-owner.jpg
+templateKey: meet-the-owner-page
+mainImage: /img/hanare-owner.jpg
+mainImageActive: true
 ---
-
-![](/img/hanare-owner.jpg)

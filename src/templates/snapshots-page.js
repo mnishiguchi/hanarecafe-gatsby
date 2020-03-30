@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Card, Grid, Message } from 'semantic-ui-react';
-import Media from 'react-media';
+import { Grid, Image, Message, Segment } from 'semantic-ui-react';
 import GatsbyImage from 'gatsby-image';
 
 import PageHelmet from '../components/PageHelmet';
@@ -10,13 +9,18 @@ import Layout from '../components/Layout';
 import AppContentContainer from '../components/AppContentContainer';
 import useSiteMetadata from '../components/useSiteMetadata';
 
+const arraySizeTocolumnsSize = (arraySize) => {
+  if (arraySize < 3) return arraySize;
+  return 3;
+};
+
 // Page title and description should be defined in the translation files.
 // The markdown content will be an info message.
-export function CardsPageTemplate({
+export function SnapshotsPageTemplate({
   content,
   mainImage,
   mainImageActive,
-  cards = [],
+  snapshots = [],
 }) {
   const { pageTitle, pageDescription } = useSiteMetadata();
 
@@ -40,79 +44,54 @@ export function CardsPageTemplate({
         )}
       </section>
 
-      <Media query={{ maxWidth: 599 }}>
-        {(matches) =>
-          matches ? (
-            // For mobile, each card takes full width.
-            cards.map(({ image, title, mainImage }) => {
-              const imageUrl = !!image.childImageSharp
-                ? image.childImageSharp.fluid.src
-                : image;
-              return (
-                <Card
-                  key={imageUrl}
-                  image={imageUrl}
-                  header={title}
-                  mainImage={mainImage}
-                  fluid
-                />
-              );
-            })
-          ) : (
-            // For larger devices, switch column count per row.
-            <Grid doubling columns={5}>
-              {cards.map(({ image, title, mainImage }) => {
-                const imageUrl = !!image.childImageSharp
-                  ? image.childImageSharp.fluid.src
-                  : image;
-                return (
-                  <Grid.Column key={imageUrl}>
-                    <Card
-                      image={imageUrl}
-                      header={title}
-                      mainImage={mainImage}
-                    />
-                  </Grid.Column>
-                );
-              })}
-            </Grid>
-          )
-        }
-      </Media>
+      <Segment vertical>
+        <Grid doubling columns={arraySizeTocolumnsSize(snapshots.length)}>
+          {snapshots.map(({ image, title }) => {
+            const imageUrl = !!image.childImageSharp
+              ? image.childImageSharp.fluid.src
+              : image;
+            return (
+              <Grid.Column key={imageUrl}>
+                <Image src={imageUrl} fluid />
+              </Grid.Column>
+            );
+          })}
+        </Grid>
+      </Segment>
     </AppContentContainer>
   );
 }
 
-CardsPageTemplate.propTypes = {
+SnapshotsPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   mainImage: PropTypes.string,
   mainImageActive: PropTypes.bool,
-  cards: PropTypes.array,
+  snapshots: PropTypes.array,
 };
 
-function CardsPage({ data: { markdownRemark } }) {
+function SnapshotsPage({ data: { markdownRemark } }) {
   return (
     <Layout>
-      <CardsPageTemplate
+      <SnapshotsPageTemplate
         content={markdownRemark.html}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
-        cards={markdownRemark.frontmatter.cards}
+        snapshots={markdownRemark.frontmatter.snapshots}
       />
     </Layout>
   );
 }
 
-CardsPage.propTypes = {
+SnapshotsPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 };
 
-export default CardsPage;
+export default SnapshotsPage;
 
 export const pageQuery = graphql`
-  query CardsPageByID($id: String!) {
+  query SnapshotsPageByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
@@ -125,9 +104,8 @@ export const pageQuery = graphql`
           }
         }
         mainImageActive
-        cards {
+        snapshots {
           title
-          description
           image {
             childImageSharp {
               fluid(maxWidth: 600, quality: 64) {

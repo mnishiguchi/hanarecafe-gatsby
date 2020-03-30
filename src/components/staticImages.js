@@ -16,6 +16,7 @@ import GatsbyImage from 'gatsby-image';
 const useStaticImages = () =>
   // Prepare necessary static gatsby images because static query has to be hardcoded.
   // One static query is allowed per file.
+  // Actually it would be better to query inside a page file instead of here.
   useStaticQuery(graphql`
     query {
       logoImage: file(relativePath: { eq: "logo.png" }) {
@@ -27,25 +28,33 @@ const useStaticImages = () =>
       }
       hanareSignImage: file(relativePath: { eq: "hanare-sign.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 600) {
-            ...GatsbyImageSharpFluid
+          fixed(width: 300, height: 300) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      hanareOwnerImage: file(relativePath: { eq: "hanare-owner.jpg" }) {
+        childImageSharp {
+          fixed(width: 300, height: 300) {
+            ...GatsbyImageSharpFixed
           }
         }
       }
     }
   `);
 
-export const LogoImage = (props) => (
+export const LogoImage = () => (
+  <GatsbyImage fluid={useStaticImages().logoImage.childImageSharp.fluid} />
+);
+
+export const HanareSignImage = () => (
   <GatsbyImage
-    fluid={useStaticImages().logoImage.childImageSharp.fluid}
-    {...props}
+    fixed={useStaticImages().hanareSignImage.childImageSharp.fixed}
   />
 );
 
-export const HanareSignImage = (props) => (
+export const HanareOwnerImage = () => (
   <GatsbyImage
-    fluid={useStaticImages().hanareSignImage.childImageSharp.fluid}
-    height="300px"
-    {...props}
+    fixed={useStaticImages().hanareOwnerImage.childImageSharp.fixed}
   />
 );

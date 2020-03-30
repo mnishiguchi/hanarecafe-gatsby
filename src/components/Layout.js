@@ -16,7 +16,6 @@ import '../i18n';
 
 function MobileTemplate({ children }) {
   const { t } = useTranslation();
-  const phone = t('site.phone');
 
   return (
     <>
@@ -47,7 +46,7 @@ function MobileTemplate({ children }) {
               <Header as="h4">{t('headings.contact-us')}</Header>
               <Button
                 as="a"
-                href={`tel:${phone}`}
+                href={`tel:${t('site.phone')}`}
                 icon="phone"
                 circular
                 size="large"

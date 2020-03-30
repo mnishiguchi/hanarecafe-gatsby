@@ -1,19 +1,20 @@
 ---
-templateKey: gallery-page
-title: Special Orders
-description: In irure veniam officia mollit.
-featuredimage: /img/hanare-bento.jpg
+templateKey: snapshots-page
+mainImage: /img/hanare-bento.jpg
+mainImageActive: false
 snapshots:
   - image: /img/hanare-bento.jpg
-    title: special order
+    title: bento
   - image: /img/hanare-bento-3.jpg
-    title: special order
+    title:
   - image: /img/hanare-bento-4.jpg
-    title: special order
+    title:
   - image: /img/hanare-katsuo.jpg
-    title: special order
+    title:
   - image: /img/hanare-kaisendon.jpg
-    title: special order
+    title:
   - image: /img/hanare-sushi-1.jpg
-    title: special order
+    title:
 ---
+
+Hello world!

@@ -1,19 +1,19 @@
 ---
-templateKey: gallery-page
-title: Cakes
-description: In irure veniam officia mollit.
-featuredimage: /img/hanare-sushi-1.jpg
+templateKey: snapshots-page
+mainImage: /img/hanare-sushi-1.jpg
 snapshots:
   - image: /img/hanare-bday-tart.jpg
-    title: cake
+    title:
   - image: /img/hanare-milk-crepe.jpg
-    title: cake
+    title:
   - image: /img/hanare-roll-cake.jpg
-    title: cake
+    title:
   - image: /img/hanare-xmas-cake-1.jpg
-    title: cake
+    title:
   - image: /img/hanare-choco-cake.jpg
-    title: cake
+    title:
   - image: /img/hanare-thank-you-cake-1.jpg
-    title: cake
+    title:
 ---
+
+Hello world!

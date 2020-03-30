@@ -2,7 +2,8 @@
 templateKey: simple-page
 title: Amenities
 description: In irure veniam officia mollit.
-featuredimage: /img/hanare-amenities-1.jpg
+mainImage: /img/hanare-amenities-1.jpg
+mainImageActive: true
 ---
 
-![](/img/hanare-amenities-1.jpg)
+Hello world!

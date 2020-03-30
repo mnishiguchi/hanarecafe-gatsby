@@ -1,50 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Container } from 'semantic-ui-react';
+import GatsbyImage from 'gatsby-image';
 
 import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
-import Content, { HTMLContent } from '../components/Content';
+import AppContentContainer from '../components/AppContentContainer';
+import useSiteMetadata from '../components/useSiteMetadata';
 
-export function SimplePageTemplate({
-  content,
-  contentComponent,
-  description,
-  title,
-  helmet,
-}) {
-  const PostContent = contentComponent || Content;
+// Page title and description should be defined in the translation files.
+// The markdown content will be an additional content.
+export function SimplePageTemplate({ content, mainImage, mainImageActive }) {
+  const { pageTitle, pageDescription } = useSiteMetadata();
 
   return (
-    <Container style={{ paddingTop: '3rem', paddingBottom: '3rem' }}>
+    <AppContentContainer>
       <PageHelmet />
 
-      <h1>{title}</h1>
-      <p>{description}</p>
-
-      <PostContent content={content} />
-    </Container>
+      <section style={{ marginBottom: '2rem' }}>
+        <h1>{pageTitle}</h1>
+        <p>{pageDescription}</p>
+        {content && <p dangerouslySetInnerHTML={{ __html: content }} />}
+        {mainImageActive && (
+          <GatsbyImage fluid={mainImage.childImageSharp.fluid} />
+        )}
+      </section>
+    </AppContentContainer>
   );
 }
 
 SimplePageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  description: PropTypes.string,
-  title: PropTypes.string,
+  mainImage: PropTypes.string,
+  mainImageActive: PropTypes.bool,
 };
 
-function SimplePage({ data }) {
-  const { markdownRemark: post } = data;
-
+function SimplePage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <SimplePageTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
-        title={post.frontmatter.title}
-        description={post.frontmatter.description}
+        content={markdownRemark.html}
+        mainImage={markdownRemark.frontmatter.mainImage}
+        mainImageActive={markdownRemark.frontmatter.mainImageActive}
       />
     </Layout>
   );
@@ -64,8 +61,14 @@ export const pageQuery = graphql`
       id
       html
       frontmatter {
-        title
-        description
+        mainImage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        mainImageActive
       }
     }
   }
