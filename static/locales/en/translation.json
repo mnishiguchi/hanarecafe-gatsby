@@ -10,15 +10,6 @@
     "en": "English",
     "ja": "Japanese"
   },
-  "toushijima": "Toushijima",
-  "details": "Details",
-  "headings": {
-    "latest-news": "Lates News",
-    "links": "Links",
-    "directions": "Directions",
-    "services": "Services",
-    "contact-us": "Contact us"
-  },
   "pages": {
     "home": {
       "title": "Home",
@@ -61,28 +52,38 @@
       "description": ""
     }
   },
-  "topics": {
-    "bakery": {
-      "title": "Bakery",
-      "description": "Our delicious pastries, which use fresh local and regional ingredients, consist of both classic and unique assortments and offer something delightful for everyone."
-    },
-    "amenities": {
-      "title": "Amenities",
-      "description": "We offer other food options, such as ice cream, along with a variety of beverage options, including coffee and tea. Hanare comfortably seats eight people; but, with the beautiful weather throughout the year, you’ll find it equally pleasant to eat outside and enjoy the serenity and beauty of the island."
-    },
-    "food-truck": {
-      "title": "Food Truck",
-      "description": "Our food truck occasionally travels throughout the island providing extended access to our mouth-watering pastries. We also ship our baked goods to other islands in the region (e.g., Sakashima, Sugashima, Kamijima) by use of a municipal liner."
-    },
-    "special-orders": {
-      "title": "Special Order Service",
-      "description": "By appointment, we can accept special orders for bento lunch boxes, big fruits tarts, sushi, among other things. Contact us today to learn what other custom-made delights we can offer."
-    },
-    "directions": {
-      "message": ""
-    },
-    "contact-us": {
-      "message": "We do not speak English. That would be great if you can find a Japanese speaker before calling us. Thanks!"
-    }
+  "headings": {
+    "latest-news": "Lates News",
+    "links": "Links",
+    "directions": "Directions",
+    "services": "Services",
+    "contact-us": "Contact Us"
+  },
+  "directions": {
+    "message": "We are located near a fish market in Momotori region of the remote island Toshijima. Please take a passenger ship from Toba Marine Terminal.",
+    "toba-municipal-liner": "Toba Municipal Liner",
+    "satahama-stop": "Satahama Stop",
+    "toba-marine-terminal": "Toba Marine Terminal",
+    "13-minutes": "13 minuntes",
+    "momotori-stop": "Momotori Stop",
+    "walking": "Walking",
+    "3-minutes": "3 minutes",
+    "by-kintetsu-train-title": "For those coming by Kintetsu train",
+    "by-kintetsu-train-description": "Please get off at Toba Station and take Exit #2. The Toba Marine Terminal is about a 10-minute walk from there.",
+    "by-jr-train-title": "For those coming by JR train",
+    "by-jr-train-description": "Please get off at Toba Station and take Exit #2. The Toba Marine Terminal is about a 10-minute walk from there.",
+    "by-car-title": "For those coming by car",
+    "by-car-description": "The closest parking lot to the Toba Marine Terminal is Satahama parking lot.",
+    "kintetsu-toba": "Kintetsu Railway Toba Station",
+    "jr-toba": "Japan Railway Toba Station",
+    "satahama-parking": "Satahama Parking"
+  },
+  "contact-us": {
+    "message": "Since we are a small bakery run by a couple, we may not be able to catch up in case of increased demand... For customers from outside the island, please check out our Facebook page or contact us for our status. Thank you for understanding.",
+    "no-english": "We do not speak English. That would be great if you can find a Japanese speaker before calling us."
+  },
+  "words": {
+    "toushijima": "Toushijima",
+    "details": "Details"
   }
 }

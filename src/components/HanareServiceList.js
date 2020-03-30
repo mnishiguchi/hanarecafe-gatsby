@@ -6,26 +6,26 @@ import { useTranslation } from 'react-i18next';
 
 const getServices = (t) => [
   {
-    title: t('topics.bakery.title'),
-    description: t('topics.bakery.description'),
+    title: t('pages.pastries.title'),
+    description: t('pages.pastries.description'),
     icon: 'cloud',
     to: '/pastries',
   },
   {
-    title: t('topics.amenities.title'),
-    description: t('topics.amenities.description'),
+    title: t('pages.amenities.title'),
+    description: t('pages.amenities.description'),
     icon: 'coffee',
-    to: '/cafe',
+    to: '/amenities',
   },
   {
-    title: t('topics.food-truck.title'),
-    description: t('topics.food-truck.description'),
+    title: t('pages.food-truck.title'),
+    description: t('pages.food-truck.description'),
     icon: 'truck',
     to: '/food-truck',
   },
   {
-    title: t('topics.special-orders.title'),
-    description: t('topics.special-orders.description'),
+    title: t('pages.special-orders.title'),
+    description: t('pages.special-orders.description'),
     icon: 'utensils',
     to: '/special-orders',
   },
@@ -50,7 +50,7 @@ function HanareServiceList() {
                     <Item.Meta>
                       {description}{' '}
                       <Link as={Link} to={to}>
-                        {t('details')}
+                        {t('words.details')}
                         <Icon name="angle double right" />
                       </Link>
                     </Item.Meta>

@@ -17,13 +17,13 @@ import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
+import PageHelmet from '../components/PageHelmet';
 import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
 import { LogoImage } from '../components/staticImages';
 import { getCurrentLanguage } from '../lib/i18nUtils';
-import PageHelmet from '../components/PageHelmet';
 
 function AppHero({ backgroundImageUrl }) {
   return (
@@ -114,7 +114,7 @@ export function IndexPageTemplate({
             />
           </Message>
           <Segment
-            padded="very"
+            padded
             vertical
             textAlign="left"
             style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
@@ -124,7 +124,7 @@ export function IndexPageTemplate({
               <>
                 絶景観光スポット
                 <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
-                  {t('toushijima')}
+                  答志島
                 </OutboundLink>
                 にある
                 <br />
@@ -147,7 +147,7 @@ export function IndexPageTemplate({
           />
           <Segment padded="very" vertical>
             <Header as="h2">{t('headings.directions')}</Header>
-            <HanareDirections></HanareDirections>
+            <HanareDirections />
           </Segment>
           <SeparatorWithBackgroundImage
             backgroundImageUrl={backgroundImageUrl}

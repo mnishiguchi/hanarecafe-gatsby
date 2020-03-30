@@ -11,6 +11,7 @@ function I18nSwitcher({ children }) {
   const isActive = (language) => getCurrentLanguage(i18n) === language;
   const buttonStyle = (language) => ({
     background: isActive(language) ? '#888' : 'inherit',
+    padding: '2px 2px 2px 10px',
   });
 
   return (
