@@ -17,37 +17,13 @@ import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
+import LandingHero from '../components/LandingHero';
 import MarkdownBody from '../components/MarkdownBody';
 import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
-import { LogoImage } from '../components/staticImages';
 import { getCurrentLanguage } from '../lib/i18nUtils';
-
-function AppHero({ backgroundImageUrl }) {
-  return (
-    <Media query={{ maxWidth: 991 }}>
-      {(matches) => (
-        <div
-          style={{
-            alignItems: `center`,
-            backgroundImage: `url(${backgroundImageUrl})`,
-            backgroundPosition: `50% 50%`,
-            backgroundAttachment: `fixed`,
-            display: `flex`,
-            justifyContent: `center`,
-            height: matches ? '300px' : '400px',
-          }}
-        >
-          <div style={{ width: matches ? '200px' : '300px' }}>
-            <LogoImage />
-          </div>
-        </div>
-      )}
-    </Media>
-  );
-}
 
 function SeparatorWithBackgroundImage({
   backgroundImageUrl,
@@ -84,7 +60,7 @@ export function IndexPageTemplate({
 
   return (
     <>
-      <AppHero backgroundImageUrl={backgroundImageUrl} />
+      <LandingHero backgroundImageUrl={backgroundImageUrl} />
 
       <Container style={{ display: 'flex' }}>
         <div>

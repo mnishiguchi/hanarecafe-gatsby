@@ -13,7 +13,6 @@ import useSiteMetadata from './useSiteMetadata';
 import { useTranslation } from 'react-i18next';
 import LogoLink from './LogoLink';
 import gatsbyLogoSvg from '../img/gatsby.svg';
-import logoSvg from '../img/logo-vertical.svg';
 
 function AppFooter({ children }) {
   const { t } = useTranslation();
@@ -57,7 +56,7 @@ function AppFooter({ children }) {
             textAlign: `center`,
           }}
         >
-          <LogoLink width="200" src={logoSvg} />
+          <LogoLink width="200" />
           <List as="address" link inverted>
             <List.Item>
               <a href={gmap}>{address}</a>

@@ -1,13 +1,26 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { Header, Icon, Message, Segment, Step } from 'semantic-ui-react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { useTranslation } from 'react-i18next';
+import GatsbyImage from 'gatsby-image';
 
-import { LogoImage } from '../components/staticImages';
 import GoogleMap from '../components/GoogleMap';
 
 function StepsFromMarineTerminal() {
   const { t } = useTranslation();
+
+  const data = useStaticQuery(graphql`
+    query {
+      logoImage: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 88, height: 88) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <Step.Group fluid unstackable size="tiny">
@@ -60,7 +73,10 @@ function StepsFromMarineTerminal() {
       </Step>
       <Step style={{ padding: '0 0 0 0.6rem' }}>
         <Step.Content>
-          <LogoImage style={{ minWidth: '88px', minHeight: '88px' }} />
+          <GatsbyImage
+            fluid={data.logoImage.childImageSharp.fixed}
+            style={{ height: '88px', width: '88px' }}
+          />
         </Step.Content>
       </Step>
     </Step.Group>
