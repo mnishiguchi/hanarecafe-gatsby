@@ -16,5 +16,3 @@ snapshots:
   - image: /img/hanare-sushi-1.jpg
     title:
 ---
-
-Hello world!

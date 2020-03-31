@@ -62,20 +62,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        gatsbyRemarkPlugins: [
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1035,
-              sizeByPixelDensity: true,
-            },
-          },
-        ],
-      },
-    },
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
@@ -98,12 +84,12 @@ module.exports = {
     `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GA_TRACKING_ID,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-google-analytics`,
+    //   options: {
+    //     trackingId: process.env.GA_TRACKING_ID,
+    //   },
+    // },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

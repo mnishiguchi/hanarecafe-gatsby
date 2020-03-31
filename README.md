@@ -1,5 +1,7 @@
 # Hanarecafe
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0606bbc7-2062-48c5-93fc-81ee1a38b0d9/deploy-status)](https://app.netlify.com/sites/hanarecafe-gatsby/deploys)
+
 ## 🚀 Quick start
 
 ```sh

@@ -15,5 +15,3 @@ snapshots:
   - image: /img/hanare-thank-you-cake-1.jpg
     title:
 ---
-
-Hello world!
