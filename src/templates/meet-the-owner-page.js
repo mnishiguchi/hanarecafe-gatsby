@@ -57,8 +57,8 @@ export function MeetTheOwnerPageTemplate({
 }
 
 MeetTheOwnerPageTemplate.propTypes = {
-  markdownBody: PropTypes.node.isRequired,
   isCms: PropTypes.bool.isRequired,
+  markdownBody: PropTypes.node.isRequired,
   mainImage: PropTypes.string,
   mainImageActive: PropTypes.bool,
 };
@@ -67,8 +67,8 @@ function MeetTheOwnerPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <MeetTheOwnerPageTemplate
-        markdownBody={markdownRemark.html}
         isCms={false}
+        markdownBody={markdownRemark.html}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
       />

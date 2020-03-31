@@ -19,9 +19,9 @@ i18next
     debug: process.env.NODE_ENV !== 'production',
 
     // https://www.i18next.com/overview/api#languages
-    lng: 'en',
+    lng: 'ja',
     whitelist: ['en', 'ja'],
-    fallbackLng: 'en',
+    fallbackLng: 'ja',
 
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',

@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IndexPageTemplate } from '../../templates/index-page';
+import { MeetTheOwnerPage } from '../../templates/meet-the-owner';
 
-const IndexPagePreview = ({ entry, widgetFor, getAsset }) => {
+const MeetTheOwnerPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(['data']).toJS();
   return data ? (
-    <IndexPageTemplate
+    <MeetTheOwnerPage
       isCms
       markdownBody={data.markdownBody}
-      mainBackgroundImage={getAsset(data.mainBackgroundImage)}
       mainImage={getAsset(data.mainImage)}
-      relatedLinks={data.relatedLinks}
+      mainImageActive={data.mainImageActive}
     />
   ) : (
     <div>Loading...</div>
   );
 };
 
-IndexPagePreview.propTypes = {
+MeetTheOwnerPagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
@@ -25,4 +24,4 @@ IndexPagePreview.propTypes = {
   getAsset: PropTypes.func,
 };
 
-export default IndexPagePreview;
+export default MeetTheOwnerPagePreview;

@@ -60,7 +60,7 @@ function StepsFromMarineTerminal() {
         </Step.Content>
       </Step>
       <Step active>
-        <Icon name="hand point right outline" />
+        <Icon name="child" />
         <Step.Content>
           <Step.Description>
             <OutboundLink href="https://www.google.com/maps/dir/%E6%A1%83%E5%8F%96%E5%AE%9A%E6%9C%9F%E8%88%B9%E5%BE%85%E5%90%88%E6%89%80+%E3%83%88%E3%82%A4%E3%83%AC+Momotoricho,+Toba,+Mie+517-0003,+Japan/%E9%B3%A5%E7%BE%BD%E7%A3%AF%E9%83%A8%E6%BC%81%E5%8D%94%E6%A1%83%E5%8F%96%E7%94%BA%E6%94%AF%E6%89%80%E9%AD%9A%E5%B8%82%E5%A0%B4/@34.5142783,136.8506658,17z/data=!3m1!4b1!4m14!4m13!1m5!1m1!1s0x6004f845c9269a9b:0xaf7dace80d3f9dea!2m2!1d136.8523671!2d34.5139489!1m5!1m1!1s0x6004f845dfba0121:0x51f481fa5de12bf0!2m2!1d136.853104!2d34.514995!3e2?hl=en">

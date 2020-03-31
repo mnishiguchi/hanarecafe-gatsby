@@ -1,20 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SimplePageTemplate } from '../../templates/simple-page';
+import { SnapshotsPageTemplate } from '../../templates/simple-page';
 
-const SimplePagePreview = ({ entry, widgetFor, getAsset }) => {
+const SnapshotsPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(['data']).toJS();
   return (
-    <SimplePageTemplate
+    <SnapshotsPageTemplate
       isCms
       markdownBody={data.markdownBody}
       mainImage={getAsset(data.mainImage)}
       mainImageActive={data.mainImageActive}
+      snapshots={data.snapshots.map(({ image, title }) => ({
+        image: getAsset(image),
+        title,
+      }))}
     />
   );
 };
 
-SimplePagePreview.propTypes = {
+SnapshotsPagePreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
@@ -22,4 +26,4 @@ SimplePagePreview.propTypes = {
   getAsset: PropTypes.func,
 };
 
-export default SimplePagePreview;
+export default SnapshotsPagePreview;

@@ -34,8 +34,8 @@ export function SimplePageTemplate({
 }
 
 SimplePageTemplate.propTypes = {
-  markdownBody: PropTypes.node.isRequired,
   isCms: PropTypes.bool.isRequired,
+  markdownBody: PropTypes.node.isRequired,
   mainImage: PropTypes.string,
   mainImageActive: PropTypes.bool,
 };
@@ -44,8 +44,8 @@ function SimplePage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <SimplePageTemplate
-        markdownBody={markdownRemark.html}
         isCms={false}
+        markdownBody={markdownRemark.html}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
       />

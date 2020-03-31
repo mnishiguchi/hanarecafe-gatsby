@@ -44,8 +44,8 @@ export function PastriesPageTemplate({
 }
 
 PastriesPageTemplate.propTypes = {
-  markdownBody: PropTypes.node.isRequired,
   isCms: PropTypes.bool.isRequired,
+  markdownBody: PropTypes.node.isRequired,
   mainImage: PropTypes.string,
   mainImageActive: PropTypes.bool,
 };
@@ -54,8 +54,8 @@ function PastriesPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <PastriesPageTemplate
-        markdownBody={markdownRemark.html}
         isCms={false}
+        markdownBody={markdownRemark.html}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
       />

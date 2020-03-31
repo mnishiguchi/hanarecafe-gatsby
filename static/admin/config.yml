@@ -12,16 +12,6 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'src/pages'
-    create: true
-    slug: '{{slug}}'
-    fields:
-      - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'simple-page' }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-
   - name: 'pages'
     label: 'Pages'
     files:
@@ -30,7 +20,6 @@ collections:
         file: 'src/pages/index.md'
         fields:
           - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'index-page' }
-          - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Main Background Image', name: 'mainBackgroundImage', widget: 'image' }
           - { label: 'Main Image', name: 'mainImage', widget: 'image' }
-          - { label: 'Related Links', name: 'relatedLinks', widget: 'string' }
+          - { label: 'Related Links', name: 'relatedLinks', widget: 'list' }
