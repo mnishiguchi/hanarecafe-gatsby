@@ -1,10 +1,9 @@
 import React, { Suspense } from 'react';
 import { Button, Menu, Header } from 'semantic-ui-react';
-import { Helmet } from 'react-helmet';
-import { withPrefix } from 'gatsby';
 import Media from 'react-media';
 import { useTranslation } from 'react-i18next';
 
+import AppHelmet from './AppHelmet';
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';
 import NavMenuItems from './NavMenuItems';
@@ -76,33 +75,9 @@ function DesktopTemplate({ children }) {
 }
 
 function Layout({ children }) {
-  const { t } = useTranslation();
-  const title = t('site.title');
-
-  /* prettier-ignore */
   return (
     <Suspense fallback="loading">
-      <Helmet>
-        <link rel="apple-touch-icon" sizes="57x57" href={`${withPrefix('/')}img/apple-icon-57x57.png`} />
-        <link rel="apple-touch-icon" sizes="60x60" href={`${withPrefix('/')}img/apple-icon-60x60.png`} />
-        <link rel="apple-touch-icon" sizes="72x72" href={`${withPrefix('/')}img/apple-icon-72x72.png`} />
-        <link rel="apple-touch-icon" sizes="76x76" href={`${withPrefix('/')}img/apple-icon-76x76.png`} />
-        <link rel="apple-touch-icon" sizes="114x114" href={`${withPrefix('/')}img/apple-icon-114x114.png`} />
-        <link rel="apple-touch-icon" sizes="120x120" href={`${withPrefix('/')}img/apple-icon-120x120.png`} />
-        <link rel="apple-touch-icon" sizes="144x144" href={`${withPrefix('/')}img/apple-icon-144x144.png`} />
-        <link rel="apple-touch-icon" sizes="152x152" href={`${withPrefix('/')}img/apple-icon-152x152.png`} />
-        <link rel="apple-touch-icon" sizes="180x180" href={`${withPrefix('/')}img/apple-icon-180x180.png`} />
-        <link rel="icon" type="image/png" sizes="192x192"  href={`${withPrefix('/')}img/android-icon-192x192.png`} />
-        <link rel="icon" type="image/png" sizes="32x32" href={`${withPrefix('/')}img/favicon-32x32.png`} />
-        <link rel="icon" type="image/png" sizes="96x96" href={`${withPrefix('/')}img/favicon-96x96.png`} />
-        <link rel="icon" type="image/png" sizes="16x16" href={`${withPrefix('/')}img/favicon-16x16.png`} />
-        <link rel="manifest" href={`${withPrefix('/')}img/manifest.json`} />
-        <meta name="theme-color" content="#00000" />
-        <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
-        <meta  property="og:image" content={`${withPrefix('/')}img/logo-512.jpg`} />
-      </Helmet>
+      <AppHelmet />
 
       <Media query={{ maxWidth: 991 }}>
         {(matches) =>

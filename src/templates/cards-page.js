@@ -5,7 +5,6 @@ import { Card, Grid, Message } from 'semantic-ui-react';
 import Media from 'react-media';
 import GatsbyImage from 'gatsby-image';
 
-import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
 import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
@@ -24,8 +23,6 @@ export function CardsPageTemplate({
 
   return (
     <AppContentContainer>
-      <PageHelmet />
-
       <section style={{ marginBottom: '2rem' }}>
         <h1>{pageTitle}</h1>
         <p>{pageDescription}</p>

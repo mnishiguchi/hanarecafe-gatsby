@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Message } from 'semantic-ui-react';
 
-import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
 import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
@@ -17,8 +16,6 @@ export function TimelinePageTemplate({ markdownBody, isCms = false }) {
 
   return (
     <AppContentContainer>
-      <PageHelmet />
-
       <section style={{ marginBottom: '2rem' }}>
         <h1>{pageTitle}</h1>
         <p>{pageDescription}</p>

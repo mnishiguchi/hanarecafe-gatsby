@@ -5,7 +5,6 @@ import { Message } from 'semantic-ui-react';
 import GatsbyImage from 'gatsby-image';
 import { useTranslation } from 'react-i18next';
 
-import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
 import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
@@ -25,8 +24,6 @@ export function MeetTheOwnerPageTemplate({
 
   return (
     <AppContentContainer>
-      <PageHelmet />
-
       <section style={{ marginBottom: '2rem' }}>
         <h1>{pageTitle}</h1>
         <p>{pageDescription}</p>

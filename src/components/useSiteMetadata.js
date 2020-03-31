@@ -9,17 +9,9 @@ import { getCurrentLanguage } from '../lib/i18nUtils';
 const useSiteMetadata = () => {
   const location = useLocation();
   const { t, i18n } = useTranslation();
-
-  // The data from translation.json
   const isHomePage = location.pathname === '/';
   const pageKey = removeLeadingSlash(location.pathname);
-  const siteAuthor = t('site.author');
-  const siteTitle = t(`site.title`);
-  const pageTitle = isHomePage ? null : t(`pages.${pageKey}.title`);
-  const pageDescription = t(`pages.${pageKey}.description`);
-  const lang = getCurrentLanguage(i18n);
 
-  // The data from gatsby-config.js
   const {
     site: { siteMetadata },
   } = useStaticQuery(
@@ -37,14 +29,16 @@ const useSiteMetadata = () => {
   );
 
   return {
+    // The data from gatsby-config.js
     ...siteMetadata,
-    pageKey,
-    isHomePage,
-    siteAuthor,
-    siteTitle,
-    pageTitle,
-    pageDescription,
-    lang,
+
+    // The data from translation.json
+    siteAuthor: t('site.author'),
+    siteTitle: t(`site.title`),
+    siteDescription: t(`site.description`),
+    pageTitle: isHomePage ? null : t(`pages.${pageKey}.title`),
+    pageDescription: isHomePage ? null : t(`pages.${pageKey}.description`),
+    lang: getCurrentLanguage(i18n),
   };
 };
 

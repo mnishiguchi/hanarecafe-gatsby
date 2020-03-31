@@ -17,7 +17,6 @@ import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
-import PageHelmet from '../components/PageHelmet';
 import MarkdownBody from '../components/MarkdownBody';
 import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
@@ -85,8 +84,6 @@ export function IndexPageTemplate({
 
   return (
     <>
-      <PageHelmet />
-
       <AppHero backgroundImageUrl={backgroundImageUrl} />
 
       <Container style={{ display: 'flex' }}>
