@@ -103,7 +103,15 @@
   },
   "contact-us": {
     "message": "Since we are a small bakery run by a couple, we may not be able to catch up in case of increased demand... For customers from outside the island, please check out our Facebook page or contact us for our status. Thank you for understanding.",
-    "no-english": "We do not speak English. That would be great if you can find a Japanese speaker before calling us."
+    "no-english": "We do not speak English. That would be great if you can find a Japanese speaker before calling us.",
+    "business-hours": {
+      "title": "Busines Hours",
+      "description": "9:00 - 18:00 * If all pastries sell out before close of business, store may close early."
+    },
+    "closed-on": {
+      "title": "Closed on",
+      "description": "Thursdays and Fridays"
+    }
   },
   "co-owners": {
     "atsushi": {

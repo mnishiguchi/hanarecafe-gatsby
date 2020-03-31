@@ -33,6 +33,21 @@ function AppFooter({ children }) {
           </Button>
 
           <Segment>
+            <List
+              items={[
+                {
+                  header: t('contact-us.business-hours.title'),
+                  description: t('contact-us.business-hours.description'),
+                },
+                {
+                  header: t('contact-us.closed-on.title'),
+                  description: t('contact-us.closed-on.description'),
+                },
+              ]}
+            />
+          </Segment>
+
+          <Segment>
             <p>{t('contact-us.message')}</p>
             <p>{t('contact-us.no-english')}</p>
           </Segment>

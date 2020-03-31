@@ -42,7 +42,7 @@ function AppHelmet({ meta = [] }) {
         { rel: 'manifest', href: `${withPrefix('/')}img/manifest.json` },
       ]}
       meta={[
-        { name: 'theme-color', content: '#00000' },
+        { name: 'theme-color', content: '#123' },
         { name: `description`, content: metaDescription },
         { property: `og:title`, content: metaTitle },
         { property: `og:description`, content: metaDescription },
