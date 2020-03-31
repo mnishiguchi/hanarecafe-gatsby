@@ -8,6 +8,7 @@ import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
 import useSiteMetadata from '../components/useSiteMetadata';
 
+// A template for generic pages with no translation.
 // Page title and description should be defined in the translation files.
 // The markdown content will be an additional content.
 export function SimplePageTemplate({

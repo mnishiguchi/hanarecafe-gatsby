@@ -44,17 +44,17 @@
     "meet-the-owner": {
       "title": "オーナー",
       "link-label": "オーナー",
-      "description": ""
+      "description": "元和食料理人のあつしと地元答志島出身で実家がワカメや牡蠣養殖を営むえりです。"
     },
     "timeline": {
-      "title": "Timeline",
-      "link-label": "Timeline",
-      "description": "Timeline"
+      "title": "タイムライン",
+      "link-label": "タイムライン",
+      "description": "タイムライン"
     },
     "404": {
-      "title": "Not found",
-      "link-label": "Not found",
-      "description": ""
+      "title": "Page Not Found",
+      "link-label": "Page Not Found",
+      "description": "We couldn't find what you were looking for."
     }
   },
   "headings": {
@@ -82,6 +82,24 @@
     "kintetsu-toba": "近鉄 鳥羽駅",
     "jr-toba": "JR参宮線 鳥羽駅",
     "satahama-parking": "佐田浜駐車場"
+  },
+  "products": {
+    "mekabu-loaf": {
+      "title": "めかぶ食パン",
+      "description": "桃取産めかぶの粉末が入っています。めかぶ特有の粘りが食パンをもっちりに。"
+    },
+    "wakame-shio": {
+      "title": "わかめ塩パン",
+      "description": "桃取産わかめ入り"
+    },
+    "sugar-butter": {
+      "title": "シュガーバター",
+      "description": "桃取産あおさ入り"
+    },
+    "oyster-gratin": {
+      "title": "牡蠣グラタン",
+      "description": "桃取産牡蠣入り"
+    }
   },
   "contact-us": {
     "message": "通常の土曜日、日曜日は店舗の連休明けということもあり、地元の方が朝からたくさん来ていただいて、開店１時間で残りが僅かになる事が稀にあります。小さな店舗で、小さなオーブンをフル回転させながら焼いてはおりますが、夫婦2人で全ての作業をしておりますので、焼き上げが追いつかない場合あります… 島外からのお客様につきましては、せっかく船を乗って起こしくださる中、パンが無い状態は申し訳なく思いますので、一度ご連絡頂くか、取り置きの連絡をくださいますようよろしくお願いしますm(_ _)m",

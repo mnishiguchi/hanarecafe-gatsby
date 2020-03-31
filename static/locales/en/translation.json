@@ -44,17 +44,17 @@
     "meet-the-owner": {
       "title": "Meet the Owner",
       "link-label": "Meet the Owner",
-      "description": ""
+      "description": "Our co-owners are Atsushi who is an experienced shef and Eri who is native to Toshijima"
     },
     "timeline": {
-      "title": "",
-      "link-label": "",
-      "description": ""
+      "title": "Timeline",
+      "link-label": "Timeline",
+      "description": "Timeline"
     },
     "404": {
-      "title": "Not found",
-      "link-label": "Not found",
-      "description": ""
+      "title": "Page Not Found",
+      "link-label": "Page Not Found",
+      "description": "We couldn't find what you were looking for."
     }
   },
   "headings": {
@@ -82,6 +82,24 @@
     "kintetsu-toba": "Kintetsu Railway Toba Station",
     "jr-toba": "Japan Railway Toba Station",
     "satahama-parking": "Satahama Parking"
+  },
+  "products": {
+    "mekabu-loaf": {
+      "title": "Mekabu Loaf",
+      "description": "Nutritious mekabu powder is blended in the dough, which gives the loaf unique texture and flavor."
+    },
+    "wakame-shio": {
+      "title": "Wakame Shio Roll",
+      "description": "Contains locally-produced wakame"
+    },
+    "sugar-butter": {
+      "title": "Sugar Butter Roll",
+      "description": "Contains locally-produced aosa"
+    },
+    "oyster-gratin": {
+      "title": "Oyster Gratin",
+      "description": "Contains locally-produced oysters"
+    }
   },
   "contact-us": {
     "message": "Since we are a small bakery run by a couple, we may not be able to catch up in case of increased demand... For customers from outside the island, please check out our Facebook page or contact us for our status. Thank you for understanding.",

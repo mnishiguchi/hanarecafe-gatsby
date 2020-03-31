@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from '@reach/router';
 
-import { removeLeadingSlash } from '../lib/locationUtils';
+import { pathToPageKey } from '../lib/locationUtils';
 import { getCurrentLanguage } from '../lib/i18nUtils';
 
 // A custom react hook that gather site meta data from our config file and translation file.
@@ -10,7 +10,7 @@ const useSiteMetadata = () => {
   const location = useLocation();
   const { t, i18n } = useTranslation();
   const isHomePage = location.pathname === '/';
-  const pageKey = removeLeadingSlash(location.pathname);
+  const pageKey = pathToPageKey(location.pathname);
 
   const {
     site: { siteMetadata },
