@@ -6,7 +6,8 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS();
   return data ? (
     <IndexPageTemplate
-      content={data.content}
+      markdownBody={data.markdownBody}
+      isCms={true}
       mainBackgroundImage={data.mainBackgroundImage}
       mainImage={data.mainImage}
       relatedLinks={data.relatedLinks}

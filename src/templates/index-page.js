@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
 import PageHelmet from '../components/PageHelmet';
+import MarkdownBody from '../components/MarkdownBody';
 import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
@@ -69,8 +70,10 @@ function SeparatorWithBackgroundImage({
   );
 }
 
+// Used for the website and the CMS.
 export function IndexPageTemplate({
-  content,
+  markdownBody,
+  isCms = false,
   mainBackgroundImage,
   mainImage,
   relatedLinks,
@@ -89,12 +92,7 @@ export function IndexPageTemplate({
       <Container style={{ display: 'flex' }}>
         <div>
           <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
-            {content && (
-              <div
-                dangerouslySetInnerHTML={{ __html: content }}
-                style={{ marginBottom: '1.5rem' }}
-              />
-            )}
+            <MarkdownBody markdownBody={markdownBody} isCms={isCms} />
 
             {/* For mobile, show the link to Facebook timeline page. */}
             <Media
@@ -185,8 +183,8 @@ export function IndexPageTemplate({
 }
 
 IndexPageTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
+  markdownBody: PropTypes.node.isRequired,
+  isCms: PropTypes.bool.isRequired,
   mainBackgroundImage: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.string,
@@ -195,11 +193,13 @@ IndexPageTemplate.propTypes = {
   relatedLinks: PropTypes.array,
 };
 
+// Used for the website.
 function IndexPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <IndexPageTemplate
-        content={markdownRemark.html}
+        markdownBody={markdownRemark.html}
+        isCms={false}
         mainBackgroundImage={markdownRemark.frontmatter.mainBackgroundImage}
         mainImage={markdownRemark.frontmatter.mainImage}
         relatedLinks={markdownRemark.frontmatter.relatedLinks}

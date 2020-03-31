@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
+import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
 import useSiteMetadata from '../components/useSiteMetadata';
 import { getCurrentLanguage } from '../lib/i18nUtils';
@@ -14,7 +15,8 @@ import { getCurrentLanguage } from '../lib/i18nUtils';
 // Page title and description should be defined in the translation files.
 // The markdown content will be an info message.
 export function MeetTheOwnerPageTemplate({
-  content,
+  markdownBody,
+  isCms = false,
   mainImage,
   mainImageActive,
 }) {
@@ -28,9 +30,9 @@ export function MeetTheOwnerPageTemplate({
       <section style={{ marginBottom: '2rem' }}>
         <h1>{pageTitle}</h1>
         <p>{pageDescription}</p>
-        {content && (
+        {markdownBody && (
           <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <MarkdownBody markdownBody={markdownBody} isCms={isCms} />
           </Message>
         )}
       </section>
@@ -58,7 +60,8 @@ export function MeetTheOwnerPageTemplate({
 }
 
 MeetTheOwnerPageTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
+  markdownBody: PropTypes.node.isRequired,
+  isCms: PropTypes.bool.isRequired,
   mainImage: PropTypes.string,
   mainImageActive: PropTypes.bool,
 };
@@ -67,7 +70,8 @@ function MeetTheOwnerPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <MeetTheOwnerPageTemplate
-        content={markdownRemark.html}
+        markdownBody={markdownRemark.html}
+        isCms={false}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
       />

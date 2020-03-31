@@ -7,13 +7,15 @@ import GatsbyImage from 'gatsby-image';
 
 import PageHelmet from '../components/PageHelmet';
 import Layout from '../components/Layout';
+import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
 import useSiteMetadata from '../components/useSiteMetadata';
 
 // Page title and description should be defined in the translation files.
 // The markdown content will be an info message.
 export function CardsPageTemplate({
-  content,
+  markdownBody,
+  isCms = false,
   mainImage,
   mainImageActive,
   cards = [],
@@ -27,9 +29,9 @@ export function CardsPageTemplate({
       <section style={{ marginBottom: '2rem' }}>
         <h1>{pageTitle}</h1>
         <p>{pageDescription}</p>
-        {content && (
+        {markdownBody && (
           <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
-            <div dangerouslySetInnerHTML={{ __html: content }} />
+            <MarkdownBody markdownBody={markdownBody} isCms={isCms} />
           </Message>
         )}
         {mainImageActive && (
@@ -84,7 +86,8 @@ export function CardsPageTemplate({
 }
 
 CardsPageTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
+  markdownBody: PropTypes.node.isRequired,
+  isCms: PropTypes.bool.isRequired,
   mainImage: PropTypes.string,
   mainImageActive: PropTypes.bool,
   cards: PropTypes.array,
@@ -94,7 +97,8 @@ function CardsPage({ data: { markdownRemark } }) {
   return (
     <Layout>
       <CardsPageTemplate
-        content={markdownRemark.html}
+        markdownBody={markdownRemark.html}
+        isCms={false}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
         cards={markdownRemark.frontmatter.cards}
