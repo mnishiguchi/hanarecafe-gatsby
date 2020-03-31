@@ -4,14 +4,14 @@
   "version": "0.1.0",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
+    "develop": "netlify dev",
+    "deploy-draft": "netlify deploy",
+    "deploy-prod": "netlify deploy --prod",
     "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
     "gatsby": "^2.20.9",
     "gatsby-image": "^2.3.1",
