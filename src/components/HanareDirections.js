@@ -74,7 +74,7 @@ function StepsFromMarineTerminal() {
       <Step style={{ padding: '0 0 0 0.6rem' }}>
         <Step.Content>
           <GatsbyImage
-            fluid={data.logoImage.childImageSharp.fixed}
+            fixed={data.logoImage.childImageSharp.fixed}
             style={{ height: '88px', width: '88px' }}
           />
         </Step.Content>

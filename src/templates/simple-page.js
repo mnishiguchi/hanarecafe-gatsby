@@ -36,7 +36,7 @@ export function SimplePageTemplate({
 SimplePageTemplate.propTypes = {
   isCms: PropTypes.bool.isRequired,
   markdownBody: PropTypes.node.isRequired,
-  mainImage: PropTypes.string,
+  mainImage: PropTypes.object,
   mainImageActive: PropTypes.bool,
 };
 

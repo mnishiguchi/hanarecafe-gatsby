@@ -17,6 +17,7 @@ export function PastriesPageTemplate({
   isCms = false,
   mainImage,
   mainImageActive,
+  items = [],
 }) {
   const { pageTitle, pageDescription } = useSiteMetadata();
 
@@ -38,7 +39,7 @@ export function PastriesPageTemplate({
         )}
       </section>
 
-      <HanarePastries />
+      <HanarePastries items={items} />
     </AppContentContainer>
   );
 }
@@ -46,8 +47,9 @@ export function PastriesPageTemplate({
 PastriesPageTemplate.propTypes = {
   isCms: PropTypes.bool.isRequired,
   markdownBody: PropTypes.node.isRequired,
-  mainImage: PropTypes.string,
+  mainImage: PropTypes.object,
   mainImageActive: PropTypes.bool,
+  items: PropTypes.array,
 };
 
 function PastriesPage({ data: { markdownRemark } }) {
@@ -58,6 +60,7 @@ function PastriesPage({ data: { markdownRemark } }) {
         markdownBody={markdownRemark.html}
         mainImage={markdownRemark.frontmatter.mainImage}
         mainImageActive={markdownRemark.frontmatter.mainImageActive}
+        items={markdownRemark.frontmatter.items}
       />
     </Layout>
   );
@@ -85,6 +88,16 @@ export const pageQuery = graphql`
           }
         }
         mainImageActive
+        items {
+          translationKey
+          image {
+            childImageSharp {
+              fluid(maxWidth: 600, quality: 64) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }

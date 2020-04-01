@@ -34,16 +34,13 @@ function AppFooter({ children }) {
 
           <Segment>
             <List
-              items={[
-                {
-                  header: t('contact-us.business-hours.title'),
-                  description: t('contact-us.business-hours.description'),
-                },
-                {
-                  header: t('contact-us.closed-on.title'),
-                  description: t('contact-us.closed-on.description'),
-                },
-              ]}
+              items={['contact-us.business-hours', 'contact-us.closed-on'].map(
+                (translationKey) => ({
+                  key: translationKey,
+                  header: t(`${translationKey}.title`),
+                  description: t(`${translationKey}.description`),
+                })
+              )}
             />
           </Segment>
 

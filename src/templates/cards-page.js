@@ -87,7 +87,7 @@
 // CardsPageTemplate.propTypes = {
 //   markdownBody: PropTypes.node.isRequired,
 //   isCms: PropTypes.bool.isRequired,
-//   mainImage: PropTypes.string,
+//   mainImage: PropTypes.object,
 //   mainImageActive: PropTypes.bool,
 //   cards: PropTypes.array,
 // };
