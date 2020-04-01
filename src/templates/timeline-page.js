@@ -16,7 +16,7 @@ export function TimelinePageTemplate({ markdownBody, isCms = false }) {
 
   return (
     <AppContentContainer>
-      <section style={{ marginBottom: '2rem' }}>
+      <section style={{ marginBottom: '2rem', textAlign: 'center' }}>
         <h1>{pageTitle}</h1>
         <p>{pageDescription}</p>
         {markdownBody && (
