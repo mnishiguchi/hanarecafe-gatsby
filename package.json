@@ -9,10 +9,10 @@
     "deploy-prod": "netlify deploy --prod",
     "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
-    "gatsby": "^2.20.9",
+    "gatsby": "^2.20.10",
     "gatsby-image": "^2.3.1",
     "gatsby-plugin-advanced-sitemap": "^1.5.2",
     "gatsby-plugin-google-analytics": "^2.2.2",
@@ -34,7 +34,7 @@
     "gatsby-transformer-sharp": "^2.4.3",
     "i18next": "^19.3.4",
     "i18next-browser-languagedetector": "^4.0.2",
-    "netlify-cms-app": "^2.12.1",
+    "netlify-cms-app": "^2.12.3",
     "netlify-cms-media-library-cloudinary": "^1.3.4",
     "netlify-cms-media-library-uploadcare": "^0.5.5",
     "node-sass": "^4.13.1",
@@ -49,6 +49,13 @@
     "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.3.0",
+    "@testing-library/react": "^10.0.2",
+    "@testing-library/user-event": "^10.0.1",
+    "babel-jest": "^25.2.4",
+    "babel-preset-gatsby": "^0.3.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.2.4",
     "netlify-cli": "^2.40.0",
     "prettier": "^2.0.2"
   }
