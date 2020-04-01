@@ -1,6 +1,9 @@
+const siteUrl = `http://lvh.me:8000`;
+
 module.exports = {
   siteMetadata: {
-    siteUrl: process.env.SITE_URL,
+    // Some plugins fetch this through graphql.
+    siteUrl,
     gmap:
       'https://www.google.com/maps/place/%E5%B3%B6%E3%81%AE%E3%83%91%E3%83%B3%E5%AE%B6+%E3%80%9Chanare%E3%80%9C/@34.5152711,136.7133898,11z',
     facebook:
@@ -10,7 +13,7 @@ module.exports = {
   },
   plugins: [
     {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
+      // For gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'uploads',
@@ -67,29 +70,28 @@ module.exports = {
     {
       resolve: `gatsby-plugin-react-helmet-canonical-urls`,
       options: {
-        siteUrl: process.env.SITE_URL,
+        siteUrl,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `島のパン家 〜HaNaRe〜`,
-        short_name: `hanarecafe`,
+        short_name: `hanarecafe.com`,
         start_url: `/`,
         background_color: `#123`,
         theme_color: `#123`,
         display: `standalone`,
       },
     },
-    `gatsby-plugin-advanced-sitemap`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-offline`,
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: process.env.GA_TRACKING_ID,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `YOUR_GOOGLE_ANALYTICS_TRACKING_ID`,
+      },
+    },
     {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {

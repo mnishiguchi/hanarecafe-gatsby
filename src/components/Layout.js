@@ -76,7 +76,7 @@ function DesktopTemplate({ children }) {
 
 function Layout({ children }) {
   return (
-    <Suspense fallback="loading">
+    <>
       <AppHelmet />
 
       <Media query={{ maxWidth: 991 }}>
@@ -90,7 +90,7 @@ function Layout({ children }) {
       </Media>
 
       <AppFooter />
-    </Suspense>
+    </>
   );
 }
 

@@ -23,7 +23,6 @@ import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
-import { getCurrentLanguage } from '../lib/i18nUtils';
 
 function SeparatorWithBackgroundImage({
   backgroundImageUrl,
@@ -91,7 +90,7 @@ export function IndexPageTemplate({
             style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
           >
             {/* Inline custom styles for Japanese language only. */}
-            {getCurrentLanguage(i18n) === 'ja' ? (
+            {i18n.language === 'ja' ? (
               <>
                 絶景観光スポット
                 <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">

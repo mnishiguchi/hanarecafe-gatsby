@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from '@reach/router';
 
 import { pathToPageKey } from '../lib/locationUtils';
-import { getCurrentLanguage } from '../lib/i18nUtils';
 
 // A custom react hook that gather site meta data from our config file and translation file.
 const useSiteMetadata = () => {
@@ -38,7 +37,7 @@ const useSiteMetadata = () => {
     siteDescription: t(`site.description`),
     pageTitle: isHomePage ? null : t(`pages.${pageKey}.title`),
     pageDescription: isHomePage ? null : t(`pages.${pageKey}.description`),
-    lang: getCurrentLanguage(i18n),
+    lang: i18n.language,
   };
 };
 

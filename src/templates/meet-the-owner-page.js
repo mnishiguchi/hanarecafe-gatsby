@@ -9,7 +9,6 @@ import Layout from '../components/Layout';
 import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
 import useSiteMetadata from '../components/useSiteMetadata';
-import { getCurrentLanguage } from '../lib/i18nUtils';
 
 // Page title and description should be defined in the translation files.
 // The markdown content will be an info message.
@@ -42,7 +41,7 @@ export function MeetTheOwnerPageTemplate({
 
       <p>{t(`co-owners.atsushi.description`)}</p>
 
-      {getCurrentLanguage(i18n) === 'ja' && (
+      {i18n.language === 'ja' && (
         <a href="http://www.nijinet.or.jp/publishing/shima/bn/tabid/219/Default.aspx">
           徳本篤司（2018）「妻の故郷、漁業の島でパン屋を経営（三重県答志島）」、『季刊しま』254
           号、公益財団法人 日本離島センター

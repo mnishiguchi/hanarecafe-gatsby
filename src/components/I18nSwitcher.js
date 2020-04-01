@@ -2,13 +2,11 @@ import React from 'react';
 import { Flag } from 'semantic-ui-react';
 import { useTranslation } from 'react-i18next';
 
-import { getCurrentLanguage } from '../lib/i18nUtils';
-
 function I18nSwitcher({ children }) {
   const { i18n } = useTranslation();
   const changeLanguage = (code) => i18n.changeLanguage(code);
 
-  const isActive = (language) => getCurrentLanguage(i18n) === language;
+  const isActive = (language) => i18n.language === language;
   const buttonStyle = (language) => ({
     background: isActive(language) ? '#888' : 'inherit',
     padding: '2px 2px 2px 10px',
