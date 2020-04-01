@@ -65,7 +65,7 @@ function DesktopTemplate({ children }) {
     <div style={{ minHeight: '80vh' }}>
       <AppHeader />
 
-      <div className="spacer" style={{ height: '44px' }}></div>
+      <div className="spacer" style={{ height: '50px' }}></div>
 
       {children}
     </div>

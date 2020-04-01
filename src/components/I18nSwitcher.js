@@ -1,40 +1,24 @@
 import React from 'react';
-import { Flag } from 'semantic-ui-react';
 import { useTranslation } from 'react-i18next';
+import { Icon } from 'semantic-ui-react';
 
 function I18nSwitcher({ children }) {
   const { i18n } = useTranslation();
-  const changeLanguage = (code) => i18n.changeLanguage(code);
+  const handleChange = (event) => i18n.changeLanguage(event.target.value);
 
-  const isActive = (language) => i18n.language === language;
-  const buttonStyle = (language) => ({
-    background: isActive(language) ? '#888' : 'inherit',
-    padding: '2px 2px 2px 10px',
-  });
-
+  /* eslint-disable jsx-a11y/no-onchange */
   return (
-    <>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          changeLanguage('ja');
-        }}
-        style={buttonStyle('ja')}
+    <label>
+      <Icon name="language" size="big" />
+      <select
+        defaultValue={i18n.language}
+        onChange={handleChange}
+        style={{ height: `24px`, borderColor: `transparent`, outline: `none` }}
       >
-        <Flag name="jp" />
-      </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          changeLanguage('en');
-        }}
-        style={buttonStyle('en')}
-      >
-        <Flag name="us" />
-      </button>
-    </>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+      </select>
+    </label>
   );
 }
 

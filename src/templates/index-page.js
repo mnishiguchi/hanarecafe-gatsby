@@ -75,24 +75,28 @@ export function IndexPageTemplate({
             textAlign="left"
             style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
           >
-            <p>
-              {/* Inline custom styles for Japanese language only. */}
-              {i18n.language === 'ja' ? (
-                <>
-                  絶景観光スポット
-                  <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
-                    答志島
-                  </OutboundLink>
-                  にある
-                  <br />
-                  地元食材を使用した
-                  <br />
-                  焼きたて創作パンのお店です。
-                </>
-              ) : (
-                t('site.description')
-              )}
-            </p>
+            {/* Inline custom styles for Japanese language only. */}
+            {i18n.language === 'ja' ? (
+              <p>
+                絶景観光スポット
+                <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
+                  答志島
+                </OutboundLink>
+                にある
+                <br />
+                地元食材を使用した
+                <br />
+                焼きたて創作パンのお店です。
+              </p>
+            ) : (
+              <p>
+                {t('site.description')}
+                <br/>
+                <OutboundLink href="https://en.wikipedia.org/wiki/T%C5%8Dshijima">
+                  Tōshijima - Wikipedia
+                </OutboundLink>
+              </p>
+            )}
 
             {/* For mobile, show the link to Facebook timeline page. */}
             <Media
