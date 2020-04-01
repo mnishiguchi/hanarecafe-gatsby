@@ -11,8 +11,6 @@ import NavLink from './NavLink';
 import SocialButtons from './SocialButtons';
 import I18nSwitcher from './I18nSwitcher';
 
-import '../i18n';
-
 function MobileTemplate({ children }) {
   const { t } = useTranslation();
 

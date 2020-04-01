@@ -1,4 +1,3 @@
-// Adopted from https://react.i18next.com/latest/using-with-hooks#configure-i-18-next
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -17,7 +16,6 @@ i18next
     debug: process.env.NODE_ENV !== 'production',
     resources: { en: { translation: en }, ja: { translation: ja } },
     // https://www.i18next.com/overview/api#languages
-    lng: 'ja',
     whitelist: ['en', 'ja'],
     fallbackLng: 'ja',
     interpolation: {

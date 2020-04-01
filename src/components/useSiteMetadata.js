@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from '@reach/router';
 
-import { pathToPageKey } from '../lib/locationUtils';
+import { pathToPageKey } from '../lib/utils';
 
 // A custom react hook that gather site meta data from our config file and translation file.
 const useSiteMetadata = () => {
