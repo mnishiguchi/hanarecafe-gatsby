@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Button, Menu, Header } from 'semantic-ui-react';
 import Media from 'react-media';
 import { useTranslation } from 'react-i18next';

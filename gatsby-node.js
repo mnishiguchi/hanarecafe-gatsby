@@ -27,26 +27,24 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
-
-    posts.forEach((edge) => {
-      const id = edge.node.id;
-      createPage({
-        path: edge.node.fields.slug,
-        component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
-        ),
-        // additional data can be passed via context
-        context: {
-          id,
-        },
-      });
-    });
+    result.data.allMarkdownRemark.edges.forEach(
+      ({ node: { id, fields, frontmatter } }) => {
+        createPage({
+          path: fields.slug,
+          component: path.resolve(
+            `src/templates/${String(frontmatter.templateKey)}.js`
+          ),
+          // additional data can be passed via context
+          context: {
+            id,
+          },
+        });
+      }
+    );
   });
 };
 
-exports.onCreateNode = (args) => {
-  const { node, actions, getNode } = args;
+exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
   fmImagesToRelative(node); // convert image paths for gatsby images
 

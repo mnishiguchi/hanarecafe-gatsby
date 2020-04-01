@@ -1,4 +1,4 @@
-const siteUrl = `http://lvh.me:8000`;
+const siteUrl = `https://hanarecare.netlify.com`;
 
 module.exports = {
   siteMetadata: {
