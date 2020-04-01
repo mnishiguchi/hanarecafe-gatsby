@@ -24,5 +24,3 @@ items:
   - image: /img/hanare-sandwich.jpg
     translationKey:
 ---
-
-三重県産小麦 100%の強力粉『ニシノカオリ』を使用しています。

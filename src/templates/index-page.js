@@ -12,7 +12,6 @@ import {
 } from 'semantic-ui-react';
 import Media from 'react-media';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import GatsbyImage from 'gatsby-image';
 import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
@@ -23,6 +22,7 @@ import FacebookTimeline from '../components/FacebookTimeline';
 import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 
 function SeparatorWithBackgroundImage({
   backgroundImageUrl,
@@ -63,8 +63,36 @@ export function IndexPageTemplate({
 
       <Container style={{ display: 'flex' }}>
         <div>
-          <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
-            <MarkdownBody markdownBody={markdownBody} isCms={isCms} />
+          {markdownBody && (
+            <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
+              <MarkdownBody markdownBody={markdownBody} isCms={isCms} />
+            </Message>
+          )}
+
+          <Segment
+            padded
+            vertical
+            textAlign="left"
+            style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
+          >
+            <p>
+              {/* Inline custom styles for Japanese language only. */}
+              {i18n.language === 'ja' ? (
+                <>
+                  絶景観光スポット
+                  <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
+                    答志島
+                  </OutboundLink>
+                  にある
+                  <br />
+                  地元食材を使用した
+                  <br />
+                  焼きたて創作パンのお店です。
+                </>
+              ) : (
+                t('site.description')
+              )}
+            </p>
 
             {/* For mobile, show the link to Facebook timeline page. */}
             <Media
@@ -82,31 +110,9 @@ export function IndexPageTemplate({
                 </Button>
               )}
             />
-          </Message>
-          <Segment
-            padded
-            vertical
-            textAlign="left"
-            style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
-          >
-            {/* Inline custom styles for Japanese language only. */}
-            {i18n.language === 'ja' ? (
-              <>
-                絶景観光スポット
-                <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
-                  答志島
-                </OutboundLink>
-                にある
-                <br />
-                地元食材を使用した
-                <br />
-                焼きたて創作パンのお店です。
-              </>
-            ) : (
-              t('site.description')
-            )}
           </Segment>
-          <GatsbyImage fluid={mainImage.childImageSharp.fluid} />
+
+          <PreviewCompatibleImage image={mainImage} />
           <HanareIntroVideo />
           <Segment padded="very" vertical>
             <Header as="h2">{t('headings.services')}</Header>
@@ -119,22 +125,24 @@ export function IndexPageTemplate({
             <Header as="h2">{t('headings.directions')}</Header>
             <HanareDirections />
           </Segment>
-          <SeparatorWithBackgroundImage
-            backgroundImageUrl={backgroundImageUrl}
-          />
           {relatedLinks.length > 0 && (
-            <Segment padded="very" vertical>
-              <Header as="h2">{t('headings.links')}</Header>
-              <List>
-                {relatedLinks.map((relatedLink, i) => (
-                  <List.Item key={i}>
-                    <OutboundLink href={relatedLink.href}>
-                      {relatedLink.title}
-                    </OutboundLink>
-                  </List.Item>
-                ))}
-              </List>
-            </Segment>
+            <>
+              <SeparatorWithBackgroundImage
+                backgroundImageUrl={backgroundImageUrl}
+              />
+              <Segment padded="very" vertical>
+                <Header as="h2">{t('headings.links')}</Header>
+                <List>
+                  {relatedLinks.map((relatedLink, i) => (
+                    <List.Item key={i}>
+                      <OutboundLink href={relatedLink.href}>
+                        {relatedLink.title}
+                      </OutboundLink>
+                    </List.Item>
+                  ))}
+                </List>
+              </Segment>
+            </>
           )}
         </div>
 

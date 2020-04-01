@@ -11,15 +11,18 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+# https://www.netlifycms.org/docs/collection-types/
 collections:
-  - name: 'pages'
-    label: 'Pages'
+  # File collections
+  - label: 'Pages'
+    name: 'pages'
     files:
-      - name: 'index'
-        label: 'Landing Page'
+      - label: 'Landing Page'
+        name: 'index'
         file: 'src/pages/index.md'
         fields:
           - { label: 'Template Key', name: 'templateKey', widget: 'hidden', default: 'index-page' }
           - { label: 'Main Background Image', name: 'mainBackgroundImage', widget: 'image' }
           - { label: 'Main Image', name: 'mainImage', widget: 'image' }
-          - { label: 'Related Links', name: 'relatedLinks', widget: 'list' }
+          - { label: 'Related Links', name: 'relatedLinks', widget: 'list', fields: [{label: title, name: title, widget: string}, {label: href, name: href, widget: string}] }
+          - { label: 'Markdown Body', name: 'markdownBody', widget: 'markdown' }

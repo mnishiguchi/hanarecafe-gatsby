@@ -4,13 +4,16 @@ import { IndexPageTemplate } from '../../templates/index-page';
 
 const IndexPagePreview = ({ entry, widgetFor, getAsset }) => {
   const data = entry.getIn(['data']).toJS();
+  const entryRelatedLinks = entry.getIn(['data', 'intro', 'relatedLinks']);
+  const relatedLinks = entryRelatedLinks ? entryRelatedLinks.toJS() : [];
+
   return data ? (
     <IndexPageTemplate
       isCms
-      markdownBody={data.markdownBody}
       mainBackgroundImage={getAsset(data.mainBackgroundImage)}
       mainImage={getAsset(data.mainImage)}
-      relatedLinks={data.relatedLinks}
+      relatedLinks={relatedLinks}
+      markdownBody={widgetFor('markdownBody')}
     />
   ) : (
     <div>Loading...</div>
