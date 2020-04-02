@@ -28,7 +28,7 @@ function MobileTemplate({ children }) {
         </span>
 
         <nav className="menuItems">
-          <Menu secondary vertical>
+          <Menu secondary vertical size="large" fluid>
             <Menu.Item
               as={NavLink}
               to={'/'}
@@ -37,7 +37,9 @@ function MobileTemplate({ children }) {
 
             <NavMenuItems />
 
-            <I18nSwitcher />
+            <Menu.Item>
+              <I18nSwitcher />
+            </Menu.Item>
 
             <Menu.Item>
               <SocialButtons />

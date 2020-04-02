@@ -10,8 +10,9 @@ const NavLink = (props) => (
       return {
         disabled: isCurrent,
         style: {
-          color: isCurrent ? '#ccc' : 'inherit',
-          cursor: isCurrent ? 'none' : 'pointer',
+          color: isCurrent ? '#999' : 'inherit',
+          cursor: isCurrent ? 'initial' : 'pointer',
+          textDecoration: isCurrent ? 'underline' : '',
         },
       };
     }}

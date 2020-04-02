@@ -74,12 +74,12 @@ label.FullscreenMenu {
     z-index: 200;
     position: absolute;
     // Magic numbers that position the menus in the center.
-    top: 15vh;
-    left: 25vw;
+    top: 4rem;
+    left: 0;
     display: none;
     text-align: center;
-    width: auto;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
   }
 
   a {

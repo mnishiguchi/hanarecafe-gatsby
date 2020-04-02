@@ -28,6 +28,7 @@ function AppHeader({ children }) {
             to={'/'}
             content={t('pages.home.link-label')}
           />
+
           <NavMenuItems />
 
           <Menu.Menu position="right">

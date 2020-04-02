@@ -81,7 +81,7 @@ function AppFooter({ children }) {
                 <List.Item>
                   © {new Date().getFullYear()} {title}
                 </List.Item>
-                <List.Item>
+                <List.Item as="small">
                   <span
                     style={{
                       marginRight: '0.4rem',
