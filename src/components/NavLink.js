@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from '@reach/router';
+
+import I18nLink from './I18nLink';
 
 const NavLink = (props) => (
-  <Link
+  <I18nLink
     {...props}
     getProps={({ isCurrent }) => {
       // the object returned here is passed to the anchor element's props

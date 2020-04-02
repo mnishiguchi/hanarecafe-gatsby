@@ -3,6 +3,10 @@ import { Button, Menu, Header } from 'semantic-ui-react';
 import Media from 'react-media';
 import { useTranslation } from 'react-i18next';
 
+// Initialize i18next
+// https://www.i18next.com/overview/api#init
+import '../i18n';
+
 import AppHelmet from './AppHelmet';
 import AppHeader from './AppHeader';
 import AppFooter from './AppFooter';

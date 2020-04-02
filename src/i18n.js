@@ -15,15 +15,18 @@ i18next
   .init({
     debug: process.env.NODE_ENV !== 'production',
     resources: { en: { translation: en }, ja: { translation: ja } },
-    // https://www.i18next.com/overview/api#languages
-    whitelist: ['en', 'ja'],
+    lang: 'ja',
+    whitelist: ['ja', 'en'],
     fallbackLng: 'ja',
     interpolation: {
       escapeValue: false, // not needed for react!!
     },
     react: {
-      // https://github.com/i18next/react-i18next/issues/766
-      useSuspense: false,
+      useSuspense: false, // https://github.com/i18next/react-i18next/issues/766
+    },
+    detection: {
+      order: ['path'],
+      caches: [],
     },
   });
 

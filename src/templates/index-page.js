@@ -12,7 +12,6 @@ import {
 } from 'semantic-ui-react';
 import Media from 'react-media';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
-import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import Layout from '../components/Layout';
@@ -23,6 +22,7 @@ import HanareDirections from '../components/HanareDirections';
 import HanareIntroVideo from '../components/HanareIntroVideo';
 import HanareServiceList from '../components/HanareServiceList';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import I18nLink from '../components/I18nLink';
 
 function SeparatorWithBackgroundImage({
   backgroundImageUrl,
@@ -91,7 +91,7 @@ export function IndexPageTemplate({
             ) : (
               <p>
                 {t('site.description')}
-                <br/>
+                <br />
                 <OutboundLink href="https://en.wikipedia.org/wiki/T%C5%8Dshijima">
                   Tōshijima - Wikipedia
                 </OutboundLink>
@@ -106,7 +106,7 @@ export function IndexPageTemplate({
                   primary
                   icon
                   labelPosition="right"
-                  as={Link}
+                  as={I18nLink}
                   to="/timeline"
                 >
                   <Icon name="angle right" />
@@ -204,6 +204,9 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       html
+      fields {
+        langKey
+      }
       frontmatter {
         mainBackgroundImage {
           childImageSharp {

@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
+import I18nLink from './I18nLink';
 import logoSvg from '../img/logo-horizontal.svg';
 
 const LogoLink = ({ width = '200', height = '' }) => (
-  <Link to={'/'}>
+  <I18nLink to={'/'}>
     <img src={logoSvg} alt="logo" width={width} height={height} />
-  </Link>
+  </I18nLink>
 );
 
 export default LogoLink;

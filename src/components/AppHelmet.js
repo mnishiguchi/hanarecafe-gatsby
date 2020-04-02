@@ -4,7 +4,7 @@ import { withPrefix } from 'gatsby';
 
 import useSiteMetadata from '../components/useSiteMetadata';
 
-function AppHelmet({ meta = [] }) {
+function AppHelmet() {
   const {
     siteAuthor,
     siteTitle,
@@ -53,7 +53,7 @@ function AppHelmet({ meta = [] }) {
         { name: `twitter:creator`, content: siteAuthor },
         { name: `twitter:title`, content: metaTitle },
         { name: `twitter:description`, content: metaDescription },
-      ].concat(meta)}
+      ]}
     />
   );
 }

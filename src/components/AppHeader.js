@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Menu, Segment } from 'semantic-ui-react';
-import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 
 import NavMenuItems from './NavMenuItems';
 import SocialButtons from './SocialButtons';
 import I18nSwitcher from './I18nSwitcher';
+import I18nLink from './I18nLink';
 
 function AppHeader({ children }) {
   const { t } = useTranslation();
@@ -23,7 +23,11 @@ function AppHeader({ children }) {
     >
       <Container>
         <Menu secondary>
-          <Menu.Item as={Link} to={'/'} content={t('pages.home.link-label')} />
+          <Menu.Item
+            as={I18nLink}
+            to={'/'}
+            content={t('pages.home.link-label')}
+          />
           <NavMenuItems />
 
           <Menu.Menu position="right">

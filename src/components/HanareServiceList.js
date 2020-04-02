@@ -1,8 +1,9 @@
 import React from 'react';
 import { Grid, Icon, Item } from 'semantic-ui-react';
 import Media from 'react-media';
-import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
+
+import I18nLink from './I18nLink';
 
 const getServices = (t) => [
   {
@@ -49,10 +50,10 @@ function HanareServiceList() {
                     </Item.Header>
                     <Item.Meta>
                       {description}{' '}
-                      <Link as={Link} to={to}>
+                      <I18nLink to={to}>
                         {t('words.details')}
                         <Icon name="angle double right" />
-                      </Link>
+                      </I18nLink>
                     </Item.Meta>
                   </Item.Content>
                 </Item>

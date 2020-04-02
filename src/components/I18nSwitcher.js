@@ -1,10 +1,32 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Icon } from 'semantic-ui-react';
+import { navigate } from 'gatsby';
 
-function I18nSwitcher({ children }) {
+import * as utils from '../lib/utils';
+
+function I18nSwitcher() {
   const { i18n } = useTranslation();
-  const handleChange = (event) => i18n.changeLanguage(event.target.value);
+
+  const handleChange = React.useCallback(
+    (event) => {
+      const supportedLanguages = i18n.options.whitelist;
+      const defaultLanguage = i18n.options.lang;
+      const currentPath = utils.getCurrentPath();
+      const pageSegment = utils.pathToDefaultForm(
+        currentPath,
+        supportedLanguages
+      );
+      const langKey = event.target.value;
+      const nextPath =
+        !langKey || langKey === defaultLanguage
+          ? pageSegment
+          : `/${langKey}${pageSegment}`;
+
+      i18n.changeLanguage(langKey).then(() => navigate(nextPath));
+    },
+    [i18n]
+  );
 
   /* eslint-disable jsx-a11y/no-onchange */
   return (

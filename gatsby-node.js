@@ -46,14 +46,6 @@ exports.createPages = ({ actions, graphql }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
-  fmImagesToRelative(node); // convert image paths for gatsby images
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const relativeFilePath = createFilePath({ node, getNode });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: relativeFilePath,
-    });
-  }
+  // convert image paths for gatsby images
+  fmImagesToRelative(node);
 };
