@@ -37,7 +37,7 @@ function SeparatorWithBackgroundImage({
         backgroundPosition: `50% 50%`,
         backgroundAttachment: `fixed`,
         width: width || '100%',
-        height: height || '32px',
+        height: height || '8px',
       }}
       {...rest}
     />

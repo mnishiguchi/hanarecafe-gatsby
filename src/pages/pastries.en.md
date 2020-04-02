@@ -7,20 +7,12 @@ items:
     translationKey: products.mekabu-loaf
   - image: /img/hanare-wakame-shio.jpg
     translationKey: products.wakame-shio
-  - image: /img/hanare-oyster-gratin.jpg
+  - image: /img/hanare-oyster-gratin-2.jpg
     translationKey: products.oyster-gratin
-  - image: /img/hanare-pastry-assortment.jpg
-    translationKey:
   - image: /img/hanare-danishes.jpg
-    translationKey:
   - image: /img/hanare-churros.jpg
-    translationKey:
   - image: /img/hanare-banana-pound-cake.jpg
-    translationKey:
-  - image: /img/hanare-ice-cream.jpg
-    translationKey:
   - image: /img/hanare-rusk.jpg
-    translationKey:
-  - image: /img/hanare-sandwich.jpg
-    translationKey:
+  - image: /img/hanare-oyster-gratin.jpg
+  - image: /img/hanare-roll-cake.jpg
 ---
