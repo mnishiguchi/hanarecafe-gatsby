@@ -5,8 +5,6 @@
   "scripts": {
     "develop": "netlify dev",
     "build": "gatsby build",
-    "deploy-draft": "netlify deploy",
-    "deploy-prod": "netlify deploy --prod",
     "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test": "jest --watch"
