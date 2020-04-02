@@ -1,6 +1,4 @@
-body {
-  position: 'relative';
-}
+
 
 // Adopted from: https://codemyui.com/pure-css-fullscreen-navigation-menu/
 label.FullscreenMenu {
@@ -76,8 +74,8 @@ label.FullscreenMenu {
     z-index: 200;
     position: absolute;
     // Magic numbers that position the menus in the center.
-    top: 20vh;
-    left: 40vw;
+    top: 15vh;
+    left: 25vw;
     display: none;
     text-align: center;
     width: auto;

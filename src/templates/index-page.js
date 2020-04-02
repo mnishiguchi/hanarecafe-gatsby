@@ -37,7 +37,7 @@ function SeparatorWithBackgroundImage({
         backgroundPosition: `50% 50%`,
         backgroundAttachment: `fixed`,
         width: width || '100%',
-        height: height || '16px',
+        height: height || '32px',
       }}
       {...rest}
     />
@@ -117,7 +117,7 @@ export function IndexPageTemplate({
           </Segment>
 
           <PreviewCompatibleImage image={mainImage} />
-          <HanareIntroVideo />
+          <HanareIntroVideo title="home.into-video" />
           <Segment padded="very" vertical>
             <Header as="h2">{t('labels.services')}</Header>
             <HanareServiceList />
@@ -210,14 +210,14 @@ export const pageQuery = graphql`
       frontmatter {
         mainBackgroundImage {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1024, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }
         }
         mainImage {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
+            fluid(maxWidth: 1024, quality: 100) {
               ...GatsbyImageSharpFluid
             }
           }

@@ -87,8 +87,8 @@ export function HanareDirections() {
   const { t } = useTranslation();
 
   return (
-    <>
-      <GoogleMap />
+    <div style={{ maxWidth: '92vw' }}>
+      <GoogleMap title="directions.map" />
 
       <Message>{t(`directions.message`)}</Message>
 
@@ -119,7 +119,7 @@ export function HanareDirections() {
           </OutboundLink>
         </Segment>
       </Segment>
-    </>
+    </div>
   );
 }
 
