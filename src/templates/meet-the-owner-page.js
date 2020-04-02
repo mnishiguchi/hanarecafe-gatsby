@@ -5,7 +5,7 @@ import { Message } from 'semantic-ui-react';
 import GatsbyImage from 'gatsby-image';
 import { useTranslation } from 'react-i18next';
 
-import Layout from '../components/Layout';
+import Layout from '../layouts/index';
 import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
 import useSiteMetadata from '../components/useSiteMetadata';

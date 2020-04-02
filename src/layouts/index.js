@@ -7,13 +7,13 @@ import { useTranslation } from 'react-i18next';
 // https://www.i18next.com/overview/api#init
 import '../i18n';
 
-import AppHelmet from './AppHelmet';
-import AppHeader from './AppHeader';
-import AppFooter from './AppFooter';
-import NavMenuItems from './NavMenuItems';
-import NavLink from './NavLink';
-import SocialButtons from './SocialButtons';
-import I18nSwitcher from './I18nSwitcher';
+import AppHelmet from '../components/AppHelmet';
+import AppHeader from '../components/AppHeader';
+import AppFooter from '../components/AppFooter';
+import NavMenuItems from '../components/NavMenuItems';
+import NavLink from '../components/NavLink';
+import SocialButtons from '../components/SocialButtons';
+import I18nSwitcher from '../components/I18nSwitcher';
 
 function MobileTemplate({ children }) {
   const { t } = useTranslation();
@@ -44,7 +44,7 @@ function MobileTemplate({ children }) {
             </Menu.Item>
 
             <Menu.Item>
-              <Header as="h4">{t('headings.contact-us')}</Header>
+              <Header as="h4">{t('labels.contact-us')}</Header>
               <Button
                 as="a"
                 href={`tel:${t('site.phone')}`}

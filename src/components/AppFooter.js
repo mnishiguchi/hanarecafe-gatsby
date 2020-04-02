@@ -27,7 +27,7 @@ function AppFooter({ children }) {
       {/* The contact us section */}
       <Segment vertical padded="very" style={{ background: '#f5f6f7' }}>
         <Container>
-          <Header as="h2">{t('headings.contact-us')}</Header>
+          <Header as="h2">{t('labels.contact-us')}</Header>
           <Button basic color="teal" as="a" href={`tel:${phone}`}>
             <Icon name="phone" /> {phone}
           </Button>

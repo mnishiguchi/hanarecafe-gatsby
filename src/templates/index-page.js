@@ -14,7 +14,7 @@ import Media from 'react-media';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import { useTranslation } from 'react-i18next';
 
-import Layout from '../components/Layout';
+import Layout from '../layouts/index';
 import LandingHero from '../components/LandingHero';
 import MarkdownBody from '../components/MarkdownBody';
 import FacebookTimeline from '../components/FacebookTimeline';
@@ -110,7 +110,7 @@ export function IndexPageTemplate({
                   to="/timeline"
                 >
                   <Icon name="angle right" />
-                  {t('headings.latest-news')}
+                  {t('labels.latest-news')}
                 </Button>
               )}
             />
@@ -119,14 +119,14 @@ export function IndexPageTemplate({
           <PreviewCompatibleImage image={mainImage} />
           <HanareIntroVideo />
           <Segment padded="very" vertical>
-            <Header as="h2">{t('headings.services')}</Header>
+            <Header as="h2">{t('labels.services')}</Header>
             <HanareServiceList />
           </Segment>
           <SeparatorWithBackgroundImage
             backgroundImageUrl={backgroundImageUrl}
           />
           <Segment padded="very" vertical>
-            <Header as="h2">{t('headings.directions')}</Header>
+            <Header as="h2">{t('labels.directions')}</Header>
             <HanareDirections />
           </Segment>
           {relatedLinks.length > 0 && (
@@ -135,7 +135,7 @@ export function IndexPageTemplate({
                 backgroundImageUrl={backgroundImageUrl}
               />
               <Segment padded="very" vertical>
-                <Header as="h2">{t('headings.links')}</Header>
+                <Header as="h2">{t('labels.links')}</Header>
                 <List>
                   {relatedLinks.map((relatedLink, i) => (
                     <List.Item key={i}>

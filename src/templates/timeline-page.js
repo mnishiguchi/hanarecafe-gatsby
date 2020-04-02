@@ -3,22 +3,22 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import { Message } from 'semantic-ui-react';
 
-import Layout from '../components/Layout';
+import Layout from '../layouts/index';
 import MarkdownBody from '../components/MarkdownBody';
 import AppContentContainer from '../components/AppContentContainer';
-import useSiteMetadata from '../components/useSiteMetadata';
+// import useSiteMetadata from '../components/useSiteMetadata';
 import FacebookTimeline from '../components/FacebookTimeline';
 
 // Page title and description should be defined in the translation files.
 // The markdown content will be an info message.
 export function TimelinePageTemplate({ markdownBody, isCms = false }) {
-  const { pageTitle, pageDescription } = useSiteMetadata();
+  // const { pageTitle, pageDescription } = useSiteMetadata();
 
   return (
     <AppContentContainer>
       <section style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <h1>{pageTitle}</h1>
-        <p>{pageDescription}</p>
+        {/* <h1>{pageTitle}</h1> */}
+        {/* <p>{pageDescription}</p> */}
         {markdownBody && (
           <Message color="yellow" size="big" style={{ marginTop: '1rem' }}>
             <MarkdownBody markdownBody={markdownBody} isCms={isCms} />

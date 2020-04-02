@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react';
 
-import Layout from '../components/Layout';
+import Layout from '../layouts/index';
 import I18nLink from '../components/I18nLink';
 
 function NotFoundPage() {

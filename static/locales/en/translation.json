@@ -6,10 +6,6 @@
     "phone": "+81599200099",
     "author": "Masatoshi Nishiguchi"
   },
-  "languages": {
-    "en": "English",
-    "ja": "Japanese"
-  },
   "pages": {
     "home": {
       "title": "Home",
@@ -57,12 +53,13 @@
       "description": "We couldn't find what you were looking for."
     }
   },
-  "headings": {
+  "labels": {
     "latest-news": "Lates News",
     "links": "Links",
     "directions": "Directions",
     "services": "Services",
-    "contact-us": "Contact Us"
+    "contact-us": "Contact Us",
+    "details": "Details"
   },
   "directions": {
     "message": "We are located near a fish market in Momotori region of the remote island Toshijima. Please take a passenger ship from Toba Marine Terminal.",
@@ -122,10 +119,5 @@
       "name": "Eri Tokumoto",
       "description": "Eri is from Toshijima, where her family runs wakeme farming and oyster farming. She co-manages the cafe and provides warm smiles and greetings to customers."
     }
-  },
-  "words": {
-    "language": "Language",
-    "toushijima": "Toushijima",
-    "details": "Details"
   }
 }

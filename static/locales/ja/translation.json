@@ -6,10 +6,6 @@
     "phone": "0599200099",
     "author": "にしぐちまさとし"
   },
-  "languages": {
-    "en": "英語",
-    "ja": "日本語"
-  },
   "pages": {
     "home": {
       "title": "ホーム",
@@ -57,12 +53,13 @@
       "description": "We couldn't find what you were looking for."
     }
   },
-  "headings": {
+  "labels": {
     "latest-news": "最新情報",
     "links": "リンク",
     "directions": "交通案内",
     "services": "営業内容",
-    "contact-us": "お問合せ"
+    "contact-us": "お問合せ",
+    "details": "詳細"
   },
   "directions": {
     "message": "当店は答志島 桃取の鳥羽磯部漁協桃取町支所魚市場の近くにございます。 離島ですので、鳥羽マリンターミナルからは定期船にてお越しください。",
@@ -122,10 +119,5 @@
       "name": "徳本江里",
       "description": "答志島出身。実家がワカメや牡蠣養殖を営む。三重県桑名市のホテルに勤務して夫の篤司と出会う。"
     }
-  },
-  "words": {
-    "language": "言語",
-    "toushijima": "答志島",
-    "details": "詳細"
   }
 }

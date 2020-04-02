@@ -51,7 +51,7 @@ function HanareServiceList() {
                     <Item.Meta>
                       {description}{' '}
                       <I18nLink to={to}>
-                        {t('words.details')}
+                        {t('labels.details')}
                         <Icon name="angle double right" />
                       </I18nLink>
                     </Item.Meta>
