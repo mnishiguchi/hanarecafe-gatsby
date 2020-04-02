@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import useSiteMetadata from './useSiteMetadata';
+import useSiteMetadata from '../components/useSiteMetadata';
 
 export default function SocialButtons() {
   const { facebook, instagram } = useSiteMetadata();

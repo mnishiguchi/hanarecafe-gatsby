@@ -9,10 +9,10 @@ import {
 } from 'semantic-ui-react';
 
 import BackToTopLink from './BackToTopLink';
-import useSiteMetadata from './useSiteMetadata';
 import { useTranslation } from 'react-i18next';
 import LogoLink from './LogoLink';
 import gatsbyLogoSvg from '../img/gatsby.svg';
+import useSiteMetadata from '../components/useSiteMetadata';
 
 function AppFooter({ children }) {
   const { t } = useTranslation();

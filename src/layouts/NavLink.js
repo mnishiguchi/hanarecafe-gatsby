@@ -1,6 +1,6 @@
 import React from 'react';
 
-import I18nLink from './I18nLink';
+import I18nLink from '../components/I18nLink';
 
 const NavLink = (props) => (
   <I18nLink

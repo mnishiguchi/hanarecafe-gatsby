@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import NavMenuItems from './NavMenuItems';
 import SocialButtons from './SocialButtons';
 import I18nSwitcher from './I18nSwitcher';
-import I18nLink from './I18nLink';
+import I18nLink from '../components/I18nLink';
 
 function AppHeader({ children }) {
   const { t } = useTranslation();
