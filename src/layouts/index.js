@@ -44,19 +44,6 @@ function MobileTemplate({ children }) {
             <Menu.Item>
               <SocialButtons />
             </Menu.Item>
-
-            <Menu.Item>
-              <Header as="h4">{t('labels.contact-us')}</Header>
-              <Button
-                as="a"
-                href={`tel:${t('site.phone')}`}
-                icon="phone"
-                circular
-                size="large"
-                color="green"
-                basic
-              />
-            </Menu.Item>
           </Menu>
         </nav>
       </label>
