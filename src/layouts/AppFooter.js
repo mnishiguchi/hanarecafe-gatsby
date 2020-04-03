@@ -90,7 +90,7 @@ function AppFooter({ children }) {
                   >
                     Proudly built with
                   </span>
-                  <a href="https://www.gatsbyjs.org/showcase/">
+                  <a href="https://www.gatsbyjs.org/showcase/hanarecafe.com">
                     <img src={gatsbyLogoSvg} alt="GatsbyJS" height="16px" />
                   </a>
                 </List.Item>
