@@ -32,6 +32,8 @@ const getServices = (t) => [
   },
 ];
 
+const breadColor = '#9a5623';
+
 function HanareServiceList() {
   const { t } = useTranslation();
 
@@ -45,7 +47,7 @@ function HanareServiceList() {
                 <Segment size="large">
                   <Item>
                     <Item.Content>
-                      <Item.Header as="h3" style={{ color: '#dd7c33' }}>
+                      <Item.Header as="h3" style={{ color: breadColor }}>
                         <Icon name={icon} size="large" />
                         <span style={{ marginLeft: '.5rem' }}>{title}</span>
                       </Item.Header>

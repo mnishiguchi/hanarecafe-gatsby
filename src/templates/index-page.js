@@ -24,6 +24,7 @@ import HanareServiceList from '../components/HanareServiceList';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import I18nLink from '../components/I18nLink';
 
+// /img/hanare-wave-tile.jpg
 function SeparatorWithBackgroundImage({
   backgroundImageUrl,
   height,
@@ -33,16 +34,20 @@ function SeparatorWithBackgroundImage({
   return (
     <div
       style={{
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundPosition: `50% 50%`,
-        backgroundAttachment: `fixed`,
+        backgroundImage: `url(${getImageUrl(backgroundImageUrl)})`,
+        backgroundPosition: `center`,
+        backgroundRepeat: `none`,
+        backgroundAttachment: `cover`,
         width: width || '100%',
-        height: height || '8px',
+        height: height || '600px',
       }}
       {...rest}
     />
   );
 }
+
+const getImageUrl = (image) =>
+  !!image.childImageSharp ? image.childImageSharp.fluid.src : image;
 
 // Used for the website and the CMS.
 export function IndexPageTemplate({
@@ -51,15 +56,14 @@ export function IndexPageTemplate({
   mainBackgroundImage,
   mainImage,
   relatedLinks,
+  imageInsert1,
+  imageInsert2,
 }) {
   const { t, i18n } = useTranslation();
-  const backgroundImageUrl = !!mainBackgroundImage.childImageSharp
-    ? mainBackgroundImage.childImageSharp.fluid.src
-    : mainBackgroundImage;
 
   return (
     <>
-      <LandingHero backgroundImageUrl={backgroundImageUrl} />
+      <LandingHero backgroundImageUrl={getImageUrl(mainBackgroundImage)} />
 
       <Container style={{ display: 'flex' }}>
         <div>
@@ -122,7 +126,7 @@ export function IndexPageTemplate({
             <HanareServiceList />
           </Segment>
           <SeparatorWithBackgroundImage
-            backgroundImageUrl={backgroundImageUrl}
+            backgroundImageUrl={getImageUrl(imageInsert1)}
           />
           <Segment padded="very" vertical size="large">
             <Header as="h2">{t('labels.directions')}</Header>
@@ -131,7 +135,7 @@ export function IndexPageTemplate({
           {relatedLinks.length > 0 && (
             <>
               <SeparatorWithBackgroundImage
-                backgroundImageUrl={backgroundImageUrl}
+                backgroundImageUrl={getImageUrl(imageInsert2)}
               />
               <Segment padded="very" vertical size="large">
                 <Header as="h2">{t('labels.links')}</Header>
@@ -177,7 +181,7 @@ IndexPageTemplate.propTypes = {
 };
 
 // Used for the website.
-function IndexPage({ data: { markdownRemark } }) {
+function IndexPage({ data: { markdownRemark, imageInsert1, imageInsert2 } }) {
   return (
     <Layout>
       <IndexPageTemplate
@@ -186,6 +190,8 @@ function IndexPage({ data: { markdownRemark } }) {
         mainBackgroundImage={markdownRemark.frontmatter.mainBackgroundImage}
         mainImage={markdownRemark.frontmatter.mainImage}
         relatedLinks={markdownRemark.frontmatter.relatedLinks}
+        imageInsert1={imageInsert1}
+        imageInsert2={imageInsert2}
       />
     </Layout>
   );
@@ -194,6 +200,8 @@ function IndexPage({ data: { markdownRemark } }) {
 IndexPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
+    imageInsert1: PropTypes.object,
+    imageInsert2: PropTypes.object,
   }),
 };
 
@@ -224,6 +232,20 @@ export const pageQuery = graphql`
         relatedLinks {
           title
           href
+        }
+      }
+    }
+    imageInsert1: file(relativePath: { eq: "hanare-toushi-1-1.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    imageInsert2: file(relativePath: { eq: "hanare-sunset-9.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1024, quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }

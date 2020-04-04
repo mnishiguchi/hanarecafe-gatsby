@@ -24,7 +24,7 @@ function LandingHero({ backgroundImageUrl }) {
             alignItems: `center`,
             backgroundImage: `url(${backgroundImageUrl})`,
             backgroundPosition: `50% 50%`,
-            backgroundAttachment: `fixed`,
+            backgroundAttachment: `cover`,
             display: `flex`,
             justifyContent: `center`,
             height: matches ? '300px' : '400px',
