@@ -1,4 +1,11 @@
-
+// Enlarge text
+p,
+.ui.segment,
+.ui.segment .content,
+.ui.message,
+.ui.button.basic {
+  font-size: 1.33rem;
+}
 
 // Adopted from: https://codemyui.com/pure-css-fullscreen-navigation-menu/
 label.FullscreenMenu {

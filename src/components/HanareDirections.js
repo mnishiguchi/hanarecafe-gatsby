@@ -23,7 +23,7 @@ function StepsFromMarineTerminal() {
   `);
 
   return (
-    <Step.Group fluid unstackable size="tiny">
+    <Step.Group fluid unstackable size="large">
       <Step link>
         <Step.Content>
           <Step.Title></Step.Title>
@@ -90,7 +90,7 @@ export function HanareDirections() {
     <div style={{ maxWidth: '92vw' }}>
       <GoogleMap title="directions.map" />
 
-      <Message>{t(`directions.message`)}</Message>
+      <Message size="large">{t(`directions.message`)}</Message>
 
       <Segment vertical style={{ overflowX: 'auto' }}>
         <StepsFromMarineTerminal />
@@ -99,24 +99,30 @@ export function HanareDirections() {
       <Segment>
         <Segment vertical>
           <Header as="h3">{t(`directions.by-kintetsu-train-title`)}</Header>
-          {t(`directions.by-kintetsu-train-description`)}{' '}
-          <OutboundLink href="https://www.kintetsu.co.jp/station/station_info/station19009.html">
-            {t(`directions.kintetsu-toba`)}
-          </OutboundLink>
+          <p>
+            {t(`directions.by-kintetsu-train-description`)}{' '}
+            <OutboundLink href="https://www.kintetsu.co.jp/station/station_info/station19009.html">
+              {t(`directions.kintetsu-toba`)}
+            </OutboundLink>
+          </p>
         </Segment>
         <Segment vertical>
           <Header as="h3">{t(`directions.by-jr-train-title`)}</Header>
-          {t(`directions.by-jr-train-description`)}{' '}
-          <OutboundLink href="https://railway.jr-central.co.jp/station-guide/tokai/toba/index.html">
-            {t(`directions.jr-toba`)}
-          </OutboundLink>
+          <p>
+            {t(`directions.by-jr-train-description`)}{' '}
+            <OutboundLink href="https://railway.jr-central.co.jp/station-guide/tokai/toba/index.html">
+              {t(`directions.jr-toba`)}
+            </OutboundLink>
+          </p>
         </Segment>
         <Segment vertical>
           <Header as="h3">{t(`directions.by-car-title`)}</Header>
-          {t(`directions.by-car-description`)}{' '}
-          <OutboundLink href="https://goo.gl/maps/PKvByF9qWfGVVXD67">
-            {t(`directions.satahama-parking`)}
-          </OutboundLink>
+          <p>
+            {t(`directions.by-car-description`)}{' '}
+            <OutboundLink href="https://goo.gl/maps/PKvByF9qWfGVVXD67">
+              {t(`directions.satahama-parking`)}
+            </OutboundLink>
+          </p>
         </Segment>
       </Segment>
     </div>

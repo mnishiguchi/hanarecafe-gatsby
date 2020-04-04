@@ -32,7 +32,7 @@ function AppFooter({ children }) {
             <Icon name="phone" /> {phone}
           </Button>
 
-          <Segment>
+          <Segment vertical size="large">
             <List
               items={['contact-us.business-hours', 'contact-us.closed-on'].map(
                 (translationKey) => ({
@@ -44,7 +44,7 @@ function AppFooter({ children }) {
             />
           </Segment>
 
-          <Segment>
+          <Segment vertical size="large">
             <p>{t('contact-us.message')}</p>
             <p>{t('contact-us.no-english')}</p>
           </Segment>
@@ -91,7 +91,7 @@ function AppFooter({ children }) {
                     Proudly built with
                   </span>
                   <a href="https://www.gatsbyjs.org/showcase/hanarecafe.com">
-                    <img src={gatsbyLogoSvg} alt="GatsbyJS" height="16px" />
+                    <img src={gatsbyLogoSvg} alt="GatsbyJS" height="20px" />
                   </a>
                 </List.Item>
               </List>

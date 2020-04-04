@@ -70,32 +70,31 @@ export function IndexPageTemplate({
           )}
 
           <Segment
+            size="massive"
             padded
             vertical
             textAlign="left"
-            style={{ fontSize: '1.7rem', lineHeight: '1.7', overflowX: 'auto' }}
+            style={{ lineHeight: '1.7' }}
           >
             {/* Inline custom styles for Japanese language only. */}
             {i18n.language === 'ja' ? (
-              <p>
+              <>
                 絶景観光スポット
                 <OutboundLink href="https://ja.wikipedia.org/wiki/%E7%AD%94%E5%BF%97%E5%B3%B6">
-                  答志島
+                  <span title="とうしじま">答志島</span>
                 </OutboundLink>
-                にある
+                の<span title="ももとりちょう">桃取町</span>にある
                 <br />
-                地元食材を使用した
-                <br />
-                焼きたて創作パンのお店です。
-              </p>
+                地元食材を使用した焼きたて創作パンのお店です。
+              </>
             ) : (
-              <p>
+              <>
                 {t('site.description')}
                 <br />
                 <OutboundLink href="https://en.wikipedia.org/wiki/T%C5%8Dshijima">
                   Tōshijima - Wikipedia
                 </OutboundLink>
-              </p>
+              </>
             )}
 
             {/* For mobile, show the link to Facebook timeline page. */}
@@ -118,14 +117,14 @@ export function IndexPageTemplate({
 
           <PreviewCompatibleImage image={mainImage} />
           <HanareIntroVideo title="home.into-video" />
-          <Segment padded="very" vertical>
+          <Segment padded="very" vertical size="large">
             <Header as="h2">{t('labels.services')}</Header>
             <HanareServiceList />
           </Segment>
           <SeparatorWithBackgroundImage
             backgroundImageUrl={backgroundImageUrl}
           />
-          <Segment padded="very" vertical>
+          <Segment padded="very" vertical size="large">
             <Header as="h2">{t('labels.directions')}</Header>
             <HanareDirections />
           </Segment>
@@ -134,7 +133,7 @@ export function IndexPageTemplate({
               <SeparatorWithBackgroundImage
                 backgroundImageUrl={backgroundImageUrl}
               />
-              <Segment padded="very" vertical>
+              <Segment padded="very" vertical size="large">
                 <Header as="h2">{t('labels.links')}</Header>
                 <List>
                   {relatedLinks.map((relatedLink, i) => (

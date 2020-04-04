@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "develop": "netlify dev",
-    "build": "gatsby build",
-    "deploy": "netlify deploy --prod",
+    "develop": "gatsby clean && netlify dev",
+    "build": "gatsby clean && gatsby build",
+    "deploy": "gatsby clean && netlify deploy --prod",
     "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test": "jest --watch"
